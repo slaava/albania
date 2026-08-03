@@ -2998,8 +2998,8 @@
             </div>
             <div class="car-times">
               <div class="car-time-block">
-                <div class="car-time">14:00</div>
-                <div class="car-time-label">Vyzvednutí</div>
+                <div class="car-time">~15:00</div>
+                <div class="car-time-label">Vyzvednutí (přílet 14:10)</div>
                 <div class="car-time-date">Pá 7. 8. · Tirana letiště</div>
               </div>
               <div class="car-arrow">
@@ -3711,19 +3711,22 @@ const days = [
   },
   {
     num: 3, title: "Berat → Gjirokastër", date: "Ne 9. 8.",
-    desc: "Nejdelší cestovní den — zastávka v UNESCO Beratu, pak přejezd do kamenné Gjirokastry.",
+    desc: "Nejdelší cestovní den — UNESCO Berat dopoledne, večer hrad Gjirokastër v chládku a bez davů.",
     sleep: "Gjirokastër",
     pois: [
-      { name: "Hrad Berat — UNESCO", lat: 40.7106, lng: 19.9461, time: "10:30", type: "castle",
-        notes: "Stále obydlený hrad! Rodiny žijí uvnitř. Legenda o bratrech obrech. Vstup 300 LEK/os (cash), 9–18 h. Oběd uvnitř.", badge: "top",
+      { name: "Hrad Berat — UNESCO", lat: 40.7106, lng: 19.9461, time: "10:00", type: "castle",
+        notes: "Vyjet z Tirany v 8:00, ať jste na hradě před největším vedrem! Stále obydlený hrad — rodiny žijí uvnitř. Legenda o bratrech obrech. Vstup 300 LEK/os (cash), 9–18 h. Oběd uvnitř.", badge: "top",
         gmaps: "https://www.google.com/maps/place/Berat+Castle/@40.7105,19.9461,17z", web: "https://www.tripadvisor.com/Attraction_Review-g318870-d548399-Reviews-Castle_of_Berat-Berat_Berat_County.html", webLabel: "TripAdvisor" },
-      { name: "Gjirokastër — staré město", lat: 40.0728, lng: 20.1392, time: "17:30", type: "city",
-        notes: "Příjezd podvečer. Kamenné ulice, osmanská architektura. Večeře — zkuste qifqi.", badge: null,
-        gmaps: "https://www.google.com/maps/place/Gjirokastra+Old+Bazaar/@40.0735,20.1385,17z", web: "https://whc.unesco.org/en/list/569/", webLabel: "UNESCO" }
+      { name: "Gjirokastër — staré město", lat: 40.0728, lng: 20.1392, time: "16:30", type: "city",
+        notes: "Příjezd a check-in (děti se cestou vyspí v autě). Kamenné ulice, osmanská architektura.", badge: null,
+        gmaps: "https://www.google.com/maps/place/Gjirokastra+Old+Bazaar/@40.0735,20.1385,17z", web: "https://whc.unesco.org/en/list/569/", webLabel: "UNESCO" },
+      { name: "Hrad Gjirokastër — špionážní letadlo", lat: 40.0739, lng: 20.1404, time: "17:15", type: "castle",
+        notes: "Večer = chládek, žádné davy (otevřeno do 19:00) — a ráno se pak jede na Blue Eye před špičkou. Americký špionážní letoun, kobky, tajné průchody. 400 LEK, děti do 12 zdarma (cash). Strmý výstup — nosítko! Pak večeře v bazaru — zkuste qifqi.", badge: "top",
+        gmaps: "https://www.google.com/maps/place/Castle+of+Gjirokastra/@40.0727,20.1392,17z", web: "https://www.tripadvisor.com/Attraction_Review-g318867-d550648-Reviews-Gjirokastra_Castle-Gjirokaster_Gjirokaster_County.html", webLabel: "TripAdvisor" }
     ],
     alts: [
       { name: "Vodopád Bogovë", lat: 40.5430, lng: 20.1650, type: "nature",
-        notes: "Nejlepší zajížďka dne (~3 h navíc celkem): tyrkysové tůně na koupání! ~50 min z Beratu autem (jet přes most u vesnice, nevěřit slepě navigaci), pak 1,5 km / 20 min kamenitou cestou — 4,5letého nosítko. Příroda pro rodiče + voda pro děti.",
+        notes: "Tyrkysové tůně na koupání — voda i v přejezdový den! ~50 min z Beratu (jet přes most u vesnice, nevěřit slepě navigaci), pak 1,5 km / 20 min kamenitou cestou — 4,5letého nosítko. TRADE-OFF: se zajížďkou (~3 h) dorazíte do Gjirokastry až po zavíračce hradu — hrad pak dejte v pondělí v 9:00 na otvíračku a Blue Eye posunete na ~10:30.",
         gmaps: "https://www.google.com/maps/place/Bogove+Waterfall/@40.5430,20.1650,15z", web: "https://www.tripadvisor.com/Attraction_Review-g801291-d12965474-Reviews-Bogove_Waterfall-Corovode_Berat_County.html", webLabel: "TripAdvisor" },
       { name: "Mangalem — čtvrť tisíce oken", lat: 40.7050, lng: 19.9430, type: "city",
         notes: "Ikonická čtvrť Beratu s bílými domky. Fotogenické ulice, kavárny s výhledem. UNESCO památka.",
@@ -3734,17 +3737,14 @@ const days = [
     ]
   },
   {
-    num: 4, title: "Gjirokastër + Blue Eye → Ksamil", date: "Po 10. 8.",
-    desc: "Ráno hrad se špionážním letadlem, Modré oko, odpoledne první pláž!",
+    num: 4, title: "Blue Eye → Ksamil", date: "Po 10. 8.",
+    desc: "Ráno Modré oko před davy (hrad máte z neděle), u moře už před obědem! Pokud jste hrad v neděli nestihli: hrad 9:00, Blue Eye ~10:30.",
     sleep: "Ksamil",
     pois: [
-      { name: "Hrad Gjirokastër — špionážní letadlo", lat: 40.0728, lng: 20.1392, time: "9:00", type: "castle",
-        notes: "Americký špionážní letoun, kobky, tajné průchody. Otevírá v 9:00 — být tam na otvíračku! 400 LEK, děti do 12 zdarma (cash). Strmý výstup — nosítko!", badge: "top",
-        gmaps: "https://www.google.com/maps/place/Castle+of+Gjirokastra/@40.0727,20.1392,17z", web: "https://www.tripadvisor.com/Attraction_Review-g318867-d550648-Reviews-Gjirokastra_Castle-Gjirokaster_Gjirokaster_County.html", webLabel: "TripAdvisor" },
-      { name: "Syri i Kaltër — Modré oko", lat: 39.9236, lng: 20.1925, time: "10:15", type: "nature",
-        notes: "Krasový pramen živě modré vody. 2 km pěšky po rovné stinné cestě (s vláčkem nepočítat, často nejezdí). Vstup 50 LEK + parkování, cash only. Koupání nově zakázáno a hlídáno. Od 10:00 houstnou davy — dřív = líp.", badge: "top",
+      { name: "Syri i Kaltër — Modré oko", lat: 39.9236, lng: 20.1925, time: "8:30", type: "nature",
+        notes: "V 8:30 skoro prázdno, od 10:00 fronty tří řad — vyplatí se vyjet brzy (jen 30 min z Gjirokastry). Krasový pramen živě modré vody. 2 km pěšky po rovné stinné cestě (s vláčkem nepočítat, často nejezdí). Vstup 50 LEK + parkování, cash only. Koupání nově zakázáno a hlídáno.", badge: "top",
         gmaps: "https://www.google.com/maps/place/The+Blue+Eye/@39.9236,20.1924,17z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d1165562-Reviews-The_Blue_Eye-Vlore_Vlore_County.html", webLabel: "TripAdvisor" },
-      { name: "Pláž Ksamil — první koupání! 🏖️", lat: 39.7730, lng: 20.0003, time: "14:30", type: "beach",
+      { name: "Pláž Ksamil — první koupání! 🏖️", lat: 39.7730, lng: 20.0003, time: "11:00", type: "beach",
         notes: "Tyrkysová voda, bílý písek. Šlapadlo na ostrovy 15 €/hod. Twin Islands — bez vln, ideální pro 4letého.", badge: null,
         gmaps: "https://www.google.com/maps/place/Plazhi+Ksamilit/@39.773,20.0003,16z", web: "https://www.tripadvisor.com/Attraction_Review-g4505725-d4403563-Reviews-Ksamil_Beach-Ksamil_Saranda_Vlore_County.html", webLabel: "TripAdvisor" }
     ],
@@ -3775,7 +3775,7 @@ const days = [
         notes: "Šnorchlování, hradíčky z písku. Nebo speedboat kolem 5 ostrovů (10–15 €/os, 1 h).", badge: null,
         gmaps: "https://www.google.com/maps/place/Plazhi+Ksamilit/@39.773,20.0003,16z" },
       { name: "Hrad Lëkurësi — západ slunce", lat: 39.8659, lng: 20.0257, time: "19:00", type: "castle",
-        notes: "Nejlepší západ slunce v Albánii. Restaurace s terasou, výhled na Korfu. Vstup zdarma, cash only.", badge: null,
+        notes: "Nejlepší západ slunce v Albánii. Restaurace s terasou (rezervovat stůl), výhled na Korfu. Vstup zdarma, cash only. Být tam 30–45 min před západem — parkoviště se plní. Kdyby den přetekl, škrtněte tohle, ne pláž — jde nahradit ráno v den 6.", badge: null,
         gmaps: "https://www.google.com/maps/place/L%C3%ABkur%C3%ABsi+Castle/@39.8658,20.0257,17z", web: "https://www.tripadvisor.com/Attraction_Review-g303164-d7602476-Reviews-Lekuresi_Castle-Saranda_Vlore_County.html", webLabel: "TripAdvisor" }
     ],
     alts: [
@@ -3823,19 +3823,16 @@ const days = [
   },
   {
     num: 7, title: "Riviéra → Llogara → Vlora", date: "Čt 13. 8.",
-    desc: "Nejkrásnější jízdní den: pobřežní silnice, hrad, pláž, krmení jelenů na průsmyku.",
+    desc: "Nejkrásnější jízdní den: dopoledne nejlepší dětská pláž Riviéry, odpoledne průsmyk s jeleny.",
     sleep: "Vlora",
     pois: [
-      { name: "Hrad Porto Palermo + koupání", lat: 40.0622, lng: 19.7907, time: "9:00", type: "castle",
-        notes: "Trojúhelníková osmanská pevnost na poloostrově. Věže, průchody, střešní terasa. 300 LEK — jen hotovost v LEK (bankomat až v Himaře), děti do 12 zdarma. Bez WC. Koupání v zálivu. ~45 min.", badge: null,
-        gmaps: "https://www.google.com/maps/place/The+Castle+of+Porto+Palermo/@40.0622,19.7907,17z", web: "https://www.tripadvisor.com/Attraction_Review-g2716397-d4364870-Reviews-Porto_Palermo_Castle-Porto_Palermo_Vlore_County.html", webLabel: "TripAdvisor" },
-      { name: "Pláž Jalë — oběd + koupání", lat: 40.1196, lng: 19.7017, time: "10:45", type: "beach",
-        notes: "Měkký písek, mělká klidná voda. Oběd na pláži. V srpnu dorazit do ~11:00, pak je plno (u vody je ze zákona free pás, lehátka ~1 000 LEK/2 ks). Alternativa: Bunec Beach.", badge: null,
-        gmaps: "https://www.google.com/maps/place/Jale+Beach/@40.1195,19.7016,17z", web: "https://www.tripadvisor.com/Attraction_Review-g2633065-d7336413-Reviews-Jale_Beach-Jale_Vlore_County.html", webLabel: "TripAdvisor" },
-      { name: "Průsmyk Llogara — jeleni 🦌", lat: 40.1915, lng: 19.6126, time: "15:00", type: "nature",
+      { name: "Borsh Beach — koupání + oběd", lat: 40.0600, lng: 19.8400, time: "9:30", type: "beach",
+        notes: "Nejpozvolnější vstup do vody na celé Riviéře — dítě si sedne 10 m od břehu po kotníky. 7 km pláže, klid i v srpnu. Koupání celé dopoledne, oběd v taverně u vody. Odjezd ~13:00.", badge: "top",
+        gmaps: "https://www.google.com/maps/place/Borsh+Beach/@40.060,19.840,15z", web: "https://www.tripadvisor.com/Attraction_Review-g7182936-d7336414-Reviews-Borsh_Beach-Borsh_Vlore_County.html", webLabel: "TripAdvisor" },
+      { name: "Průsmyk Llogara — jeleni 🦌", lat: 40.1915, lng: 19.6126, time: "14:30", type: "nature",
         notes: "1 027 m, o 10 °C chladněji. POZOR: navigace vede novým tunelem (mýto 250 LEK) — na průsmyk ručně zvolit starou silnici (exit „Llogara National Park“; teď je krásně prázdná). Llogara Tourist Village — krmení ochočených jelenů (krmení ~50 LEK)! Cestou zastávka na vyhlídce Panorama Llogara — výhled až na Korfu.", badge: "top",
         gmaps: "https://www.google.com/maps/place/Llogara+Pass/@40.1914,19.6126,15z", web: "https://www.takeyourbackpack.com/backpacking-in-albania/visit-llogara-national-park/", webLabel: "Průvodce" },
-      { name: "Vlora — check-in", lat: 40.4607, lng: 19.4914, time: "18:00", type: "city",
+      { name: "Vlora — check-in", lat: 40.4607, lng: 19.4914, time: "17:30", type: "city",
         notes: "Večeře na promenádě Lungomare.", badge: null,
         gmaps: "https://www.google.com/maps/place/Vlor%C3%AB+Lungomare/@40.4580,19.4870,16z" }
     ],
@@ -3852,9 +3849,12 @@ const days = [
       { name: "Himara — promenáda + hrad", lat: 40.1010, lng: 19.7480, type: "city",
         notes: "Přímořské městečko s mělkou pláží. Malý hrad na kopci. Restaurace s výhledem na moře. Zastávka po cestě.",
         gmaps: "https://www.google.com/maps/place/Himara/@40.101,19.748,15z", web: "https://www.tripadvisor.com/Tourism-g1206282-Himare_Vlore_County-Vacations.html", webLabel: "TripAdvisor" },
-      { name: "Borsh Beach — nejdelší pláž", lat: 40.0600, lng: 19.8400, type: "beach",
-        notes: "7 km dlouhá pláž, málo turistů — a hlavně nejpozvolnější vstup do vody na celé Riviéře (dítě si sedne 10 m od břehu po kotníky). Nejlepší volba pro 4,5letého. Mezi Ksamilem a Himarou, po cestě.",
-        gmaps: "https://www.google.com/maps/place/Borsh+Beach/@40.060,19.840,15z", web: "https://www.tripadvisor.com/Attraction_Review-g7182936-d7336414-Reviews-Borsh_Beach-Borsh_Vlore_County.html", webLabel: "TripAdvisor" }
+      { name: "Hrad Porto Palermo", lat: 40.0622, lng: 19.7907, type: "castle",
+        notes: "Trojúhelníková osmanská pevnost na poloostrově, ~45 min. 300 LEK jen hotově (bankomat až v Himaře), děti do 12 zdarma, bez WC. Podle recenzí zanedbané okolí — proto jen jako zastávka, ne hlavní bod.",
+        gmaps: "https://www.google.com/maps/place/The+Castle+of+Porto+Palermo/@40.0622,19.7907,17z", web: "https://www.tripadvisor.com/Attraction_Review-g2716397-d4364870-Reviews-Porto_Palermo_Castle-Porto_Palermo_Vlore_County.html", webLabel: "TripAdvisor" },
+      { name: "Pláž Jalë", lat: 40.1196, lng: 19.7017, type: "beach",
+        notes: "Měkký písek, mělká klidná voda — ale v srpnu po 11:00 narváno (u vody free pás ze zákona, lehátka ~1 000 LEK/2 ks). Alternativa k Borshi, když chcete beach-bar atmosféru.",
+        gmaps: "https://www.google.com/maps/place/Jale+Beach/@40.1195,19.7016,17z", web: "https://www.tripadvisor.com/Attraction_Review-g2633065-d7336413-Reviews-Jale_Beach-Jale_Vlore_County.html", webLabel: "TripAdvisor" }
     ]
   },
   {
@@ -3865,20 +3865,20 @@ const days = [
       { name: "Jeskyně Haxhi Ali — lodní výlet", lat: 40.4299, lng: 19.3068, time: "9:00", type: "nature",
         notes: "✅ Rezervováno na 14. 8. v 9:00 (haxhialicave.com). Cena 92 € pro rodinu, platba hotově na místě. 3,5 h speedboat + Shen Vasil Bay. Sraz Port of Vlora. Start v 9:00 = v jeskyni před davy.", badge: "top",
         gmaps: "https://www.google.com/maps/place/Haxhi+Ali+Cave/@40.4299,19.3067,16z", web: "https://haxhialicave.com/tours/haxhi-ali-cave-karaburun-boat-trip/", webLabel: "Rezervace" },
-      { name: "Pláž Vlora — TOP pro 4letého", lat: 40.452, lng: 19.483, time: "14:30", type: "beach",
-        notes: "20 m pás mělké vody (0,5 m), 30 °C, jemný písek. Nebo Narta Beach (laguna, nulové vlny).", badge: null,
-        gmaps: "https://www.google.com/maps/search/Vlora+Beach+Albania/@40.452,19.483,15z" }
+      { name: "Narta Beach — laguna", lat: 40.5050, lng: 19.4100, time: "14:00", type: "beach",
+        notes: "Mělká teplá voda bez vln — pro děti nejlepší koupání ve Vloře, mnohem lepší než městská pláž. 20 min autem od centra.", badge: null,
+        gmaps: "https://www.google.com/maps/place/Narta+Beach/@40.505,19.410,15z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d17527816-Reviews-Narta_Beach-Vlore_Vlore_County.html", webLabel: "TripAdvisor" },
+      { name: "Zvërnec — klášter po dřevěném mostě", lat: 40.5100, lng: 19.4350, time: "17:00", type: "nature",
+        notes: "Hned vedle Narty: 270m dřevěný most přes lagunu na ostrov s byzantským klášterem (14. stol.). Stinná procházka, zdarma. Plameňáci v srpnu skoro nejsou (vrchol září–říjen) — neslibovat dětem růžové hejno.", badge: null,
+        gmaps: "https://www.google.com/maps/place/Zvernec+Monastery/@40.510,19.435,16z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d3530037-Reviews-Zvernec_Island-Vlore_Vlore_County.html", webLabel: "TripAdvisor" }
     ],
     alts: [
-      { name: "Zvërnec — ostrovní klášter přes dřevěný most", lat: 40.5100, lng: 19.4350, type: "nature",
-        notes: "270m dřevěný most přes lagunu na ostrov s byzantským klášterem (14. stol.). Zdarma, stinná procházka. Plameňáci tu v srpnu skoro nejsou (vrchol až září–říjen) — neslibovat dětem růžové hejno.",
-        gmaps: "https://www.google.com/maps/place/Zvernec+Monastery/@40.510,19.435,16z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d3530037-Reviews-Zvernec_Island-Vlore_Vlore_County.html", webLabel: "TripAdvisor" },
+      { name: "Pláž Vlora — městská", lat: 40.452, lng: 19.483, type: "beach",
+        notes: "20 m pás mělké vody (0,5 m), jemný písek, pod hotelem — nejjednodušší varianta, ale nejslabší voda na trase. Když se po lodi nikomu nechce nikam jezdit.",
+        gmaps: "https://www.google.com/maps/search/Vlora+Beach+Albania/@40.452,19.483,15z" },
       { name: "Ostrov Sazan — lodní výlet", lat: 40.4950, lng: 19.2830, type: "nature",
         notes: "Bývalá vojenská základna, dnes přístupná lodí. Bunkry, maják, koupání. Celodenní výlet z Vlory cca 35 €/os.",
         gmaps: "https://www.google.com/maps/place/Sazan+Island/@40.495,19.283,14z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d10145271-Reviews-Sazan_Island-Vlore_Vlore_County.html", webLabel: "TripAdvisor" },
-      { name: "Narta Beach — laguna", lat: 40.5050, lng: 19.4100, type: "beach",
-        notes: "Pláž u laguny Narta. Mělká teplá voda, ideální pro malé děti. Kitesurfing. Blízko Zvërnec ostrova.",
-        gmaps: "https://www.google.com/maps/place/Narta+Beach/@40.505,19.410,15z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d17527816-Reviews-Narta_Beach-Vlore_Vlore_County.html", webLabel: "TripAdvisor" },
       { name: "Poloostrov Karaburun — loď", lat: 40.4400, lng: 19.3400, type: "nature",
         notes: "Divoký poloostrov přístupný jen lodí. Jeskyně, průzračné zátoky, šnorchlování. Součást výletu k Haxhi Ali.",
         gmaps: "https://www.google.com/maps/place/Karaburun+Peninsula/@40.440,19.340,13z", web: "https://www.tripadvisor.com/Attraction_Review-g678774-d10298636-Reviews-Karaburun_Peninsula-Vlore_Vlore_County.html", webLabel: "TripAdvisor" }
@@ -3890,7 +3890,7 @@ const days = [
     sleep: null,
     pois: [
       { name: "Apollonia — řecké ruiny", lat: 40.7210, lng: 19.4712, time: "11:00", type: "castle",
-        notes: "VOLITELNÁ ZASTÁVKA (10 min od dálnice). Ruiny z 6. stol. př. n. l. Zavřeno v pondělí!", badge: "optional",
+        notes: "VOLITELNÁ ZASTÁVKA (~15 min od dálnice, sjezd Levan). Ruiny z 6. stol. př. n. l., vstup ~600 LEK. Pozor: v poledne nulový stín — rychlá zastávka do 45 min, nebo radši delší ranní koupání ve Vloře.", badge: "optional",
         gmaps: "https://www.google.com/maps/place/Apollonia+Archaeological+Park/@40.7209,19.4712,17z", web: "https://apolloniaarchaeologicalpark.al/", webLabel: "Oficiální web" },
       { name: "Letiště Tirana — odlet ✈️", lat: 41.4147, lng: 19.7206, time: "15:00", type: "transport",
         notes: "Vrácení auta. Cesta Vlora → letiště 2–2,5 h po dálnici.", badge: null,
