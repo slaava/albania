@@ -2048,6 +2048,76 @@
     header p { display: none; }
     #mapWrap { height: 35vh; height: 35dvh; }
   }
+  .cash-highlight {
+    background: linear-gradient(135deg, rgba(240,160,80,0.12) 0%, rgba(240,160,80,0.05) 100%);
+    border: 1px solid rgba(240,160,80,0.3);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .cash-highlight-label {
+    font-size: 0.72em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .cash-highlight-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6em;
+    color: var(--accent);
+  }
+  .cash-highlight-value .czk { color: var(--text); }
+  .cash-group {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .cash-group-title {
+    font-size: 0.78em;
+    font-weight: 600;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .cash-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 0.82em;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .cash-item span:last-child {
+    color: var(--text);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .cash-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0 2px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .cash-total span:last-child { color: var(--accent); }
+  .cash-note {
+    font-size: 0.74em;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
 </style>
 </head>
 <body>
@@ -2297,7 +2367,7 @@
           <div class="denD-num">4</div>
           <div class="denD-content">
             <div class="denD-title">Půjčovna auta</div>
-            <div class="denD-text">Rent From Locals (váš Chevrolet) má auta na <strong>parkovišti naproti terminálu</strong> za hlavní silnicí. Po vyjití z letiště zatočit doleva, projít kolem řady kiosků, přejít vozovku k označenému parkovišti. S sebou: <strong>řidičák Roman + pas + voucher</strong>. Před odjezdem <strong>vyfotit auto ze všech stran</strong> (existující škrábance!). 2 dětské sedačky by měly být v autě.</div>
+            <div class="denD-text">Rent From Locals (váš Chevrolet) má auta na <strong>parkovišti naproti terminálu</strong> za hlavní silnicí. Po vyjití z letiště zatočit doleva, projít kolem řady kiosků, přejít vozovku k označenému parkovišti. S sebou: <strong>řidičák Roman + pas + voucher + 460 € hotově</strong>. Před odjezdem <strong>vyfotit auto ze všech stran</strong> (existující škrábance!). 2 dětské sedačky by měly být v autě.</div>
           </div>
         </div>
 
@@ -2350,7 +2420,7 @@
           <div class="acc-detail-desc">Klidná vila se zahradou stranou od ruchu města. Ráno domácí snídaně na terase, večer ticho a hvězdy — ideální na dobrý start po příletu.</div>
           <div class="acc-detail-footer">
             <span class="acc-detail-dates">7.–9. 8. · 2 noci</span>
-            <span class="acc-detail-price">2 429 Kč</span>
+            <span class="acc-detail-price">108 € (~2 722 Kč)</span>
             <a href="https://www.booking.com/Share-tUZijk" target="_blank" rel="noopener" class="acc-detail-link">Booking.com</a>
           </div>
         </div>
@@ -2368,7 +2438,7 @@
           <div class="acc-detail-desc">Rodinný penzion v srdci kamenného města. Z balkonu výhled na osvětlený hrad a staré osmánské domy — večer s vínem v ruce jeden z nejkrásnějších momentů celého tripu. Snídaně s domácím ovocem, sýry a čerstvým chlebem.</div>
           <div class="acc-detail-footer">
             <span class="acc-detail-dates">9.–10. 8. · 1 noc</span>
-            <span class="acc-detail-price">847 Kč</span>
+            <span class="acc-detail-price">35 € (~882 Kč)</span>
             <a href="https://www.booking.com/Share-Q2XMtk" target="_blank" rel="noopener" class="acc-detail-link">Booking.com</a>
           </div>
         </div>
@@ -2387,7 +2457,7 @@
           <div class="acc-detail-desc">Tři noci u tyrkysového moře. Z balkonu ráno výhled na moře, pláž 3 minuty pěšky — děti budou tahat za ruku hned po snídani. Nové čisté pokoje, zahrada s květinami.</div>
           <div class="acc-detail-footer">
             <span class="acc-detail-dates">10.–13. 8. · 3 noci</span>
-            <span class="acc-detail-price">9 443 Kč</span>
+            <span class="acc-detail-price">390 € (~9 828 Kč)</span>
             <a href="https://www.booking.com/Share-ntDpVw" target="_blank" rel="noopener" class="acc-detail-link">Booking.com</a>
           </div>
         </div>
@@ -2407,14 +2477,14 @@
           <div class="acc-detail-desc">Zelená oáza mezi olivovníky a ovocnými stromy uprostřed města. Velký balkon s panoramatem na moře, poloostrov Karaburun a ostrov Sazan — západy slunce, u kterých se zastaví čas. Bez snídaně, ale s kuchyňkou a ovocem ze zahrady.</div>
           <div class="acc-detail-footer">
             <span class="acc-detail-dates">13.–15. 8. · 2 noci</span>
-            <span class="acc-detail-price">2 615 Kč</span>
+            <span class="acc-detail-price">109 € (~2 747 Kč)</span>
             <a href="https://www.booking.com/Share-2jYt0x" target="_blank" rel="noopener" class="acc-detail-link">Booking.com</a>
           </div>
         </div>
 
         <div class="acc-detail-total">
-          <span>Celkem za 8 nocí (6× se snídaní)</span>
-          <span>15 334 Kč</span>
+          <span>Celkem za 8 nocí (6× se snídaní) · 💶 platba hotově v EUR na místě</span>
+          <span>642 € (~16 178 Kč)</span>
         </div>
 
       </div>
@@ -2885,6 +2955,7 @@
               <span class="car-tag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Automat</span>
               <span class="car-tag"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18M5 7l14 10M19 7L5 17"/></svg> 4×4</span>
               <span class="car-tag"><svg viewBox="0 0 24 24"><path d="M6 20v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><circle cx="12" cy="7" r="4"/></svg> 7 míst</span>
+              <span class="car-tag">💶 460 € hotově na místě</span>
             </div>
             <div class="car-times">
               <div class="car-time-block">
@@ -3003,13 +3074,13 @@
             </div>
             <div class="budget-item">
               <span class="budget-label budget-label-lock">🚗 Pronájem auta <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-              <input type="number" class="budget-input" value="13104" data-locked-eur="520" readonly title="Finální cena 520 € (Chevrolet 4x4, zajištěno)">
+              <input type="number" class="budget-input" value="11592" data-locked-eur="460" readonly title="Finální cena 460 € (Chevrolet 4x4, platba hotově v EUR na místě)">
               <span class="budget-cell budget-eur"></span>
               <span class="budget-cell budget-lek"></span>
             </div>
             <div class="budget-item">
               <span class="budget-label budget-label-lock">🛏️ Ubytování <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-              <input type="number" class="budget-input" value="15500" readonly title="Finální cena 15 500 Kč (4 hotely, rezervováno)">
+              <input type="number" class="budget-input" value="16178" data-locked-eur="642" readonly title="Finální cena 642 € (108 + 35 + 390 + 109, platba hotově v EUR na místě)">
               <span class="budget-cell budget-eur"></span>
               <span class="budget-cell budget-lek"></span>
             </div>
@@ -3021,13 +3092,13 @@
             </div>
             <div class="budget-item">
               <span class="budget-label">🍽️ Jídlo a pití</span>
-              <input type="number" class="budget-input" value="16000" oninput="updateBudget()">
+              <input type="number" class="budget-input" id="budgetFood" value="16000" oninput="updateBudget()">
               <span class="budget-cell budget-eur"></span>
               <span class="budget-cell budget-lek"></span>
             </div>
             <div class="budget-item">
               <span class="budget-label">🎟️ Atrakce</span>
-              <input type="number" class="budget-input" value="5000" oninput="updateBudget()">
+              <input type="number" class="budget-input" id="budgetAttr" value="5000" oninput="updateBudget()">
               <span class="budget-cell budget-eur"></span>
               <span class="budget-cell budget-lek"></span>
             </div>
@@ -3045,6 +3116,37 @@
             <span class="budget-remaining-lek" id="budgetRemainingLek">—</span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="plan-section">
+      <h3 onclick="this.parentElement.classList.toggle('collapsed')">💵 Hotovost</h3>
+      <div class="plan-body">
+
+        <div class="cash-highlight">
+          <div class="cash-highlight-label">Rozměnit doma CZK → EUR</div>
+          <div class="cash-highlight-value"><span class="czk" id="cashEurTotalCzk">30 089 Kč</span> → <span id="cashEurTotal">1 194 €</span></div>
+        </div>
+
+        <div class="cash-group">
+          <div class="cash-group-title">💶 EUR — vzít s sebou z domova</div>
+          <div class="cash-item"><span>🚗 Auto — při vyzvednutí (Pá 7. 8.)</span><span data-eur="460">460 €</span></div>
+          <div class="cash-item"><span>🛏️ Vila Murati, Tirana (Pá 7. 8.)</span><span data-eur="108">108 €</span></div>
+          <div class="cash-item"><span>🛏️ Guest House Urat, Gjirokastër (Ne 9. 8.)</span><span data-eur="35">35 €</span></div>
+          <div class="cash-item"><span>🛏️ Family Hotel Ksamil (Po 10. 8.)</span><span data-eur="390">390 €</span></div>
+          <div class="cash-item"><span>🛏️ Pararse Apartments, Vlora (Čt 13. 8.)</span><span data-eur="109">109 €</span></div>
+          <div class="cash-item"><span>🚤 Boat trip Haxhi Ali (Pá 14. 8.) — cena v €, platba na místě</span><span data-eur="92">92 €</span></div>
+          <div class="cash-total"><span>Celkem EUR hotově</span><span id="cashEurSum">1 194 €</span></div>
+        </div>
+
+        <div class="cash-group">
+          <div class="cash-group-title">🇦🇱 LEK — vybrat/směnit až v Albánii</div>
+          <div class="cash-item"><span>🍽️ Jídlo a pití (dle rozpočtu)</span><span id="cashLekFood">~63 500 LEK</span></div>
+          <div class="cash-item"><span>🎟️ Atrakce a vstupy (dle rozpočtu)</span><span id="cashLekAttr">~19 800 LEK</span></div>
+          <div class="cash-total"><span>Celkem LEK</span><span id="cashLekSum">~83 300 LEK</span></div>
+          <div class="cash-note">LEK není potřeba vozit z domova — bankomaty jsou v každém městě (vybírejte v LEK, ne v EUR přepočtu bankomatu). Spousta vstupů je cash only (Blue Eye 50 LEK, Lëkurësi, hrady). Větší restaurace a supermarkety berou kartu, takže není nutné mít celou částku v hotovosti najednou.</div>
+        </div>
+
       </div>
     </div>
 
@@ -4250,6 +4352,30 @@ function updateBudget() {
   document.getElementById('budgetRemaining').textContent = unpaid.toLocaleString('cs-CZ');
   document.getElementById('budgetRemainingEur').textContent = Math.round(unpaid * czkToEur).toLocaleString('cs-CZ') + ' €';
   document.getElementById('budgetRemainingLek').textContent = Math.round(unpaid * czkToLek).toLocaleString('cs-CZ');
+  updateCash();
+}
+
+// Cash section: EUR to bring from home, LEK to withdraw locally
+function updateCash() {
+  const eurRate = parseFloat(document.getElementById('rateCzkEur').value) || 25.2;
+  const lekRate = parseFloat(document.getElementById('rateLekEur').value) || 100;
+
+  let eurSum = 0;
+  document.querySelectorAll('.cash-item [data-eur]').forEach(el => {
+    const v = parseFloat(el.dataset.eur) || 0;
+    eurSum += v;
+    el.textContent = v.toLocaleString('cs-CZ') + ' €';
+  });
+  document.getElementById('cashEurSum').textContent = eurSum.toLocaleString('cs-CZ') + ' €';
+  document.getElementById('cashEurTotal').textContent = eurSum.toLocaleString('cs-CZ') + ' €';
+  document.getElementById('cashEurTotalCzk').textContent = Math.round(eurSum * eurRate).toLocaleString('cs-CZ') + ' Kč';
+
+  const foodCzk = parseFloat(document.getElementById('budgetFood').value) || 0;
+  const attrCzk = parseFloat(document.getElementById('budgetAttr').value) || 0;
+  const toLek = czk => Math.round(czk / eurRate * lekRate / 100) * 100;
+  document.getElementById('cashLekFood').textContent = '~' + toLek(foodCzk).toLocaleString('cs-CZ') + ' LEK';
+  document.getElementById('cashLekAttr').textContent = '~' + toLek(attrCzk).toLocaleString('cs-CZ') + ' LEK';
+  document.getElementById('cashLekSum').textContent = '~' + toLek(foodCzk + attrCzk).toLocaleString('cs-CZ') + ' LEK (≈ ' + Math.round(foodCzk + attrCzk).toLocaleString('cs-CZ') + ' Kč)';
 }
 updateBudget();
 

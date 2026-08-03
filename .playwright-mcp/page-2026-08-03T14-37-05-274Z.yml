@@ -1,0 +1,397 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Albánie 2026 — Rodinný roadtrip" [level=1] [ref=e4]
+      - paragraph [ref=e5]: 7.–15. srpna · 9 dní / 8 nocí · 4 ubytování · Tirana → Berat → Gjirokastër → Ksamil → Riviéra → Vlora
+    - generic [ref=e6]:
+      - button "📍 Itinerář" [ref=e7] [cursor=pointer]:
+        - generic [ref=e8]: 📍
+        - generic [ref=e9]: Itinerář
+      - button "✈️ Letenky" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: ✈️
+        - generic [ref=e12]: Letenky
+      - button "🛏️ Logistika" [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: 🛏️
+        - generic [ref=e15]: Logistika
+      - button "💰 Finance" [ref=e16] [cursor=pointer]:
+        - generic [ref=e17]: 💰
+        - generic [ref=e18]: Finance
+      - button "📋 Ostatní" [ref=e19] [cursor=pointer]:
+        - generic [ref=e20]: 📋
+        - generic [ref=e21]: Ostatní
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - button "Vše" [ref=e25] [cursor=pointer]
+        - button "Den 1" [ref=e26] [cursor=pointer]
+        - button "Den 2" [ref=e27] [cursor=pointer]
+        - button "Den 3" [ref=e28] [cursor=pointer]
+        - button "Den 4" [ref=e29] [cursor=pointer]
+        - button "Den 5" [ref=e30] [cursor=pointer]
+        - button "Den 6" [ref=e31] [cursor=pointer]
+        - button "Den 7" [ref=e32] [cursor=pointer]
+        - button "Den 8" [ref=e33] [cursor=pointer]
+        - button "Den 9" [ref=e34] [cursor=pointer]
+      - generic [ref=e35]:
+        - button "Vše" [ref=e36] [cursor=pointer]
+        - button "🏖️ Koupání" [ref=e37] [cursor=pointer]
+        - button "🏰 Hrady / Ruiny" [ref=e38] [cursor=pointer]
+        - button "💎 Příroda" [ref=e39] [cursor=pointer]
+        - button "🏙️ Město" [ref=e40] [cursor=pointer]
+      - generic [ref=e41]:
+        - heading "🛏️ Ubytování" [level=3] [ref=e42]
+        - generic [ref=e43]:
+          - generic [ref=e44]: 🏙️
+          - text: Tirana
+          - generic [ref=e45]: (velkoměsto)
+          - generic [ref=e46]: 2 noci (7.–8. 8.)
+        - generic [ref=e47]:
+          - generic [ref=e48]: 🏰
+          - text: Gjirokastër
+          - generic [ref=e49]: (historické město)
+          - generic [ref=e50]: 1 noc (9. 8.)
+        - generic [ref=e51]:
+          - generic [ref=e52]: 🏖️
+          - text: Ksamil
+          - generic [ref=e53]: (pláž)
+          - generic [ref=e54]: 3 noci (10.–12. 8.)
+        - generic [ref=e55]:
+          - generic [ref=e56]: 🏖️
+          - text: Vlora
+          - generic [ref=e57]: (pláž + město)
+          - generic [ref=e58]: 2 noci (13.–14. 8.)
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: "1"
+            - generic [ref=e63]: Přílet + Tirana
+            - generic [ref=e64]: Pá 7. 8.
+          - generic [ref=e65]: "Odpolední přílet, vyzvednutí auta, první procházka centrem. 🛏️ Nocleh: Tirana"
+          - generic [ref=e66] [cursor=pointer]:
+            - generic [ref=e67]: 16:00
+            - generic [ref=e68]: Letiště Tirana (TIA)
+            - generic [ref=e69]: Vyzvednutí auta. 2× dětské sedačky!
+            - generic [ref=e70]:
+              - link "📍 Maps" [ref=e71]:
+                - /url: https://maps.app.goo.gl/TiranaAirport
+              - link "🔗 Letiště" [ref=e72]:
+                - /url: https://www.tirana-airport.com/
+          - generic [ref=e73] [cursor=pointer]:
+            - generic [ref=e74]: 18:00
+            - generic [ref=e75]: Skanderbegovo náměstí
+            - generic [ref=e76]: Kolotoč 100 ALL, fontány, Pyramida se sochami zvířat. Večeře v okolí.
+            - generic [ref=e77]:
+              - link "📍 Maps" [ref=e78]:
+                - /url: https://www.google.com/maps/place/Skanderbeg+Square/@41.328499,19.818376,17z
+              - link "🔗 TripAdvisor" [ref=e79]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g294446-d2176448-Reviews-Skanderbeg_Square-Tirana_Tirana_County.html
+          - button "› Alternativy v okolí (4)" [ref=e80] [cursor=pointer]:
+            - generic [ref=e81]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: "2"
+            - generic [ref=e85]: Lanovka Dajti + BunkArt
+            - generic [ref=e86]: So 8. 8.
+          - generic [ref=e87]: "Nejdelší lanovka na Balkáně s minigolfem a Adventure Parkem, pak podzemní komunistický bunkr. 🛏️ Nocleh: Tirana"
+          - generic [ref=e88] [cursor=pointer]:
+            - generic [ref=e89]: 9:00
+            - generic [ref=e90]: Dajti Ekspres — lanovka
+            - generic [ref=e91]: "4,3 km, 15 min jízda. Nahoře: minigolf, Adventure Park (od 5 let), hřiště, divocí koně. Zavřeno úterý! Dospělí 1 400 LEK, děti 600 LEK."
+            - generic [ref=e92]: ⭐ TOP
+            - generic [ref=e93]:
+              - link "📍 Maps" [ref=e94]:
+                - /url: https://www.google.com/maps/place/Dajti+Ekspres/@41.350705,19.8608,17z
+              - link "🔗 Ceny a hodiny" [ref=e95]:
+                - /url: https://dajtiekspres.com/rates-and-opening-hours/
+          - generic [ref=e96] [cursor=pointer]:
+            - generic [ref=e97]: 13:30
+            - generic [ref=e98]: BunkArt 1 — podzemní bunkr
+            - generic [ref=e99]: 106 místností na 5 podzemních patrech! Tunely, velitelské sály, retro dekorace. Hned u lanovky. Vstup 500 LEK, děti 200 LEK. Cca 1,5–2 h.
+            - generic [ref=e100]: ⭐ TOP
+            - generic [ref=e101]:
+              - link "📍 Maps" [ref=e102]:
+                - /url: https://www.google.com/maps/place/BUNK'ART+1/@41.3498,19.8605,17z
+              - link "🔗 TripAdvisor" [ref=e103]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g294446-d10028498-Reviews-Bunk_Art_1-Tirana_Tirana_County.html
+          - generic [ref=e104] [cursor=pointer]:
+            - generic [ref=e105]: 16:30
+            - generic [ref=e106]: Grand Park / AquaPark
+            - generic [ref=e107]: "VOLITELNĚ: Grand Park — šlapadla, kola, hřiště. Nebo AquaPark Blue Magic Water (20 000 m², zóna pro 0–5 let). Vstup 1 500 LEK."
+            - generic [ref=e108]: volitelné
+            - generic [ref=e109]:
+              - link "📍 Maps" [ref=e110]:
+                - /url: https://www.google.com/maps/place/Tirana+Lake+Park/@41.3118,19.8253,16z
+              - link "🔗 TripAdvisor" [ref=e111]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g294446-d12116591-Reviews-Parku_i_Madh_i_Tiranes-Tirana_Tirana_County.html
+          - button "› Alternativy v okolí (5)" [ref=e112] [cursor=pointer]:
+            - generic [ref=e113]: ›
+            - text: Alternativy v okolí (5)
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - generic [ref=e116]: "3"
+            - generic [ref=e117]: Berat → Gjirokastër
+            - generic [ref=e118]: Ne 9. 8.
+          - generic [ref=e119]: "Nejdelší cestovní den — zastávka v UNESCO Beratu, pak přejezd do kamenné Gjirokastry. 🛏️ Nocleh: Gjirokastër"
+          - generic [ref=e120]:
+            - generic [ref=e121]: 🧳
+            - generic [ref=e122]:
+              - text: "Stěhování: Tirana → Gjirokastër"
+              - generic [ref=e123]: ~280 km · ~5 h (přes Berat)
+          - generic [ref=e124] [cursor=pointer]:
+            - generic [ref=e125]: 10:30
+            - generic [ref=e126]: Hrad Berat — UNESCO
+            - generic [ref=e127]: Stále obydlený hrad! Rodiny žijí uvnitř. Legenda o bratrech obrech. Vstup zdarma. Oběd uvnitř.
+            - generic [ref=e128]: ⭐ TOP
+            - generic [ref=e129]:
+              - link "📍 Maps" [ref=e130]:
+                - /url: https://www.google.com/maps/place/Berat+Castle/@40.7105,19.9461,17z
+              - link "🔗 TripAdvisor" [ref=e131]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g318870-d548399-Reviews-Castle_of_Berat-Berat_Berat_County.html
+          - generic [ref=e132] [cursor=pointer]:
+            - generic [ref=e133]: 17:30
+            - generic [ref=e134]: Gjirokastër — staré město
+            - generic [ref=e135]: Příjezd podvečer. Kamenné ulice, osmanská architektura. Večeře — zkuste qifqi.
+            - generic [ref=e136]:
+              - link "📍 Maps" [ref=e137]:
+                - /url: https://www.google.com/maps/place/Gjirokastra+Old+Bazaar/@40.0735,20.1385,17z
+              - link "🔗 UNESCO" [ref=e138]:
+                - /url: https://whc.unesco.org/en/list/569/
+          - button "› Alternativy v okolí (4)" [ref=e139] [cursor=pointer]:
+            - generic [ref=e140]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - generic [ref=e143]: "4"
+            - generic [ref=e144]: Gjirokastër + Blue Eye → Ksamil
+            - generic [ref=e145]: Po 10. 8.
+          - generic [ref=e146]: "Ráno hrad se špionážním letadlem, Modré oko, odpoledne první pláž! 🛏️ Nocleh: Ksamil"
+          - generic [ref=e147]:
+            - generic [ref=e148]: 🧳
+            - generic [ref=e149]:
+              - text: "Stěhování: Gjirokastër → Ksamil"
+              - generic [ref=e150]: ~60 km · ~1,5 h (přes Blue Eye)
+          - generic [ref=e151] [cursor=pointer]:
+            - generic [ref=e152]: 8:30
+            - generic [ref=e153]: Hrad Gjirokastër — špionážní letadlo
+            - generic [ref=e154]: Americký špionážní letoun, kobky, tajné průchody. 400 LEK. Strmý výstup — nosítko!
+            - generic [ref=e155]: ⭐ TOP
+            - generic [ref=e156]:
+              - link "📍 Maps" [ref=e157]:
+                - /url: https://www.google.com/maps/place/Castle+of+Gjirokastra/@40.0727,20.1392,17z
+              - link "🔗 TripAdvisor" [ref=e158]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g318867-d550648-Reviews-Gjirokastra_Castle-Gjirokaster_Gjirokaster_County.html
+          - generic [ref=e159] [cursor=pointer]:
+            - generic [ref=e160]: 11:00
+            - generic [ref=e161]: Syri i Kaltër — Modré oko
+            - generic [ref=e162]: Krasový pramen živě modré vody. 2 km rovná cesta (vláček 300 LEK). Vstup 50 LEK, cash only.
+            - generic [ref=e163]: ⭐ TOP
+            - generic [ref=e164]:
+              - link "📍 Maps" [ref=e165]:
+                - /url: https://www.google.com/maps/place/The+Blue+Eye/@39.9236,20.1924,17z
+              - link "🔗 TripAdvisor" [ref=e166]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g678774-d1165562-Reviews-The_Blue_Eye-Vlore_Vlore_County.html
+          - generic [ref=e167] [cursor=pointer]:
+            - generic [ref=e168]: 14:30
+            - generic [ref=e169]: Pláž Ksamil — první koupání! 🏖️
+            - generic [ref=e170]: Tyrkysová voda, bílý písek. Šlapadlo na ostrovy 15 €/hod. Twin Islands — bez vln, ideální pro 4letého.
+            - generic [ref=e171]:
+              - link "📍 Maps" [ref=e172]:
+                - /url: https://www.google.com/maps/place/Plazhi+Ksamilit/@39.773,20.0003,16z
+              - link "🔗 TripAdvisor" [ref=e173]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g4505725-d4403563-Reviews-Ksamil_Beach-Ksamil_Saranda_Vlore_County.html
+          - button "› Alternativy v okolí (4)" [ref=e174] [cursor=pointer]:
+            - generic [ref=e175]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - generic [ref=e178]: "5"
+            - generic [ref=e179]: Butrint + pláž + západ slunce
+            - generic [ref=e180]: Út 11. 8.
+          - generic [ref=e181]: "Dopoledne 'Indiana Jones' v UNESCO Butrintu, odpoledne pláž, večer západ slunce z Lëkurësi. 🛏️ Nocleh: Ksamil"
+          - generic [ref=e182] [cursor=pointer]:
+            - generic [ref=e183]: 9:00
+            - generic [ref=e184]: Butrint — UNESCO park
+            - generic [ref=e185]: Řecké/římské ruiny v lese. Želvy! Stinné cesty. Děti do 12 zdarma, dospělí 1 000 LEK. 2–3 h.
+            - generic [ref=e186]: ⭐ TOP
+            - generic [ref=e187]:
+              - link "📍 Maps" [ref=e188]:
+                - /url: https://www.google.com/maps/place/Butrint+National+Archaeological+Park/@39.744,20.0194,16z
+              - link "🔗 Oficiální web" [ref=e189]:
+                - /url: https://butrint.al/
+              - link "🔗 TripAdvisor" [ref=e190]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g303164-d318818-Reviews-Butrint_National_Park-Saranda_Vlore_County.html
+          - generic [ref=e191] [cursor=pointer]:
+            - generic [ref=e192]: 13:00
+            - generic [ref=e193]: Pláž Ksamil — odpoledne
+            - generic [ref=e194]: Šnorchlování, hradíčky z písku. Nebo speedboat kolem 5 ostrovů (10–15 €/os, 1 h).
+            - link "📍 Maps" [ref=e196]:
+              - /url: https://www.google.com/maps/place/Plazhi+Ksamilit/@39.773,20.0003,16z
+          - generic [ref=e197] [cursor=pointer]:
+            - generic [ref=e198]: 19:00
+            - generic [ref=e199]: Hrad Lëkurësi — západ slunce
+            - generic [ref=e200]: Nejlepší západ slunce v Albánii. Restaurace s terasou, výhled na Korfu. Vstup zdarma, cash only.
+            - generic [ref=e201]:
+              - link "📍 Maps" [ref=e202]:
+                - /url: https://www.google.com/maps/place/L%C3%ABkur%C3%ABsi+Castle/@39.8658,20.0257,17z
+              - link "🔗 TripAdvisor" [ref=e203]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g303164-d7602476-Reviews-Lekuresi_Castle-Saranda_Vlore_County.html
+          - button "› Alternativy v okolí (4)" [ref=e204] [cursor=pointer]:
+            - generic [ref=e205]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - generic [ref=e208]: "6"
+            - generic [ref=e209]: Plážový odpočinkový den ☀️
+            - generic [ref=e210]: St 12. 8.
+          - generic [ref=e211]: "Střední den tripu = regenerace. Celý den Ksamil — šlapadla, šnorchlování, zmrzlina. 🛏️ Nocleh: Ksamil"
+          - generic [ref=e212] [cursor=pointer]:
+            - generic [ref=e213]: 9:00
+            - generic [ref=e214]: Ksamil — volný plážový den
+            - generic [ref=e215]: Celý den u moře! Zkuste i Monastery Beach nebo Pasqyra Beach. Večer promenáda Saranda — zmrzlina, jarmark.
+            - generic [ref=e216]:
+              - link "📍 Maps" [ref=e217]:
+                - /url: https://www.google.com/maps/place/Plazhi+Ksamilit/@39.773,20.0003,16z
+              - link "🔗 ksamil.al" [ref=e218]:
+                - /url: https://ksamil.al/
+          - button "› Alternativy v okolí (4)" [ref=e219] [cursor=pointer]:
+            - generic [ref=e220]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]: "7"
+            - generic [ref=e224]: Riviéra → Llogara → Vlora
+            - generic [ref=e225]: Čt 13. 8.
+          - generic [ref=e226]: "Nejkrásnější jízdní den: pobřežní silnice, hrad, pláž, krmení jelenů na průsmyku. 🛏️ Nocleh: Vlora"
+          - generic [ref=e227]:
+            - generic [ref=e228]: 🧳
+            - generic [ref=e229]:
+              - text: "Stěhování: Ksamil → Vlora"
+              - generic [ref=e230]: ~150 km · ~3 h (přes Riviéru)
+          - generic [ref=e231] [cursor=pointer]:
+            - generic [ref=e232]: 9:00
+            - generic [ref=e233]: Hrad Porto Palermo + koupání
+            - generic [ref=e234]: Trojúhelníková osmanská pevnost na poloostrově. Věže, průchody, střešní terasa. 300 LEK. Koupání v zálivu.
+            - generic [ref=e235]:
+              - link "📍 Maps" [ref=e236]:
+                - /url: https://www.google.com/maps/place/The+Castle+of+Porto+Palermo/@40.0622,19.7907,17z
+              - link "🔗 TripAdvisor" [ref=e237]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g2716397-d4364870-Reviews-Porto_Palermo_Castle-Porto_Palermo_Vlore_County.html
+          - generic [ref=e238] [cursor=pointer]:
+            - generic [ref=e239]: 11:00
+            - generic [ref=e240]: Pláž Jalë — oběd + koupání
+            - generic [ref=e241]: "Měkký písek, mělká klidná voda. Oběd na pláži. Alternativa: Bunec Beach."
+            - generic [ref=e242]:
+              - link "📍 Maps" [ref=e243]:
+                - /url: https://www.google.com/maps/place/Jale+Beach/@40.1195,19.7016,17z
+              - link "🔗 TripAdvisor" [ref=e244]:
+                - /url: https://www.tripadvisor.com/Attraction_Review-g2633065-d7336413-Reviews-Jale_Beach-Jale_Vlore_County.html
+          - generic [ref=e245] [cursor=pointer]:
+            - generic [ref=e246]: 15:00
+            - generic [ref=e247]: Průsmyk Llogara — jeleni 🦌
+            - generic [ref=e248]: 1 027 m, o 10 °C chladněji. Llogara Tourist Village — krmení ochočených jelenů! 'Vlajkové borovice'.
+            - generic [ref=e249]: ⭐ TOP
+            - generic [ref=e250]:
+              - link "📍 Maps" [ref=e251]:
+                - /url: https://www.google.com/maps/place/Llogara+Pass/@40.1914,19.6126,15z
+              - link "🔗 Průvodce" [ref=e252]:
+                - /url: https://www.takeyourbackpack.com/backpacking-in-albania/visit-llogara-national-park/
+          - generic [ref=e253] [cursor=pointer]:
+            - generic [ref=e254]: 18:00
+            - generic [ref=e255]: Vlora — check-in
+            - generic [ref=e256]: Večeře na promenádě Lungomare.
+            - link "📍 Maps" [ref=e258]:
+              - /url: https://www.google.com/maps/place/Vlor%C3%AB+Lungomare/@40.4580,19.4870,16z
+          - button "› Alternativy v okolí (5)" [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]: ›
+            - text: Alternativy v okolí (5)
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - generic [ref=e263]: "8"
+            - generic [ref=e264]: Jeskyně Haxhi Ali lodí + pláž
+            - generic [ref=e265]: Pá 14. 8.
+          - generic [ref=e266]: "TOP zážitek: rychlým člunem do mořské jeskyně, odpoledne nejlepší pláž pro 4letého. 🛏️ Nocleh: Vlora"
+          - generic [ref=e267] [cursor=pointer]:
+            - generic [ref=e268]: 9:00
+            - generic [ref=e269]: Jeskyně Haxhi Ali — lodní výlet
+            - generic [ref=e270]: ✅ Rezervováno na 14. 8. v 9:00 (haxhialicave.com). Cena 92 € pro rodinu, platba na místě. 3,5 h speedboat + Shen Vasil Bay. Sraz Port of Vlora.
+            - generic [ref=e271]: ⭐ TOP
+            - generic [ref=e272]:
+              - link "📍 Maps" [ref=e273]:
+                - /url: https://www.google.com/maps/place/Haxhi+Ali+Cave/@40.4299,19.3067,16z
+              - link "🔗 Rezervace" [ref=e274]:
+                - /url: https://haxhialicave.com/tours/haxhi-ali-cave-karaburun-boat-trip/
+          - generic [ref=e275] [cursor=pointer]:
+            - generic [ref=e276]: 14:30
+            - generic [ref=e277]: Pláž Vlora — TOP pro 4letého
+            - generic [ref=e278]: 20 m pás mělké vody (0,5 m), 30 °C, jemný písek. Nebo Narta Beach (laguna, nulové vlny).
+            - link "📍 Maps" [ref=e280]:
+              - /url: https://www.google.com/maps/search/Vlora+Beach+Albania/@40.452,19.483,15z
+          - button "› Alternativy v okolí (4)" [ref=e281] [cursor=pointer]:
+            - generic [ref=e282]: ›
+            - text: Alternativy v okolí (4)
+        - generic [ref=e283]:
+          - generic [ref=e284]:
+            - generic [ref=e285]: "9"
+            - generic [ref=e286]: Vlora → letiště → domů
+            - generic [ref=e287]: So 15. 8.
+          - generic [ref=e288]: Ranní koupání, pak pohodová dálnice zpět. Volitelná zastávka u antické Apollonie.
+          - generic [ref=e289] [cursor=pointer]:
+            - generic [ref=e290]: 11:00
+            - generic [ref=e291]: Apollonia — řecké ruiny
+            - generic [ref=e292]: VOLITELNÁ ZASTÁVKA (10 min od dálnice). Ruiny z 6. stol. př. n. l. Zavřeno v pondělí!
+            - generic [ref=e293]: volitelné
+            - generic [ref=e294]:
+              - link "📍 Maps" [ref=e295]:
+                - /url: https://www.google.com/maps/place/Apollonia+Archaeological+Park/@40.7209,19.4712,17z
+              - link "🔗 Oficiální web" [ref=e296]:
+                - /url: https://apolloniaarchaeologicalpark.al/
+          - generic [ref=e297] [cursor=pointer]:
+            - generic [ref=e298]: 15:00
+            - generic [ref=e299]: Letiště Tirana — odlet ✈️
+            - generic [ref=e300]: Vrácení auta. Cesta Vlora → letiště 2–2,5 h po dálnici.
+            - link "📍 Maps" [ref=e302]:
+              - /url: https://www.google.com/maps/place/Tirana+International+Airport/@41.4147,19.7206,16z
+          - button "› Alternativy v okolí (4)" [ref=e303] [cursor=pointer]:
+            - generic [ref=e304]: ›
+            - text: Alternativy v okolí (4)
+    - generic [ref=e306]:
+      - generic:
+        - generic:
+          - button "✈️" [ref=e318] [cursor=pointer]
+          - button "🏙️" [ref=e320] [cursor=pointer]
+          - button "💎" [ref=e322] [cursor=pointer]
+          - button "🏙️" [ref=e324] [cursor=pointer]
+          - button "🏙️" [ref=e326] [cursor=pointer]
+          - button "🏰" [ref=e328] [cursor=pointer]
+          - button "🏙️" [ref=e330] [cursor=pointer]
+          - button "🏰" [ref=e332] [cursor=pointer]
+          - button "💎" [ref=e334] [cursor=pointer]
+          - button "🏖️" [ref=e336] [cursor=pointer]
+          - button "💎" [ref=e338] [cursor=pointer]
+          - button "🏖️" [ref=e340] [cursor=pointer]
+          - button "🏰" [ref=e342] [cursor=pointer]
+          - button "🏖️" [ref=e344] [cursor=pointer]
+          - button "🏰" [ref=e346] [cursor=pointer]
+          - button "🏖️" [ref=e348] [cursor=pointer]
+          - button "💎" [ref=e350] [cursor=pointer]
+          - button "🏙️" [ref=e352] [cursor=pointer]
+          - button "💎" [ref=e354] [cursor=pointer]
+          - button "🏖️" [ref=e356] [cursor=pointer]
+          - button "🏰" [ref=e358] [cursor=pointer]
+          - button "✈️" [ref=e360] [cursor=pointer]
+          - button "🛏️" [ref=e362] [cursor=pointer]
+          - button "🛏️" [ref=e364] [cursor=pointer]
+          - button "🛏️" [ref=e366] [cursor=pointer]
+          - button "🛏️" [ref=e368] [cursor=pointer]
+      - generic:
+        - generic [ref=e370]:
+          - button "Zoom in" [ref=e371] [cursor=pointer]: +
+          - button "Zoom out" [ref=e372] [cursor=pointer]: −
+        - generic [ref=e373]:
+          - link "Leaflet" [ref=e374] [cursor=pointer]:
+            - /url: https://leafletjs.com
+          - text: "| ©"
+          - link "OpenStreetMap" [ref=e379] [cursor=pointer]:
+            - /url: https://www.openstreetmap.org/copyright
+  - text: ▾ · · · · ▾ ▾ · · ▾ ▾ ★ ★ ★ ★ ▾ · · · · · · · · · · · · · · · · · · · · · ▾ ▾ ▾ ▾ ▾ ▾ ▾ ▾ ▾ ▾ · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ▾ ▾ ▾
