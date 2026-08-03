@@ -163,6 +163,23 @@
   .alts-toggle.open .arrow { transform: rotate(90deg); }
   .alts-wrap { display: none; padding-bottom: 4px; }
   .alts-wrap.open { display: block; }
+  .story-wrap {
+    display: none;
+    padding: 2px 0 10px;
+    font-size: 0.8em;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .story-wrap.open { display: block; }
+  .story-wrap p { margin-bottom: 9px; }
+  .story-wrap p:last-child { margin-bottom: 0; }
+  .story-wrap strong { color: var(--text); }
+  .story-wrap a {
+    color: #6eaaff;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(110,170,255,0.45);
+  }
+  .story-toggle:hover { color: var(--accent); }
   .alt-card {
     background: rgba(80,176,224,0.06);
     border: 1px dashed rgba(80,176,224,0.2);
@@ -3660,6 +3677,7 @@ const days = [
     num: 1, title: "Přílet + Tirana", date: "Pá 7. 8.",
     desc: "Odpolední přílet, vyzvednutí auta, první procházka centrem.",
     sleep: "Tirana",
+    story: "<p>Ve <strong>14:10</strong> přistaneme na <a href='https://www.tirana-airport.com/' target='_blank' rel='noopener'>letišti TIA</a> — pasová kontrola s dětmi zabere ~45 minut. Auto vyzvedneme u Rent From Locals na parkovišti naproti terminálu (doleva, kolem kiosků, přes vozovku). Budeme potřebovat řidičák, pas, voucher a <strong>460 € hotově</strong>; auto před odjezdem vyfotíme ze všech stran a zkontrolujeme obě dětské sedačky.</p><p>Do Tirany dojedeme za ~30 minut. Po check-inu ve <a href='https://www.booking.com/Share-tUZijk' target='_blank' rel='noopener'>Vile Murati</a> si vydechneme na zahradě. Podvečer strávíme na <a href='https://www.google.com/maps/place/Skanderbeg+Square/@41.328499,19.818376,17z' target='_blank' rel='noopener'>Skanderbegově náměstí</a> — kolotoč za 100 ALL, fontány, holubi. Navečeříme se kousek odtud na barevném tržišti <a href='https://www.tripadvisor.com/Attraction_Review-g294446-d12115218-Reviews-New_Bazaar-Tirana_Tirana_County.html' target='_blank' rel='noopener'>Pazari i Ri</a> (byrek, čerstvé ovoce, zmrzlina). Půjdeme brzy spát — zítra bude nabitý den.</p>",
     pois: [
       { name: "Letiště Tirana (TIA)", lat: 41.4147, lng: 19.7206, time: "16:00", type: "transport",
         notes: "Vyzvednutí auta. 2× dětské sedačky!", badge: null,
@@ -3687,6 +3705,7 @@ const days = [
     num: 2, title: "Lanovka Dajti + BunkArt", date: "So 8. 8.",
     desc: "Nejdelší lanovka na Balkáně s minigolfem a Adventure Parkem, pak podzemní komunistický bunkr.",
     sleep: "Tirana",
+    story: "<p>V <strong>8:45</strong> budeme u dolní stanice <a href='https://dajtiekspres.com/rates-and-opening-hours/' target='_blank' rel='noopener'>lanovky Dajti Ekspres</a> (~20 min od hotelu) — dopoledne bude bez front a srpnové bouřky, které umí lanovku zastavit, chodí až odpoledne. Nahoře děti vyzkouší <a href='https://dajtiekspres.com/adventure-park/' target='_blank' rel='noopener'>Adventure Park</a> (věk nekontrolují, rozhodne dosah na jištění), minigolf poslouží jako plán B a naobědváme se v horské restauraci s výhledem na celou Tiranu.</p><p>Ve <strong>13:30</strong> sjedeme dolů a zamíříme rovnou do <a href='https://www.tripadvisor.com/Attraction_Review-g294446-d10028498-Reviews-Bunk_Art_1-Tirana_Tirana_County.html' target='_blank' rel='noopener'>BunkArt 1</a> hned u lanovky — pět pater podzemního bunkru studené války, děti ho vezmou jako bludiště a v podzemí bude příjemný chlad (~1,5 h, ~900 LEK, combo s BunkArt 2 se slevou). Zbytek odpoledne podle sil: šlapadla v <a href='https://www.tripadvisor.com/Attraction_Review-g294446-d12116591-Reviews-Parku_i_Madh_i_Tiranes-Tirana_Tirana_County.html' target='_blank' rel='noopener'>Grand Parku</a>, nebo <a href='https://www.tripadvisor.com/Attraction_Review-g294445-d12176437-Reviews-Blue_Magic_Water-Durres_Durres_County.html' target='_blank' rel='noopener'>aquapark Blue Magic</a> (25 min autem). Večer si dáme zmrzlinu v Rinia Parku.</p>",
     pois: [
       { name: "Dajti Ekspres — lanovka", lat: 41.3507, lng: 19.8609, time: "9:00", type: "nature",
         notes: "4,3 km, 15 min jízda. Být dole v 8:45 — dopoledne bez front, odpolední bouřky umí lanovku zastavit. Nahoře: Adventure Park (oficiálně od 5 let, tarif 5–7 let €12 — věk nekontrolují, rozhoduje spíš výška/dosah na jištění, s malým zkusit), minigolf jako plán B, hřiště. Zavřeno úterý! Dospělí ~1 400 LEK, děti 600 LEK.", badge: "top",
@@ -3717,6 +3736,7 @@ const days = [
     num: 3, title: "Berat → Gjirokastër", date: "Ne 9. 8.",
     desc: "Nejdelší cestovní den — UNESCO Berat dopoledne, večer hrad Gjirokastër v chládku a bez davů.",
     sleep: "Gjirokastër",
+    story: "<p>V <strong>8:00</strong> vyrazíme — čeká nás nejdelší přejezd (~280 km, ~5 h čistého času). V <strong>10:00</strong> budeme na <a href='https://www.google.com/maps/place/Berat+Castle/@40.7105,19.9461,17z' target='_blank' rel='noopener'>hradě Berat</a>: jediný trvale obydlený hrad v Albánii (300 LEK, cash). Naobědváme se přímo mezi hradbami a cestou dolů se podíváme na <a href='https://www.tripadvisor.com/Attraction_Review-g318870-d12965478-Reviews-Mangalem_Quarter-Berat_Berat_County.html' target='_blank' rel='noopener'>čtvrť tisíce oken</a>. Kolem <strong>13:00</strong> pojedeme dál na jih — děti přejezd prospí.</p><p>V <strong>16:30</strong> se ubytujeme v <a href='https://www.booking.com/Share-Q2XMtk' target='_blank' rel='noopener'>Guest House Urat</a> a v <strong>17:15</strong> vyjdeme na <a href='https://www.tripadvisor.com/Attraction_Review-g318867-d550648-Reviews-Gjirokastra_Castle-Gjirokaster_Gjirokaster_County.html' target='_blank' rel='noopener'>hrad Gjirokastër</a> — večer bude chládek a prázdno, otevřeno je do 19:00 (400 LEK, děti zdarma, strmý výstup — vezmeme nosítko). Navečeříme se v kamenném bazaru: ochutnáme qifqi, smažené rýžové kuličky, místní specialitu. Budeme-li mít energie nazbyt, můžeme místo večerního hradu zajet z Beratu k tůním vodopádu <a href='https://www.tripadvisor.com/Attraction_Review-g801291-d12965474-Reviews-Bogove_Waterfall-Corovode_Berat_County.html' target='_blank' rel='noopener'>Bogovë</a> (+~3 h) — hrad pak ale vyjde až na pondělní ráno a Blue Eye na ~10:30.</p>",
     pois: [
       { name: "Hrad Berat — UNESCO", lat: 40.7106, lng: 19.9461, time: "10:00", type: "castle",
         notes: "Vyjet z Tirany v 8:00, ať jste na hradě před největším vedrem! Stále obydlený hrad — rodiny žijí uvnitř. Legenda o bratrech obrech. Vstup 300 LEK/os (cash), 9–18 h. Oběd uvnitř.", badge: "top",
@@ -3742,8 +3762,9 @@ const days = [
   },
   {
     num: 4, title: "Blue Eye → Ksamil", date: "Po 10. 8.",
-    desc: "Ráno Modré oko před davy (hrad máte z neděle), u moře už před obědem! Pokud jste hrad v neděli nestihli: hrad 9:00, Blue Eye ~10:30.",
+    desc: "Ráno Modré oko před davy (hrad je odbytý z neděle), u moře už před obědem! Kdyby hrad v neděli nevyšel: hrad 9:00, Blue Eye ~10:30.",
     sleep: "Ksamil",
+    story: "<p>Vyjedeme v <strong>8:00</strong> — v <strong>8:30</strong> budeme u <a href='https://www.tripadvisor.com/Attraction_Review-g678774-d1165562-Reviews-The_Blue_Eye-Vlore_Vlore_County.html' target='_blank' rel='noopener'>Modrého oka</a> mezi prvními; kolem desáté už tam budou stát fronty tří řad. Od parkoviště nás čeká 2 km pěšky po rovné stinné cestě (vstup 50 LEK + parkování, cash), u pramene fotky a svačina — koupat se nesmí. Kolem <strong>10:30</strong> se vrátíme k autu.</p><p>V <strong>11:00</strong> nás čeká první koupání na <a href='https://www.tripadvisor.com/Attraction_Review-g4505725-d4403563-Reviews-Ksamil_Beach-Ksamil_Saranda_Vlore_County.html' target='_blank' rel='noopener'>pláži Ksamil</a> — tyrkys jako z katalogu, mělko, bez vln. Naobědváme se v plážové restauraci, uděláme check-in ve <a href='https://www.booking.com/Share-ntDpVw' target='_blank' rel='noopener'>Family Hotelu Ksamil</a> (300 m od pláže) a odpoledne si půjčíme šlapadlo k ostrovům (15 €/h), nebo vytáhneme kyblík a lopatku. Kdyby v neděli nevyšel hrad: ráno hrad v 9:00 na otvíračku a Blue Eye ~10:30.</p>",
     pois: [
       { name: "Syri i Kaltër — Modré oko", lat: 39.9236, lng: 20.1925, time: "8:30", type: "nature",
         notes: "V 8:30 skoro prázdno, od 10:00 fronty tří řad — vyplatí se vyjet brzy (jen 30 min z Gjirokastry). Krasový pramen živě modré vody. 2 km pěšky po rovné stinné cestě (s vláčkem nepočítat, často nejezdí). Vstup 50 LEK + parkování, cash only. Koupání nově zakázáno a hlídáno.", badge: "top",
@@ -3768,6 +3789,7 @@ const days = [
     num: 5, title: "Butrint + pláž + západ slunce", date: "Út 11. 8.",
     desc: "Dopoledne 'Indiana Jones' v UNESCO Butrintu, odpoledne pláž, večer západ slunce z Lëkurësi.",
     sleep: "Ksamil",
+    story: "<p>V <strong>9:00</strong> budeme na otvíračce <a href='https://butrint.al/' target='_blank' rel='noopener'>Butrintu</a> (1 000 LEK, děti do 12 zdarma) — řecké a římské ruiny zarostlé v lese, stinné pěšiny, divadlo, mozaiky a hlavně želvy: pro děti Indiana Jones, ~2 hodiny. V <strong>11:30</strong> se necháme rovnou od vstupu převézt loďkou přes kanál Vivari na <a href='https://www.tripadvisor.com/Attraction_Review-g678774-d10298637-Reviews-Ali_Pasha_Castle-Vlore_Vlore_County.html' target='_blank' rel='noopener'>hrad Ali Pashi</a> (~10 €/os, 10 min plavba) — pirátskou pevnost na ostrůvku obklopenou vodou.</p><p>Ve <strong>13:30</strong> oběd a pláž v Ksamilu. V <strong>18:15</strong> vyrazíme na <a href='https://www.tripadvisor.com/Attraction_Review-g303164-d7602476-Reviews-Lekuresi_Castle-Saranda_Vlore_County.html' target='_blank' rel='noopener'>hrad Lëkurësi</a> — stůl v restauraci si rezervujeme předem, parkoviště se plní 45 minut před západem slunce. Odměnou bude výhled na Korfu a celou Sarandu. Kdyby děti nestíhaly, západ slunce oželíme — půjde nahradit v ranní verzi zítra.</p>",
     pois: [
       { name: "Butrint — UNESCO park", lat: 39.7440, lng: 20.0195, time: "9:00", type: "nature",
         notes: "Řecké/římské ruiny v lese. Želvy! Stinné cesty. Děti do 12 zdarma, dospělí 1 000 LEK. 2–3 h.", badge: "top",
@@ -3798,6 +3820,7 @@ const days = [
     num: 6, title: "Plážový odpočinkový den ☀️", date: "St 12. 8.",
     desc: "Střední den tripu = regenerace. Celý den Ksamil — šlapadla, šnorchlování, zmrzlina.",
     sleep: "Ksamil",
+    story: "<p>Den bez budíku — jen jedno pravidlo: na hlavní pláži budeme do <strong>10:00</strong>, jinak nebude kam si lehnout (lehátka 7–22 €). Klidnější variantou pro šnorchlování bude přírodní <a href='https://www.snorkeling-report.com/spot/snorkeling-edon-bina-beach-ksamil/' target='_blank' rel='noopener'>Edon-Bina</a> (15 min pěšky od parkoviště, vezmeme vlastní stín a boty do vody) nebo Monastery Beach. Přes poledne si dáme siestu v hotelu.</p><p>Odpoledne vyrazíme na <a href='https://www.getyourguide.com/ksamil-l150497/' target='_blank' rel='noopener'>speedboat kolem 5 ostrovů</a> (~2 h, ~16–18 €/os, rezervujeme online — mají dětské vesty), nebo budeme šnorchlovat rovnou z pláže. Večer zajedeme do Sarandy na promenádu: <a href='https://wanderlog.com/list/geoCategory/1734847/best-things-to-do-with-kids-in-saranda' target='_blank' rel='noopener'>Luna Park Gjika</a> — autodrom, ruské kolo, nafukovací vodní park, palačinky. Platí se za jednotlivé atrakce.</p>",
     pois: [
       { name: "Ksamil — volný plážový den", lat: 39.7730, lng: 20.0003, time: "9:00", type: "beach",
         notes: "Celý den u moře! Na hlavní pláži být do 10:00, jinak plno (lehátka 7–22 €). Klidnější varianta: Edon-Bina nebo Monastery Beach. Voda všude mělká a klidná — pro děti ideál.", badge: null,
@@ -3829,6 +3852,7 @@ const days = [
     num: 7, title: "Riviéra → Llogara → Vlora", date: "Čt 13. 8.",
     desc: "Nejkrásnější jízdní den: dopoledne nejlepší dětská pláž Riviéry, odpoledne průsmyk s jeleny.",
     sleep: "Vlora",
+    story: "<p>Sbalíme se a v <strong>8:30</strong> vyrazíme na sever po pobřežní silnici. V <strong>9:30</strong> zastavíme na <a href='https://www.tripadvisor.com/Attraction_Review-g7182936-d7336414-Reviews-Borsh_Beach-Borsh_Vlore_County.html' target='_blank' rel='noopener'>pláži Borsh</a> — nejpozvolnější vstup do vody na celé Riviéře, malý si sedne 10 m od břehu po kotníky. Prokoupeme celé dopoledne, naobědváme se v taverně přímo u pláže a ve <strong>13:00</strong> pojedeme dál.</p><p>Na Llogaru NEpojedeme tunelem — navigace nás tam bude tlačit (mýto 250 LEK), ale jeleni a výhledy jsou na staré silnici přes průsmyk (exit Llogara National Park). Ve <strong>14:30</strong> nakrmíme ochočené jeleny u <a href='https://www.takeyourbackpack.com/backpacking-in-albania/visit-llogara-national-park/' target='_blank' rel='noopener'>Llogara Tourist Village</a> (krmení ~50 LEK) a zastavíme na vyhlídce Panorama s výhledem až na Korfu. V <strong>17:30</strong> se ubytujeme v <a href='https://www.booking.com/Share-2jYt0x' target='_blank' rel='noopener'>Pararse Apartments</a> a navečeříme se na promenádě <a href='https://www.google.com/maps/place/Vlor%C3%AB+Lungomare/@40.4580,19.4870,16z' target='_blank' rel='noopener'>Lungomare</a>.</p>",
     pois: [
       { name: "Borsh Beach — koupání + oběd", lat: 40.0600, lng: 19.8400, time: "9:30", type: "beach",
         notes: "Nejpozvolnější vstup do vody na celé Riviéře — dítě si sedne 10 m od břehu po kotníky. 7 km pláže, klid i v srpnu. Koupání celé dopoledne, oběd v taverně u vody. Odjezd ~13:00.", badge: "top",
@@ -3863,8 +3887,9 @@ const days = [
   },
   {
     num: 8, title: "Jeskyně Haxhi Ali lodí + pláž", date: "Pá 14. 8.",
-    desc: "TOP zážitek: rychlým člunem do mořské jeskyně, odpoledne nejlepší pláž pro 4letého.",
+    desc: "TOP zážitek: rychlým člunem do mořské jeskyně, odpoledne laguna Narta a klášterní ostrov Zvërnec.",
     sleep: "Vlora",
+    story: "<p>V <strong>8:30</strong> budeme v přístavu (Port of Vlora, sraz na 9:00) — <a href='https://haxhialicave.com/tours/haxhi-ali-cave-karaburun-boat-trip/' target='_blank' rel='noopener'>speedboat k jeskyni Haxhi Ali</a> je rezervovaný vrchol týdne: mořská jeskyně pirátů, divoký poloostrov Karaburun a koupání v zátoce Shen Vasil (92 € za rodinu, zaplatíme hotově na místě, 3,5 h). Vrátíme se kolem <strong>12:30</strong> a naobědváme se u přístavu.</p><p>Ve <strong>14:00</strong> se přesuneme na lagunu <a href='https://www.tripadvisor.com/Attraction_Review-g678774-d17527816-Reviews-Narta_Beach-Vlore_Vlore_County.html' target='_blank' rel='noopener'>Narta</a> — teplá mělká voda bez vln, po dopoledni na lodi ideální dojezd. V <strong>17:00</strong> přejdeme k <a href='https://www.tripadvisor.com/Attraction_Review-g678774-d3530037-Reviews-Zvernec_Island-Vlore_Vlore_County.html' target='_blank' rel='noopener'>Zvërnecu</a>: 270 m dřevěného mostu nás dovede na klášterní ostrov, stinná procházka zdarma (plameňáky čekat nebudeme — v srpnu tu nejsou). Večer nás čeká poslední albánská večeře na Lungomare.</p>",
     pois: [
       { name: "Jeskyně Haxhi Ali — lodní výlet", lat: 40.4299, lng: 19.3068, time: "9:00", type: "nature",
         notes: "✅ Rezervováno na 14. 8. v 9:00 (haxhialicave.com). Cena 92 € pro rodinu, platba hotově na místě. 3,5 h speedboat + Shen Vasil Bay. Sraz Port of Vlora. Start v 9:00 = v jeskyni před davy.", badge: "top",
@@ -3892,6 +3917,7 @@ const days = [
     num: 9, title: "Vlora → letiště → domů", date: "So 15. 8.",
     desc: "Ranní koupání, pak pohodová dálnice zpět. Volitelná zastávka u antické Apollonie.",
     sleep: null,
+    story: "<p>Ráno si naposledy zaplaveme a sbalíme se; kolem <strong>10:30</strong> vyrazíme — na letiště to jsou 2–2,5 h po dálnici. Volitelně zastavíme u <a href='https://apolloniaarchaeologicalpark.al/' target='_blank' rel='noopener'>Apollonie</a> (~15 min od sjezdu Levan) — ruiny z 6. století př. n. l. jsou ale v poledne bez stínu, takže max 45 minut. Oběd si dáme cestou.</p><p>V <strong>15:00</strong> budeme na letišti: natankujeme, vrátíme auto (vyfotíme si jeho stav!) a odbavíme se. Mirupafshim, Albánie! 🇦🇱</p>",
     pois: [
       { name: "Apollonia — řecké ruiny", lat: 40.7210, lng: 19.4712, time: "11:00", type: "castle",
         notes: "VOLITELNÁ ZASTÁVKA (~15 min od dálnice, sjezd Levan). Ruiny z 6. stol. př. n. l., vstup ~600 LEK. Pozor: v poledne nulový stín — rychlá zastávka do 45 min, nebo radši delší ranní koupání ve Vloře.", badge: "optional",
@@ -4141,6 +4167,22 @@ days.forEach(day => {
     </div>
     <div class="day-desc">${day.desc}${day.sleep ? ` <span style="color:var(--accent)">🛏️ Nocleh: ${day.sleep}</span>` : ''}</div>
   `;
+
+  // Collapsible narrative plan of the day
+  if (day.story) {
+    const storyToggle = document.createElement('button');
+    storyToggle.className = 'alts-toggle story-toggle';
+    storyToggle.innerHTML = `<span class="arrow">›</span> 📖 Plán dne v textu`;
+    const storyWrap = document.createElement('div');
+    storyWrap.className = 'story-wrap';
+    storyWrap.innerHTML = day.story;
+    storyToggle.onclick = () => {
+      const isOpen = storyWrap.classList.toggle('open');
+      storyToggle.classList.toggle('open', isOpen);
+    };
+    section.appendChild(storyToggle);
+    section.appendChild(storyWrap);
+  }
 
   // Insert move card INSIDE the day section, right after header
   if (moves[day.num]) {
