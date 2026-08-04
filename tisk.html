@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Albánie 2026 — itinerář k tisku</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
     color: #1c1c1c;
     background: #fff;
     font-size: 11pt;
@@ -16,7 +17,7 @@
     margin: 0 auto;
     padding: 24px;
   }
-  h1, h2, h3, .sans { font-family: 'Helvetica Neue', Arial, sans-serif; }
+  h1, h2, h3, .sans { font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; }
   h1 { font-size: 22pt; color: #a35410; margin-bottom: 2px; }
   h2 { font-size: 15pt; color: #a35410; margin: 0 0 8px; }
   h3 { font-size: 11pt; margin: 12px 0 4px; }
@@ -24,10 +25,10 @@
   .page { page-break-before: always; padding-top: 8px; }
   .page:first-child { page-break-before: avoid; }
   .day-head { display: flex; align-items: baseline; gap: 10px; border-bottom: 2.5px solid #a35410; padding-bottom: 4px; margin-bottom: 10px; }
-  .day-head .num { font-size: 20pt; font-weight: bold; color: #a35410; font-family: Arial, sans-serif; }
-  .day-head .title { font-size: 14pt; font-weight: bold; font-family: Arial, sans-serif; }
+  .day-head .num { font-size: 20pt; font-weight: bold; color: #a35410; font-family: 'DM Sans', Arial, sans-serif; }
+  .day-head .title { font-size: 14pt; font-weight: bold; font-family: 'DM Sans', Arial, sans-serif; }
   .day-head .date { margin-left: auto; color: #555; font-size: 10pt; white-space: nowrap; }
-  .sleep { font-size: 9.5pt; color: #a35410; font-weight: bold; font-family: Arial, sans-serif; margin-bottom: 8px; }
+  .sleep { font-size: 9.5pt; color: #a35410; font-weight: bold; font-family: 'DM Sans', Arial, sans-serif; margin-bottom: 8px; }
   figure { margin: 8px 0 10px; }
   .fig2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .fig2 img { max-height: 190px; }
@@ -36,52 +37,52 @@
   .hotel .hbody { flex: 1; }
   .mapfig img { max-height: none; border: 1px solid #ddd; }
   figure img { width: 100%; max-height: 230px; object-fit: cover; display: block; }
-  figcaption { font-size: 7.5pt; color: #999; text-align: right; margin-top: 2px; font-family: Arial, sans-serif; }
+  figcaption { font-size: 7.5pt; color: #999; text-align: right; margin-top: 2px; font-family: 'DM Sans', Arial, sans-serif; }
   table.program { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 10pt; }
-  table.program th { text-align: left; font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; border-bottom: 1px solid #ccc; padding: 3px 6px 3px 0; }
+  table.program th { text-align: left; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; border-bottom: 1px solid #ccc; padding: 3px 6px 3px 0; }
   table.program td { vertical-align: top; border-bottom: 1px solid #eee; padding: 5px 8px 5px 0; }
-  table.program td.time { white-space: nowrap; font-weight: bold; width: 46px; font-family: Arial, sans-serif; font-size: 9.5pt; }
+  table.program td.time { white-space: nowrap; font-weight: bold; width: 46px; font-family: 'DM Sans', Arial, sans-serif; font-size: 9.5pt; }
   table.program td.place { width: 34%; font-weight: bold; }
   table.program .top { color: #a35410; }
   .story { margin: 8px 0 10px; text-align: justify; }
   .story p { margin-bottom: 7px; }
   .alts { font-size: 9.5pt; color: #444; background: #f6f4f0; padding: 8px 10px; margin-bottom: 10px; }
-  .alts b { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; display: block; margin-bottom: 3px; }
-  .move { font-size: 9.5pt; font-family: Arial, sans-serif; background: #fdf3e7; border: 1px dashed #d8a05f; padding: 6px 10px; margin-bottom: 10px; }
+  .alts b { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; display: block; margin-bottom: 3px; }
+  .move { font-size: 9.5pt; font-family: 'DM Sans', Arial, sans-serif; background: #fdf3e7; border: 1px dashed #d8a05f; padding: 6px 10px; margin-bottom: 10px; }
   .notes { margin-top: 10px; }
-  .notes b { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+  .notes b { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
   .notes .lines { height: 84px; background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #ccc 20px, #ccc 21px); margin-top: 4px; }
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
   .info-box { border: 1px solid #ddd; padding: 10px 12px; font-size: 10pt; }
   .info-box h3 { margin-top: 0; color: #a35410; }
   table.simple { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 6px 0; }
   table.simple td, table.simple th { border-bottom: 1px solid #eee; padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
-  table.simple th { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; color: #888; }
+  table.simple th { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; color: #888; }
   table.simple td.r, table.simple th.r { text-align: right; white-space: nowrap; }
   .hotel { border: 1px solid #ddd; padding: 10px 12px; margin-bottom: 10px; font-size: 10pt; }
-  .hotel .hname { font-family: Arial, sans-serif; font-weight: bold; font-size: 11pt; }
+  .hotel .hname { font-family: 'DM Sans', Arial, sans-serif; font-weight: bold; font-size: 11pt; }
   .hotel .hmeta { color: #555; font-size: 9pt; margin: 2px 0 5px; }
-  .hotel .hprice { float: right; font-weight: bold; color: #a35410; font-family: Arial, sans-serif; }
-  .rest-city { font-family: Arial, sans-serif; font-weight: bold; font-size: 10.5pt; color: #a35410; margin: 10px 0 3px; }
+  .hotel .hprice { float: right; font-weight: bold; color: #a35410; font-family: 'DM Sans', Arial, sans-serif; }
+  .rest-city { font-family: 'DM Sans', Arial, sans-serif; font-weight: bold; font-size: 10.5pt; color: #a35410; margin: 10px 0 3px; }
   .rest { font-size: 9.5pt; margin-bottom: 5px; }
-  .rest b { font-family: Arial, sans-serif; }
+  .rest b { font-family: 'DM Sans', Arial, sans-serif; }
   .rest .cost { color: #777; white-space: nowrap; }
-  .region-label { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: #a35410; margin-bottom: 2px; }
+  .region-label { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: #a35410; margin-bottom: 2px; }
   .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 10px; }
-  .fact { border: 1px solid #e5e0d8; background: #faf8f5; padding: 6px 8px; font-size: 9pt; font-family: Arial, sans-serif; }
+  .fact { border: 1px solid #e5e0d8; background: #faf8f5; padding: 6px 8px; font-size: 9pt; font-family: 'DM Sans', Arial, sans-serif; }
   .fact b { display: block; font-size: 7pt; text-transform: uppercase; letter-spacing: 0.05em; color: #999; margin-bottom: 1px; }
   .warn { background: #fdf0ee; border-left: 3px solid #c0503c; padding: 8px 10px; font-size: 9.5pt; margin: 8px 0 10px; }
-  .warn b:first-child { color: #c0503c; font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .warn b:first-child { color: #c0503c; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
   .kids { background: #eef5ec; border-left: 3px solid #5a8a4a; padding: 8px 10px; font-size: 9.5pt; margin: 8px 0 10px; }
-  .kids b:first-child { color: #5a8a4a; font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .kids b:first-child { color: #5a8a4a; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
   .attr-half { break-inside: avoid; page-break-inside: avoid; border: 1px solid #e5e0d8; padding: 12px 14px; margin-bottom: 14px; }
   .attr-half h3 { margin-top: 0; font-size: 12pt; color: #333; }
   .attr-half .facts { grid-template-columns: repeat(3, 1fr); }
   .attr-half figure img { max-height: 160px; }
   .catalog-intro { font-size: 10.5pt; margin: 10px 0; }
-  .toolbar { position: sticky; top: 0; background: #a35410; color: #fff; padding: 10px 16px; margin: -24px -24px 20px; display: flex; align-items: center; gap: 14px; font-family: Arial, sans-serif; font-size: 10.5pt; }
-  .toolbar button { background: #fff; color: #a35410; border: none; padding: 7px 16px; font-weight: bold; font-size: 10.5pt; cursor: pointer; border-radius: 4px; font-family: Arial, sans-serif; }
-  .footer { margin-top: 16px; font-size: 8.5pt; color: #999; text-align: center; font-family: Arial, sans-serif; }
+  .toolbar { position: sticky; top: 0; background: #a35410; color: #fff; padding: 10px 16px; margin: -24px -24px 20px; display: flex; align-items: center; gap: 14px; font-family: 'DM Sans', Arial, sans-serif; font-size: 10.5pt; }
+  .toolbar button { background: #fff; color: #a35410; border: none; padding: 7px 16px; font-weight: bold; font-size: 10.5pt; cursor: pointer; border-radius: 4px; font-family: 'DM Sans', Arial, sans-serif; }
+  .footer { margin-top: 16px; font-size: 8.5pt; color: #999; text-align: center; font-family: 'DM Sans', Arial, sans-serif; }
   @media print {
     body { padding: 0; font-size: 10.5pt; }
     .toolbar { display: none; }
