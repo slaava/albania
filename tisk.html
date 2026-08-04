@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albánie 2026 — itinerář k tisku</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #1c1c1c;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.55;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  h1, h2, h3, .sans { font-family: 'Helvetica Neue', Arial, sans-serif; }
+  h1 { font-size: 22pt; color: #a35410; margin-bottom: 2px; }
+  h2 { font-size: 15pt; color: #a35410; margin: 0 0 8px; }
+  h3 { font-size: 11pt; margin: 12px 0 4px; }
+  .subtitle { color: #555; font-size: 10.5pt; margin-bottom: 4px; }
+  .page { page-break-before: always; padding-top: 8px; }
+  .page:first-child { page-break-before: avoid; }
+  .day-head { display: flex; align-items: baseline; gap: 10px; border-bottom: 2.5px solid #a35410; padding-bottom: 4px; margin-bottom: 10px; }
+  .day-head .num { font-size: 20pt; font-weight: bold; color: #a35410; font-family: Arial, sans-serif; }
+  .day-head .title { font-size: 14pt; font-weight: bold; font-family: Arial, sans-serif; }
+  .day-head .date { margin-left: auto; color: #555; font-size: 10pt; white-space: nowrap; }
+  .sleep { font-size: 9.5pt; color: #a35410; font-weight: bold; font-family: Arial, sans-serif; margin-bottom: 8px; }
+  figure { margin: 8px 0 10px; }
+  .fig2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fig2 img { max-height: 190px; }
+  .hotel { display: flex; gap: 12px; }
+  .hotel img { width: 200px; height: 132px; object-fit: cover; flex-shrink: 0; }
+  .hotel .hbody { flex: 1; }
+  .mapfig img { max-height: none; border: 1px solid #ddd; }
+  figure img { width: 100%; max-height: 230px; object-fit: cover; display: block; }
+  figcaption { font-size: 7.5pt; color: #999; text-align: right; margin-top: 2px; font-family: Arial, sans-serif; }
+  table.program { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 10pt; }
+  table.program th { text-align: left; font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; border-bottom: 1px solid #ccc; padding: 3px 6px 3px 0; }
+  table.program td { vertical-align: top; border-bottom: 1px solid #eee; padding: 5px 8px 5px 0; }
+  table.program td.time { white-space: nowrap; font-weight: bold; width: 46px; font-family: Arial, sans-serif; font-size: 9.5pt; }
+  table.program td.place { width: 34%; font-weight: bold; }
+  table.program .top { color: #a35410; }
+  .story { margin: 8px 0 10px; text-align: justify; }
+  .story p { margin-bottom: 7px; }
+  .alts { font-size: 9.5pt; color: #444; background: #f6f4f0; padding: 8px 10px; margin-bottom: 10px; }
+  .alts b { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; display: block; margin-bottom: 3px; }
+  .move { font-size: 9.5pt; font-family: Arial, sans-serif; background: #fdf3e7; border: 1px dashed #d8a05f; padding: 6px 10px; margin-bottom: 10px; }
+  .notes { margin-top: 10px; }
+  .notes b { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+  .notes .lines { height: 84px; background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #ccc 20px, #ccc 21px); margin-top: 4px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .info-box { border: 1px solid #ddd; padding: 10px 12px; font-size: 10pt; }
+  .info-box h3 { margin-top: 0; color: #a35410; }
+  table.simple { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 6px 0; }
+  table.simple td, table.simple th { border-bottom: 1px solid #eee; padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
+  table.simple th { font-family: Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; color: #888; }
+  table.simple td.r, table.simple th.r { text-align: right; white-space: nowrap; }
+  .hotel { border: 1px solid #ddd; padding: 10px 12px; margin-bottom: 10px; font-size: 10pt; }
+  .hotel .hname { font-family: Arial, sans-serif; font-weight: bold; font-size: 11pt; }
+  .hotel .hmeta { color: #555; font-size: 9pt; margin: 2px 0 5px; }
+  .hotel .hprice { float: right; font-weight: bold; color: #a35410; font-family: Arial, sans-serif; }
+  .rest-city { font-family: Arial, sans-serif; font-weight: bold; font-size: 10.5pt; color: #a35410; margin: 10px 0 3px; }
+  .rest { font-size: 9.5pt; margin-bottom: 5px; }
+  .rest b { font-family: Arial, sans-serif; }
+  .rest .cost { color: #777; white-space: nowrap; }
+  .toolbar { position: sticky; top: 0; background: #a35410; color: #fff; padding: 10px 16px; margin: -24px -24px 20px; display: flex; align-items: center; gap: 14px; font-family: Arial, sans-serif; font-size: 10.5pt; }
+  .toolbar button { background: #fff; color: #a35410; border: none; padding: 7px 16px; font-weight: bold; font-size: 10.5pt; cursor: pointer; border-radius: 4px; font-family: Arial, sans-serif; }
+  .footer { margin-top: 16px; font-size: 8.5pt; color: #999; text-align: center; font-family: Arial, sans-serif; }
+  @media print {
+    body { padding: 0; font-size: 10.5pt; }
+    .toolbar { display: none; }
+    @page { margin: 14mm 15mm; }
+    .page { page-break-before: always; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>Tisková verze itineráře — nejlépe vypadá s barevným tiskem, funguje i černobíle.</span>
+  <button onclick="window.print()">🖨️ Vytisknout</button>
+</div>
+
+<!-- ÚVODNÍ STRANA -->
+<div class="page">
+  <h1>Albánie 2026 — rodinný roadtrip</h1>
+  <div class="subtitle">7.–15. srpna 2026 · 9 dní / 8 nocí · 2 dospělí + děti (8 a 4,5) · Tirana → Berat → Gjirokastër → Ksamil → Riviéra → Vlora</div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>✈️ Lety (Austrian Airlines)</h3>
+      <b>Tam</b> — Pá 7. 8.: Vídeň 12:40 → Tirana 14:10<br>
+      <b>Zpět</b> — So 15. 8.: Tirana 18:35 → Vídeň 20:05<br>
+      Economy Light · parkování Vídeň Car Park C (zaplaceno)
+    </div>
+    <div class="info-box">
+      <h3>🚗 Auto</h3>
+      Chevrolet Captiva 4×4, automat, 7 míst, 2× dětská sedačka.<br>
+      Rent From Locals — parkoviště naproti terminálu.<br>
+      Vyzvednutí ~15:00 · vrácení So 16:00 · <b>460 € hotově</b>
+    </div>
+  </div>
+
+  <figure class="mapfig">
+    <img src="mapa-tisk.png" alt="Mapa trasy s vyznačenými zastávkami">
+    <figcaption>Trasa a zastávky (čárkovaně přejezdy mezi noclehy) · mapa © OpenStreetMap contributors</figcaption>
+  </figure>
+
+  <h2>Přehled cesty</h2>
+  <table class="simple">
+    <tr><th>Den</th><th>Datum</th><th>Program</th><th>Nocleh</th></tr>
+    <tr><td>1</td><td>Pá 7. 8.</td><td>Přílet, auto, večerní Tirana</td><td>Tirana</td></tr>
+    <tr><td>2</td><td>So 8. 8.</td><td>Lanovka Dajti, BunkArt 1, park/aquapark</td><td>Tirana</td></tr>
+    <tr><td>3</td><td>Ne 9. 8.</td><td>Hrad Berat, přejezd, večer hrad Gjirokastër</td><td>Gjirokastër</td></tr>
+    <tr><td>4</td><td>Po 10. 8.</td><td>Blue Eye ráno, první koupání Ksamil</td><td>Ksamil</td></tr>
+    <tr><td>5</td><td>Út 11. 8.</td><td>Butrint, hrad Ali Pashi, pláž, západ slunce</td><td>Ksamil</td></tr>
+    <tr><td>6</td><td>St 12. 8.</td><td>Volný plážový den, večer Saranda</td><td>Ksamil</td></tr>
+    <tr><td>7</td><td>Čt 13. 8.</td><td>Pláž Borsh, průsmyk Llogara s jeleny</td><td>Vlora</td></tr>
+    <tr><td>8</td><td>Pá 14. 8.</td><td>Loď: jeskyně Haxhi Ali · Narta + Zvërnec</td><td>Vlora</td></tr>
+    <tr><td>9</td><td>So 15. 8.</td><td>Koupání, (Apollonia), odlet 18:35</td><td>—</td></tr>
+  </table>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>💶 Hotovost s sebou z domova (EUR)</h3>
+      <table class="simple">
+        <tr><td>Auto (při vyzvednutí, Pá 7. 8.)</td><td class="r">460 €</td></tr>
+        <tr><td>Vila Murati, Tirana (Pá 7. 8.)</td><td class="r">108 €</td></tr>
+        <tr><td>Guest House Urat, Gjirokastër (Ne 9. 8.)</td><td class="r">35 €</td></tr>
+        <tr><td>Family Hotel Haruni, Ksamil (Po 10. 8.)</td><td class="r">390 €</td></tr>
+        <tr><td>Pararse Apartments, Vlora (Čt 13. 8.)</td><td class="r">109 €</td></tr>
+        <tr><td>Boat trip Haxhi Ali (Pá 14. 8.)</td><td class="r">92 €</td></tr>
+        <tr><td><b>Celkem — rozměnit ~30 100 Kč</b></td><td class="r"><b>1 194 €</b></td></tr>
+      </table>
+    </div>
+    <div class="info-box">
+      <h3>🇦🇱 LEK — až na místě</h3>
+      Jídlo a atrakce se platí v LEK (~83 000 LEK ≈ 21 000 Kč na celý pobyt). Vybereme z bankomatu (vybírat v LEK, ne v EUR přepočtu). Spousta vstupů je jen na hotovost: Blue Eye, hrady, Porto Palermo. Karta funguje ve větších restauracích a supermarketech.<br><br>
+      <b>Orientačně:</b> 100 LEK ≈ 25 Kč · 1 000 LEK ≈ 250 Kč
+      <h3>📞 Nouzové kontakty</h3>
+      Tíseň 112 · záchranka 127 · policie 129<br>
+      Ambasáda ČR Tirana: +355 42 234 004<br>
+      Nouzová linka 24/7: +355 68 409 0111
+    </div>
+  </div>
+
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 1 -->
+<div class="page">
+  <div class="day-head"><span class="num">1</span><span class="title">Přílet + Tirana</span><span class="date">pátek 7. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana (9.2/10, se snídaní) · platba 108 € hotově</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg/960px-Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg" alt=""><figcaption>Skanderbegovo náměstí · foto Pudelek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">14:10</td><td class="place">Přílet TIA</td><td>pasová kontrola ~45 min</td></tr>
+    <tr><td class="time">15:00</td><td class="place">Vyzvednutí auta</td><td>řidičák + pas + voucher + 460 € hotově; auto vyfotit!</td></tr>
+    <tr><td class="time">18:00</td><td class="place">Skanderbegovo náměstí</td><td>kolotoč 100 ALL, fontány</td></tr>
+    <tr><td class="time">19:30</td><td class="place">Večeře — Pazari i Ri</td><td>byrek, ovoce, zmrzlina</td></tr>
+  </table>
+  <div class="story">
+    <p>Ve <strong>14:10</strong> přistaneme na letišti TIA. Auto vyzvedneme u Rent From Locals na parkovišti naproti terminálu (doleva, kolem kiosků, přes vozovku). Budeme potřebovat řidičák, pas, voucher a 460 € hotově; auto před odjezdem vyfotíme ze všech stran a zkontrolujeme obě dětské sedačky.</p>
+    <p>Do Tirany dojedeme za ~30 minut. Po check-inu ve Vile Murati si vydechneme na zahradě. Podvečer strávíme na Skanderbegově náměstí — kolotoč, fontány, holubi. Navečeříme se na barevném tržišti Pazari i Ri. Půjdeme brzy spát — zítra bude nabitý den.</p>
+  </div>
+  <div class="alts"><b>Alternativy v okolí</b>Pyramida Tirana (střecha + skluzavka, zdarma) · BunkArt 2 u náměstí (500 LEK) · Rinia Park s fontánou · bowling pod Taiwan Center</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 2 -->
+<div class="page">
+  <div class="day-head"><span class="num">2</span><span class="title">Lanovka Dajti + BunkArt</span><span class="date">sobota 8. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""><figcaption>Lanovka Dajti Ekspres · foto Leeturtle, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:45</td><td class="place top">Dajti Ekspres ⭐</td><td>lanovka ~1 400/600 LEK; nahoře Adventure Park (tarif 5–7 let €12; věk nekontrolují, rozhoduje dosah), minigolf, oběd s výhledem</td></tr>
+    <tr><td class="time">13:30</td><td class="place top">BunkArt 1 ⭐</td><td>~900 LEK (combo s BunkArt 2 −20 %); 5 pater podzemí, chládek</td></tr>
+    <tr><td class="time">16:30</td><td class="place">Grand Park / aquapark</td><td>volitelně — šlapadla, nebo Blue Magic (~1 500–1 700 LEK)</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:45</strong> budeme u dolní stanice lanovky — dopoledne bude bez front a srpnové bouřky, které umí lanovku zastavit, chodí až odpoledne. Nahoře děti vyzkouší Adventure Park, minigolf poslouží jako plán B a naobědváme se v horské restauraci s výhledem na celou Tiranu.</p>
+    <p>Ve <strong>13:30</strong> sjedeme dolů a zamíříme rovnou do BunkArt 1 hned u lanovky — pět pater podzemního bunkru studené války, děti ho vezmou jako bludiště. Zbytek odpoledne podle sil: šlapadla v Grand Parku, nebo aquapark Blue Magic. Večer si dáme zmrzlinu v Rinia Parku.</p>
+  </div>
+  <div class="alts"><b>Alternativy / záložky na počasí</b>Latitude Tirana — klimatizované trampolíny + Kids Zone do 5 let (na vedro/bouřku) · hrad Kruja + bazar (45 min) · Tirana Zoo (200 LEK)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 3 -->
+<div class="page">
+  <div class="day-head"><span class="num">3</span><span class="title">Berat → Gjirokastër</span><span class="date">neděle 9. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Guest House Urat, Gjirokastër (9.3/10, se snídaní) · platba 35 € hotově</div>
+  <div class="move">🧳 Stěhování: Tirana → Gjirokastër · ~280 km · ~5 h čistého času</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg/960px-Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Gjirokaster_castle_hill_1.jpg/960px-Gjirokaster_castle_hill_1.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Berat — čtvrť tisíce oken (Ch. Strässler, CC BY-SA 2.0) · hrad Gjirokastër (R. Botev, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:00</td><td class="place">Odjezd z Tirany</td><td>ať jsme na hradě před vedrem</td></tr>
+    <tr><td class="time">10:00</td><td class="place top">Hrad Berat ⭐</td><td>UNESCO, obydlený hrad; 300 LEK cash; oběd uvnitř</td></tr>
+    <tr><td class="time">13:00</td><td class="place">Přejezd na jih</td><td>děti spí; pauza u pramenů Uji i Ftohtë před Tepelenou</td></tr>
+    <tr><td class="time">16:30</td><td class="place">Check-in Gjirokastër</td><td>Guest House Urat</td></tr>
+    <tr><td class="time">17:15</td><td class="place top">Hrad Gjirokastër ⭐</td><td>do 19:00; 400 LEK, děti zdarma; špionážní letadlo; nosítko!</td></tr>
+    <tr><td class="time">19:15</td><td class="place">Večeře v bazaru</td><td>qifqi — smažené rýžové kuličky</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:00</strong> vyrazíme — čeká nás nejdelší přejezd. V <strong>10:00</strong> budeme na hradě Berat: jediný trvale obydlený hrad v Albánii. Naobědváme se přímo mezi hradbami a cestou dolů se podíváme na čtvrť tisíce oken. Kolem <strong>13:00</strong> pojedeme dál — silnice za Memaliaj sleduje divokou řeku Vjosu; bude-li potřeba pauza, nejlepší je u studených pramenů Uji i Ftohtë přímo u cesty před Tepelenou.</p>
+    <p>V <strong>16:30</strong> se ubytujeme a v <strong>17:15</strong> vyjdeme na hrad Gjirokastër — večer bude chládek a prázdno. Navečeříme se v kamenném bazaru. Budeme-li mít energie nazbyt, můžeme místo večerního hradu zajet z Beratu k tůním vodopádu Bogovë (+~3 h) — hrad pak ale vyjde až na pondělní ráno a Blue Eye na ~10:30.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Vodopád Bogovë — tůně na koupání (50 min z Beratu + 20 min pěšky) · jezera Belsh (varianta trasy přes Elbasan, +30 min) · Cold War Tunnel v Gjirokastře (úniková záložka na vedro, 200 LEK, vstupy v celou hodinu 10–15 h)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 4 -->
+<div class="page">
+  <div class="day-head"><span class="num">4</span><span class="title">Blue Eye → Ksamil</span><span class="date">pondělí 10. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil (9.4/10, se snídaní, 300 m od pláže) · platba 390 € hotově</div>
+  <div class="move">🧳 Stěhování: Gjirokastër → Ksamil · ~60 km · ~1,5 h (přes Blue Eye)</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""><figcaption>Syri i Kaltër — Modré oko · foto Genti Mile, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place top">Syri i Kaltër — Modré oko ⭐</td><td>50 LEK + parkování, cash; 2 km pěšky stinnou rovinkou; koupání zakázáno; od 10:00 davy</td></tr>
+    <tr><td class="time">11:00</td><td class="place">Pláž Ksamil — první koupání!</td><td>mělko, bez vln; oběd na pláži; šlapadlo 15 €/h</td></tr>
+  </table>
+  <div class="story">
+    <p>Vyjedeme v <strong>8:00</strong> — v <strong>8:30</strong> budeme u Modrého oka mezi prvními; kolem desáté už tam budou stát fronty tří řad. Od parkoviště nás čeká 2 km pěšky po rovné stinné cestě, u pramene fotky a svačina — koupat se nesmí.</p>
+    <p>V <strong>11:00</strong> nás čeká první koupání na pláži Ksamil — tyrkys jako z katalogu. Naobědváme se v plážové restauraci, uděláme check-in a odpoledne si půjčíme šlapadlo k ostrovům, nebo vytáhneme kyblík a lopatku. Kdyby v neděli nevyšel hrad: ráno hrad v 9:00 na otvíračku a Blue Eye ~10:30.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Mirror Beach (klidnější, rozbitá cesta) · promenáda Saranda večer · šnorchlování u ostrovů</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 5 -->
+<div class="page">
+  <div class="day-head"><span class="num">5</span><span class="title">Butrint + pláž + západ slunce</span><span class="date">úterý 11. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""><figcaption>Antické divadlo v Butrintu · foto Marcin Konsek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">9:00</td><td class="place top">Butrint — UNESCO ⭐</td><td>1 000 LEK, děti do 12 zdarma; ruiny v lese, želvy; ~2 h</td></tr>
+    <tr><td class="time">11:30</td><td class="place">Hrad Ali Pashi</td><td>loďka od vstupu do Butrintu, ~10 €/os, 10 min plavba</td></tr>
+    <tr><td class="time">13:30</td><td class="place">Oběd + pláž Ksamil</td><td>odpočinkové odpoledne</td></tr>
+    <tr><td class="time">19:00</td><td class="place">Hrad Lëkurësi — západ slunce</td><td>REZERVOVAT STŮL; přijet 30–45 min předem; vstup zdarma</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>9:00</strong> budeme na otvíračce Butrintu — řecké a římské ruiny zarostlé v lese, stinné pěšiny, divadlo, mozaiky a hlavně želvy: pro děti Indiana Jones. V <strong>11:30</strong> se necháme rovnou od vstupu převézt loďkou přes kanál Vivari na hrad Ali Pashi — pirátskou pevnost na ostrůvku.</p>
+    <p>Ve <strong>13:30</strong> oběd a pláž v Ksamilu. V <strong>18:15</strong> vyrazíme na hrad Lëkurësi — stůl si rezervujeme předem, parkoviště se plní brzy. Odměnou bude výhled na Korfu a celou Sarandu. Kdyby děti nestíhaly, západ slunce oželíme — půjde nahradit v ranní verzi zítra.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Trajekt na Korfu (celodenní, ~20 €/os zpáteční) · Monastery Beach · klášter 40 svatých nad Sarandou</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 6 -->
+<div class="page">
+  <div class="day-head"><span class="num">6</span><span class="title">Plážový odpočinkový den ☀️</span><span class="date">středa 12. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""><figcaption>Ostrůvky u Ksamilu · foto grigora, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">9:00</td><td class="place">Pláž — celý den</td><td>na hlavní pláži být do 10:00 (lehátka 7–22 €); klidnější: Edon-Bina, Monastery Beach</td></tr>
+    <tr><td class="time">odp.</td><td class="place">Speedboat 5 ostrovů</td><td>~2 h, ~16–18 €/os, rezervovat online (GetYourGuide/Viator)</td></tr>
+    <tr><td class="time">18:30</td><td class="place">Saranda — Luna Park Gjika</td><td>kolotoče, ruské kolo, vodní atrakce; platí se jednotlivě</td></tr>
+  </table>
+  <div class="story">
+    <p>Den bez budíku — jen jedno pravidlo: na hlavní pláži budeme do <strong>10:00</strong>, jinak nebude kam si lehnout. Klidnější variantou pro šnorchlování bude přírodní Edon-Bina (15 min pěšky od parkoviště, vezmeme vlastní stín a boty do vody). Přes poledne siesta v hotelu.</p>
+    <p>Odpoledne vyrazíme na speedboat kolem 5 ostrovů, nebo budeme šnorchlovat rovnou z pláže. Večer zajedeme do Sarandy na promenádu: Luna Park Gjika — autodrom, ruské kolo, nafukovací vodní park, palačinky.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Krorëz &amp; Kakome — půldenní loď na panenské pláže (oběd v ceně) · Lëkurësi ráno (pokud nevyšel včera) · potápění pro začátečníky od 8 let (~30–40 €)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 7 -->
+<div class="page">
+  <div class="day-head"><span class="num">7</span><span class="title">Riviéra → Llogara → Vlora</span><span class="date">čtvrtek 13. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Pararse Apartments, Vlora (9.4/10, kuchyňka, výhled na moře) · platba 109 € hotově</div>
+  <div class="move">🧳 Stěhování: Ksamil → Vlora · ~150 km · ~3 h (přes Riviéru)</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Borsh_from_Qeparo.jpg/960px-Borsh_from_Qeparo.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg/960px-Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Pláž Borsh (Arianit, CC BY-SA 4.0) · výhled z průsmyku Llogara (S. Hahn Darlin, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place">Odjezd z Ksamilu</td><td>sbaleno večer předem</td></tr>
+    <tr><td class="time">9:30</td><td class="place top">Pláž Borsh ⭐</td><td>nejpozvolnější vstup do vody na Riviéře; koupání + oběd v taverně; odjezd ~13:00</td></tr>
+    <tr><td class="time">14:30</td><td class="place top">Průsmyk Llogara ⭐</td><td>POZOR: nejet tunelem! Stará silnice = jeleni (krmení ~50 LEK) + vyhlídka Panorama</td></tr>
+    <tr><td class="time">17:30</td><td class="place">Vlora — check-in</td><td>večeře na promenádě Lungomare</td></tr>
+  </table>
+  <div class="story">
+    <p>Sbalíme se a v <strong>8:30</strong> vyrazíme na sever po pobřežní silnici. V <strong>9:30</strong> zastavíme na pláži Borsh — malý si sedne 10 m od břehu po kotníky. Prokoupeme celé dopoledne, naobědváme se v taverně přímo u pláže a ve <strong>13:00</strong> pojedeme dál.</p>
+    <p>Na Llogaru NEpojedeme tunelem — navigace nás tam bude tlačit, ale jeleni a výhledy jsou na staré silnici přes průsmyk (exit Llogara National Park). Ve <strong>14:30</strong> nakrmíme ochočené jeleny u Llogara Tourist Village a zastavíme na vyhlídce Panorama s výhledem až na Korfu. V <strong>17:30</strong> se ubytujeme a navečeříme na promenádě Lungomare.</p>
+  </div>
+  <div class="alts"><b>Alternativy po cestě</b>Himara — promenáda + hrad · Dhermi / Drymades — beach bary · Gjipe Beach (jen lodním shuttlem z Himary, 10–20 €) · Porto Palermo — pevnost (300 LEK cash, jen jako krátká zastávka)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 8 -->
+<div class="page">
+  <div class="day-head"><span class="num">8</span><span class="title">Jeskyně Haxhi Ali lodí + laguna</span><span class="date">pátek 14. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Pararse Apartments, Vlora</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_View_of_Karaburun_from_the_coast_of_Vlora.jpg/960px-The_View_of_Karaburun_from_the_coast_of_Vlora.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg/960px-Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Karaburun od Vlory (AKisOK, CC BY-SA 4.0) · klášter Zvërnec (Pudelek, CC BY-SA 3.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place top">Port of Vlora — sraz ⭐</td><td>REZERVOVÁNO na 9:00; 92 € za rodinu hotově na místě; 3,5 h</td></tr>
+    <tr><td class="time">12:30</td><td class="place">Návrat + oběd</td><td>u přístavu</td></tr>
+    <tr><td class="time">14:00</td><td class="place">Laguna Narta</td><td>teplá mělká voda bez vln, 20 min od centra</td></tr>
+    <tr><td class="time">17:00</td><td class="place">Zvërnec</td><td>270m dřevěný most na klášterní ostrov; zdarma</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:30</strong> budeme v přístavu — speedboat k jeskyni Haxhi Ali je rezervovaný vrchol týdne: mořská jeskyně pirátů, divoký poloostrov Karaburun a koupání v zátoce Shen Vasil. Vrátíme se kolem <strong>12:30</strong> a naobědváme se u přístavu.</p>
+    <p>Ve <strong>14:00</strong> se přesuneme na lagunu Narta — teplá mělká voda bez vln. V <strong>17:00</strong> přejdeme k Zvërnecu: dřevěný most nás dovede na klášterní ostrov, stinná procházka (plameňáky čekat nebudeme — v srpnu tu nejsou). Večer nás čeká poslední albánská večeře na Lungomare.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Městská pláž Vlora (nejjednodušší, ale nejslabší voda) · ostrov Sazan lodí (celodenní, ~35 €/os)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 9 -->
+<div class="page">
+  <div class="day-head"><span class="num">9</span><span class="title">Vlora → letiště → domů</span><span class="date">sobota 15. 8.</span></div>
+  <div class="sleep">✈️ Odlet 18:35 (Tirana → Vídeň 20:05)</div>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""><figcaption>Apollonia · foto Carole Raddato, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">ráno</td><td class="place">Poslední koupání + balení</td><td>odjezd ~10:30; letiště 2–2,5 h po dálnici</td></tr>
+    <tr><td class="time">11:00</td><td class="place">Apollonia (volitelně)</td><td>~15 min od sjezdu Levan; ~600 LEK; bez stínu — max 45 min</td></tr>
+    <tr><td class="time">15:00</td><td class="place">Letiště TIA</td><td>natankovat, vrátit auto (vyfotit stav!), odbavení</td></tr>
+    <tr><td class="time">18:35</td><td class="place">Odlet ✈️</td><td>přílet Vídeň 20:05</td></tr>
+  </table>
+  <div class="story">
+    <p>Ráno si naposledy zaplaveme a sbalíme se; kolem <strong>10:30</strong> vyrazíme. Volitelně zastavíme u Apollonie — ruiny z 6. století př. n. l. jsou ale v poledne bez stínu, takže max 45 minut. Oběd si dáme cestou.</p>
+    <p>V <strong>15:00</strong> budeme na letišti: natankujeme, vrátíme auto a odbavíme se. Mirupafshim, Albánie! 🇦🇱</p>
+  </div>
+  <div class="alts"><b>Alternativy po cestě</b>Klášter Ardenica (10 min od silnice, stinný, ~30 min) · amfiteátr Durrës (400 LEK) · poslední koupání Golem Beach (40 min od letiště)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- UBYTOVÁNÍ -->
+<div class="page">
+  <h2>🛏️ Ubytování — vše rezervováno, platba hotově v EUR na místě</h2>
+
+  <div class="hotel">
+    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/477685725.webp?k=43e2f12c228b255f7930327d20b71bf57f86182d86356a6d6b23e18999590f6f&o=" alt="">
+    <div class="hbody">
+    <span class="hprice">108 €</span>
+    <div class="hname">Vila Murati — Tirana</div>
+    <div class="hmeta">7.–9. 8. · 2 noci · hodnocení 9.2 · 2,1 km od centra · se snídaní</div>
+    Klidná vila se zahradou stranou od ruchu města. Ráno domácí snídaně na terase, večer ticho a hvězdy — ideální na dobrý start po příletu.</div>
+  </div>
+
+  <div class="hotel">
+    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/149137018.webp?k=87a83be956bd28e9b599ec4c23b3b966ce54fd65bf71278821f03d7862102e12&o=" alt="">
+    <div class="hbody">
+    <span class="hprice">35 €</span>
+    <div class="hname">Guest House Urat — Gjirokastër</div>
+    <div class="hmeta">9.–10. 8. · 1 noc · hodnocení 9.3 · 0,5 km od centra · se snídaní</div>
+    Rodinný penzion v srdci kamenného města. Z balkonu výhled na osvětlený hrad a staré osmanské domy. Snídaně s domácím ovocem, sýry a čerstvým chlebem.</div>
+  </div>
+
+  <div class="hotel">
+    <img src="https://r-xx.bstatic.com/xdata/images/hotel/608x352/703669134.webp?k=c24be1613ed5201206c91e21a9119bc08ed4f429a75f9430b2a289e7f9eeb9c6&o=" alt="">
+    <div class="hbody">
+    <span class="hprice">390 €</span>
+    <div class="hname">Family Hotel Haruni — Ksamil</div>
+    <div class="hmeta">10.–13. 8. · 3 noci · hodnocení 9.4 · balkon s výhledem na moře · ~300 m od pláže · se snídaní</div>
+    Tři noci u tyrkysového moře. Z balkonu ráno výhled na moře, pláž 3 minuty pěšky. Nové čisté pokoje, zahrada s květinami.</div>
+  </div>
+
+  <div class="hotel">
+    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/570033341.webp?k=56ea25ce01e37e53d4ceb14245405c224d73b2f6754a074767f15f326c567f32&o=" alt="">
+    <div class="hbody">
+    <span class="hprice">109 €</span>
+    <div class="hname">Pararse Apartments — Vlora</div>
+    <div class="hmeta">13.–15. 8. · 2 noci · hodnocení 9.4 · ~600 m od pláže · kuchyňka · bez snídaně</div>
+    Zelená oáza mezi olivovníky uprostřed města. Velký balkon s panoramatem na moře, poloostrov Karaburun a ostrov Sazan — západy slunce, u kterých se zastaví čas.</div>
+  </div>
+
+  <h2 style="margin-top:16px">✅ Před odjezdem</h2>
+  <table class="simple">
+    <tr><td>☐ Dálniční známka Rakousko</td><td>☐ Naskenovat řidičák</td></tr>
+    <tr><td>☐ Check-in na letenky</td><td>☐ SIM data / roaming</td></tr>
+    <tr><td>☐ Rezervovat stůl Lëkurësi (Út 11. 8. ~19:30)</td><td>☐ Rezervovat speedboat 5 ostrovů (St 12. 8.)</td></tr>
+    <tr><td>☐ Rozměnit ~30 100 Kč → 1 194 €</td><td>☐ Nosítko pro malého (hrady!)</td></tr>
+  </table>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- RESTAURACE -->
+<div class="page">
+  <h2>🍽️ Tipy na restaurace</h2>
+
+  <div class="rest-city">Tirana</div>
+  <div class="rest"><b>Oda Restaurant</b> — osmanský dům u New Bazaar, dvorek s živou hudbou; Tavë Kosi. Cash only. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Oda Garden</b> — open-air terasa, živá kapela od 20:00, skvělé pro rodinnou večeři. Cash only. <span class="cost">~800–1 200 Kč</span></div>
+  <div class="rest"><b>Era</b> (Blloku) — tradiční jídla s moderním twistem, kvalitní pizza pro děti. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Mullixhiu</b> — slow food u Grand Parku, degustační menu 30 €/os; rezervovat. <span class="cost">~1 500–2 500 Kč</span></div>
+  <div class="rest"><b>Pizza Paris</b> — záchrana, když děti chtějí „normální“ jídlo; u Skanderbegova nám. <span class="cost">~500–800 Kč</span></div>
+
+  <div class="rest-city">Berat</div>
+  <div class="rest"><b>Homemade Food Lili</b> — večeře na zahradě Liliho domu, jen na rezervaci; „nejlepší jídlo v Albánii“. <span class="cost">~800–1 200 Kč</span></div>
+  <div class="rest"><b>Onufri (Hotel Mangalemi)</b> — terasa s výhledem na čtvrť tisíce oken, grilovaný pstruh. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Antipatrea Traditional</b> — klimatizace (v srpnu!), dětské menu, Berati Vienez. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>White House</b> — panoramatická terasa na hrad; ideální oběd před cestou dál. <span class="cost">~700–1 100 Kč</span></div>
+
+  <div class="rest-city">Gjirokastër</div>
+  <div class="rest"><b>Taverna Kuka</b> — qifqi (rýžové kuličky s mátou), jehněčí v jogurtu, útulno. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Odaja</b> — rodinný podnik, velkorysé porce, vhodné pro děti. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Te Tradita</b> — kamenný dům v bazaru, babiččiny recepty, dezert qumështor. <span class="cost">~600–1 000 Kč</span></div>
+
+  <div class="rest-city">Ksamil + Saranda</div>
+  <div class="rest"><b>The Mussel House</b> — na břehu Butrintského jezera, mušle z vlastních farem; pro děti poník! <span class="cost">~1 300–1 900 Kč</span></div>
+  <div class="rest"><b>Guvat Mediterranean</b> — u pláže, opilé krevety, výhled. <span class="cost">~1 200–1 700 Kč</span></div>
+  <div class="rest"><b>GiGu Souvlaki &amp; Grill</b> — rychlé řecké, když děti nechtějí čekat. <span class="cost">~400–700 Kč</span></div>
+  <div class="rest"><b>Grill Zone</b> — balkánský gril, výborný poměr cena/výkon. <span class="cost">~500–800 Kč</span></div>
+  <div class="rest"><b>Taverna Mira Mare</b> (Saranda) — promenáda, západ slunce nad Korfu. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Limani Fishing</b> (Saranda) — ryba dne z přístavu, víc místních než turistů. <span class="cost">~1 100–1 700 Kč</span></div>
+
+  <div class="rest-city">Vlora</div>
+  <div class="rest"><b>Paradise Beach Restaurant</b> — 29 let na pobřeží, beachfront, dětské stoličky. <span class="cost">~800–1 300 Kč</span></div>
+  <div class="rest"><b>Taverna Xhakaj</b> — rodinná taverna, ceny pro místní, skvělé qofte. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Te Fabio</b> — Lungomare, čerstvé ryby, „cítíte se jako v rodině“. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Tea Beach</b> (Radhima) — risotto z plodů moře, dětský koutek. <span class="cost">~1 100–1 700 Kč</span></div>
+
+  <h2 style="margin-top:14px">🗣️ Minifráze</h2>
+  <table class="simple">
+    <tr><td>Dobrý den</td><td><b>Mirëdita</b> [mir-dita]</td><td>Děkuji</td><td><b>Faleminderit</b> [fale-min-derit]</td></tr>
+    <tr><td>Prosím</td><td><b>Ju lutem</b> [ju lutem]</td><td>Kolik to stojí?</td><td><b>Sa kushton?</b> [sa kušton]</td></tr>
+    <tr><td>Ano / Ne</td><td><b>Po / Jo</b> — pozor, obráceně než česky zní!</td><td>Na shledanou</td><td><b>Mirupafshim</b></td></tr>
+  </table>
+
+  <div class="footer">Interaktivní verze s mapou: slaava.github.io/albania · fotky: Wikimedia Commons (licence CC) a Booking.com · vygenerováno 4. 8. 2026</div>
+</div>
+
+</body>
+</html>
