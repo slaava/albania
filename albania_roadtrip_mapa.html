@@ -2130,6 +2130,12 @@
     font-variant-numeric: tabular-nums;
   }
   .cash-highlight-value .czk { color: var(--text); }
+  .cash-highlight-sub {
+    font-size: 0.78em;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
   .cash-group {
     background: var(--card);
     border-radius: var(--radius);
@@ -2674,6 +2680,25 @@
     </div>
 
     <div class="plan-section collapsed">
+      <h3 onclick="this.parentElement.classList.toggle('collapsed')">🍲 Co ochutnat — must-have jídla</h3>
+      <div class="plan-body">
+        <div class="plan-info">
+          <div class="plan-item"><span class="plan-icon">🥘</span><div><strong>Tavë kosi</strong> — národní jídlo: jehněčí zapečené v jogurtu s vejci a rýží. Krémové, jemné, děti ho jedí bez řečí. Nejlepší v Odě v Tiraně.</div></div>
+          <div class="plan-item"><span class="plan-icon">🥧</span><div><strong>Byrek</strong> — listové těsto se sýrem, špenátem nebo masem. Snídaně/svačina za ~100 LEK z pekárny, k tomu <strong>dhallë</strong> (slaný jogurtový nápoj).</div></div>
+          <div class="plan-item"><span class="plan-icon">🍚</span><div><strong>Qifqi</strong> — smažené rýžové kuličky s mátou a vejci. Existují JEN v Gjirokastře — neminout (Taverna Kuka).</div></div>
+          <div class="plan-item"><span class="plan-icon">🫑</span><div><strong>Fërgesë</strong> — zapečené papriky, rajčata a domácí sýr gjizë. Léto na talíři, skvělé i pro vegetariány.</div></div>
+          <div class="plan-item"><span class="plan-icon">🍢</span><div><strong>Qofte</strong> — grilované mleté karbanátky; s hranolky a salátem jistota pro děti kdekoli.</div></div>
+          <div class="plan-item"><span class="plan-icon">🦪</span><div><strong>Mušle z Butrintské laguny</strong> — chovají se přímo pod Ksamilem; čerstvější nikde nejsou (The Mussel House). Na pobřeží obecně: ryba dne z grilu.</div></div>
+          <div class="plan-item"><span class="plan-icon">🥗</span><div><strong>Sallatë fshati</strong> — vesnický salát s bílým sýrem a olivami; rajčata tu chutnají jako od babičky ze zahrádky.</div></div>
+          <div class="plan-item"><span class="plan-icon">🍩</span><div><strong>Petulla</strong> — smažené koblížky k snídani, s medem nebo sýrem. V penzionech bývají součástí domácí snídaně.</div></div>
+          <div class="plan-item"><span class="plan-icon">🍰</span><div><strong>Trilece</strong> — piškot nasáklý třemi druhy mléka s karamelem. Albánská národní posedlost, děti ho budou chtít každý den.</div></div>
+          <div class="plan-item"><span class="plan-icon">🥃</span><div><strong>Raki</strong> — hroznová pálenka, nabízí se všude a často zdarma „na uvítanou“ (40–50 %, opatrně). K tomu <strong>albánské víno</strong> — u Beratu vinařství Çobo.</div></div>
+          <div class="plan-item"><span class="plan-icon">☕</span><div><strong>Káva</strong> — Albánie je kávová velmoc, espresso ~80–120 LEK. <strong>Birra Korça / Tirana</strong> — místní piva k večeři (~200–300 LEK).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan-section collapsed">
       <h3 onclick="this.parentElement.classList.toggle('collapsed')">🍽️ Tipy na restaurace</h3>
       <div class="plan-body">
         <div class="baggage-note">
@@ -3184,8 +3209,9 @@
       <div class="plan-body">
 
         <div class="cash-highlight">
-          <div class="cash-highlight-label">Rozměnit doma CZK → EUR</div>
-          <div class="cash-highlight-value"><span class="czk" id="cashEurTotalCzk">30 089 Kč</span> → <span id="cashEurTotal">1 194 €</span></div>
+          <div class="cash-highlight-label">✅ Rozměněno doma</div>
+          <div class="cash-highlight-value"><span class="czk">40 000 Kč</span> → <span>~1 587 €</span></div>
+          <div class="cash-highlight-sub">Fixní platby <span id="cashEurTotal">1 194 €</span> (≈ <span id="cashEurTotalCzk">30 089 Kč</span>) + rezerva ~390 € — z ní na místě směníme LEK na jídlo a vstupy. Větší hotovost v EUR se v Albánii hodí: EUR tu berou skoro všude a směnárny mají férové kurzy.</div>
         </div>
 
         <div class="cash-group">
@@ -3200,11 +3226,11 @@
         </div>
 
         <div class="cash-group">
-          <div class="cash-group-title">🇦🇱 LEK — vybrat/směnit až v Albánii</div>
+          <div class="cash-group-title">🇦🇱 LEK — směníme z EUR až v Albánii</div>
           <div class="cash-item"><span>🍽️ Jídlo a pití (dle rozpočtu)</span><span id="cashLekFood">~63 500 LEK</span></div>
           <div class="cash-item"><span>🎟️ Atrakce a vstupy (dle rozpočtu)</span><span id="cashLekAttr">~19 800 LEK</span></div>
           <div class="cash-total"><span>Celkem LEK</span><span id="cashLekSum">~83 300 LEK</span></div>
-          <div class="cash-note">LEK není potřeba vozit z domova — bankomaty jsou v každém městě (vybírejte v LEK, ne v EUR přepočtu bankomatu). Spousta vstupů je cash only (Blue Eye 50 LEK, Lëkurësi, hrady). Větší restaurace a supermarkety berou kartu, takže není nutné mít celou částku v hotovosti najednou.</div>
+          <div class="cash-note">LEK získáme směnou EUR ve směnárně na místě (kurz ~100 LEK/€ je ve městech férový; vyhnout se letišti a stánkům u pláží). Neměňte vše najednou — LEK zpátky na EUR se mění špatně. Spousta vstupů je cash only (Blue Eye 50 LEK, Lëkurësi, hrady, Porto Palermo). Menší podniky často vezmou i EUR (drobné nazpět v LEK), větší restaurace a supermarkety berou kartu. Bankomat jen jako záloha — vybírat v LEK, ne v EUR přepočtu bankomatu.</div>
         </div>
 
       </div>
