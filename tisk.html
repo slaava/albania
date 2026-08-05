@@ -32,9 +32,8 @@
   figure { margin: 8px 0 10px; }
   .fig2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .fig2 img { max-height: 190px; }
-  .hotel { display: flex; gap: 12px; }
-  .hotel img { width: 200px; height: 132px; object-fit: cover; flex-shrink: 0; }
-  .hotel .hbody { flex: 1; }
+  .hotel .hgal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+  .hotel .hgal img { width: 100%; height: 92px; object-fit: cover; display: block; }
   .mapfig img { max-height: none; border: 1px solid #ddd; }
   .mapfig-s img { max-height: 92mm; width: auto; max-width: 100%; margin: 0 auto; display: block; }
   figure img { width: 100%; max-height: 230px; object-fit: cover; display: block; }
@@ -187,7 +186,11 @@
 <div class="page">
   <div class="day-head"><span class="num">1</span><span class="title">Přílet + Tirana</span><span class="date">pátek 7. 8.</span></div>
   <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana (9.2/10, se snídaní) · platba 108 € hotově</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg/960px-Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg" alt=""><figcaption>Skanderbegovo náměstí · foto Pudelek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg/960px-Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tirana_-_Skanderbeg_Square_by_night.JPG/960px-Tirana_-_Skanderbeg_Square_by_night.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">náměstí ve dne a večer (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">14:10</td><td class="place">Přílet TIA</td><td>pasová kontrola ~45 min</td></tr>
@@ -207,7 +210,11 @@
 <div class="page">
   <div class="day-head"><span class="num">2</span><span class="title">Lanovka Dajti + BunkArt</span><span class="date">sobota 8. 8.</span></div>
   <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""><figcaption>Lanovka Dajti Ekspres · foto Leeturtle, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Panorama_photo_of_Tirana_from_Dajti_mountain.jpg/960px-Panorama_photo_of_Tirana_from_Dajti_mountain.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">lanovka (Leeturtle, CC BY-SA 4.0) · panorama Tirany z Dajti (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">8:45</td><td class="place top">Dajti Ekspres ⭐</td><td>lanovka ~1 400/600 LEK; nahoře Adventure Park (tarif 5–7 let €12; věk nekontrolují, rozhoduje dosah), minigolf, oběd s výhledem</td></tr>
@@ -254,7 +261,11 @@
   <div class="day-head"><span class="num">4</span><span class="title">Blue Eye → Ksamil</span><span class="date">pondělí 10. 8.</span></div>
   <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil (9.4/10, se snídaní, 300 m od pláže) · platba 390 € hotově</div>
   <div class="move">🧳 Stěhování: Gjirokastër → Ksamil · ~60 km · ~1,5 h (přes Blue Eye)</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""><figcaption>Syri i Kaltër — Modré oko · foto Genti Mile, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Blue_Eye_Albania.jpg/960px-Blue_Eye_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">„oko" pramene (G. Mile, CC BY-SA 4.0 · GumYBo, CC BY 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">8:30</td><td class="place top">Syri i Kaltër — Modré oko ⭐</td><td>50 LEK + parkování, cash; 2 km pěšky stinnou rovinkou; koupání zakázáno; od 10:00 davy</td></tr>
@@ -272,7 +283,11 @@
 <div class="page">
   <div class="day-head"><span class="num">5</span><span class="title">Butrint + pláž + západ slunce</span><span class="date">úterý 11. 8.</span></div>
   <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""><figcaption>Antické divadlo v Butrintu · foto Marcin Konsek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Mosaic_of_Butrint_Baptistery.jpg/960px-Mosaic_of_Butrint_Baptistery.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">divadlo (M. Konsek, CC BY-SA 4.0) · mozaika baptisteria (Albinfo, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">9:00</td><td class="place top">Butrint — UNESCO ⭐</td><td>1 000 LEK, děti do 12 zdarma; ruiny v lese, želvy; ~2 h</td></tr>
@@ -292,7 +307,11 @@
 <div class="page">
   <div class="day-head"><span class="num">6</span><span class="title">Plážový odpočinkový den ☀️</span><span class="date">středa 12. 8.</span></div>
   <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""><figcaption>Ostrůvky u Ksamilu · foto grigora, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ksamil_-_Strand_3.jpg/960px-Ksamil_-_Strand_3.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">ostrůvky (grigora, CC BY 2.0) · pláž (W. Sauber, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">9:00</td><td class="place">Pláž — celý den</td><td>na hlavní pláži být do 10:00 (lehátka 7–22 €); klidnější: Edon-Bina, Monastery Beach</td></tr>
@@ -360,7 +379,11 @@
 <div class="page">
   <div class="day-head"><span class="num">9</span><span class="title">Vlora → letiště → domů</span><span class="date">sobota 15. 8.</span></div>
   <div class="sleep">✈️ Odlet 18:35 (Tirana → Vídeň 20:05)</div>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""><figcaption>Apollonia · foto Carole Raddato, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG/960px-Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">nymfeum (C. Raddato, CC BY 2.0) · odeon (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <table class="program">
     <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
     <tr><td class="time">ráno</td><td class="place">Poslední koupání + balení</td><td>odjezd ~10:30; letiště 2–2,5 h po dálnici</td></tr>
@@ -381,7 +404,7 @@
   <h2>🛏️ Ubytování — vše rezervováno, platba hotově v EUR na místě</h2>
 
   <div class="hotel">
-    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/477685725.webp?k=43e2f12c228b255f7930327d20b71bf57f86182d86356a6d6b23e18999590f6f&o=" alt="">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/477685725.jpg?k=43e2f12c228b255f7930327d20b71bf57f86182d86356a6d6b23e18999590f6f&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/546460495.jpg?k=b4b26f00d7a7022bcc8170a7f69337c0339c2e3fa27732ac132c0c7a5b45de3e&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/546460499.jpg?k=1efc05d56ea69413313b02149b633cfc61996f9dbf7cb5c759ebf3d2e316a8ab&o=" alt=""></div>
     <div class="hbody">
     <span class="hprice">108 €</span>
     <div class="hname">Vila Murati — Tirana</div>
@@ -390,7 +413,7 @@
   </div>
 
   <div class="hotel">
-    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/149137018.webp?k=87a83be956bd28e9b599ec4c23b3b966ce54fd65bf71278821f03d7862102e12&o=" alt="">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137018.jpg?k=87a83be956bd28e9b599ec4c23b3b966ce54fd65bf71278821f03d7862102e12&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137015.jpg?k=96396f213d08ea9a7c46aafd4b6f928f3222e26d2bb1b37b5056784ca42aa233&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137025.jpg?k=38ce40ff71ad916d7fa6b94a0a0f69343e14cf5b851f06d9b67120ec072c6ee0&o=" alt=""></div>
     <div class="hbody">
     <span class="hprice">35 €</span>
     <div class="hname">Guest House Urat — Gjirokastër</div>
@@ -399,7 +422,7 @@
   </div>
 
   <div class="hotel">
-    <img src="https://r-xx.bstatic.com/xdata/images/hotel/608x352/703669134.webp?k=c24be1613ed5201206c91e21a9119bc08ed4f429a75f9430b2a289e7f9eeb9c6&o=" alt="">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/703669134.jpg?k=c24be1613ed5201206c91e21a9119bc08ed4f429a75f9430b2a289e7f9eeb9c6&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/673900154.jpg?k=22532da3625f92b28afbe6e4817672ff85d60c7c71c3503e8b0d27ad86d032aa&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/889937585.jpg?k=abc073a75e454535374abb10c65e8ed6ca6aba06c0c8b65b34a8775d0dfb9777&o=" alt=""></div>
     <div class="hbody">
     <span class="hprice">390 €</span>
     <div class="hname">Family Hotel Haruni — Ksamil</div>
@@ -408,7 +431,7 @@
   </div>
 
   <div class="hotel">
-    <img src="https://q-xx.bstatic.com/xdata/images/hotel/608x352/570033341.webp?k=56ea25ce01e37e53d4ceb14245405c224d73b2f6754a074767f15f326c567f32&o=" alt="">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/570033341.jpg?k=56ea25ce01e37e53d4ceb14245405c224d73b2f6754a074767f15f326c567f32&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/301727143.jpg?k=120ef5dff0b4314ea91dc785e85bcc988123d9cc231c8821a057be9747e6f2bb&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/374322122.jpg?k=bcde44d701881d7502ff2abba7cac9c8ef1c2d800f629c1813938fb9029d00e4&o=" alt=""></div>
     <div class="hbody">
     <span class="hprice">109 €</span>
     <div class="hname">Pararse Apartments — Vlora</div>
@@ -470,7 +493,11 @@
 <div class="page">
   <div class="region-label">Tirana a okolí · den 2</div>
   <h2>⭐ Dajti Ekspres — lanovkou nad hlavní město</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""><figcaption>foto Leeturtle, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Panorama_photo_of_Tirana_from_Dajti_mountain.jpg/960px-Panorama_photo_of_Tirana_from_Dajti_mountain.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">lanovka (Leeturtle, CC BY-SA 4.0) · panorama Tirany z Dajti (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Nejdelší lanovka na Balkáně vás za patnáct minut vynese z rozpálené Tirany do horského chládku ve výšce přes 1 000 metrů — 4,3 km nad údolími, bunkry a olivovými háji. Nahoře se hraje minigolf s výhledem na celé město, děti prolézají lanový Adventure Park a obědvá se v horské restauraci, zatímco dole se město vaří ve 35 °C.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>~1 400 LEK, děti 600 LEK</div>
@@ -487,7 +514,11 @@
 <div class="page">
   <div class="region-label">Tirana a okolí · den 2</div>
   <h2>⭐ BunkArt 1 &amp; 2 — do atomového krytu diktátora</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bunk%27Art_1_Entrance.jpg/960px-Bunk%27Art_1_Entrance.jpg" alt=""><figcaption>vstup do BunkArt 1 · foto BBB2021, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bunk%27Art_1_Entrance.jpg/960px-Bunk%27Art_1_Entrance.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bunk%27Art_1%2C_Tirana%2C_Albania_%2849769316342%29.jpg/960px-Bunk%27Art_1%2C_Tirana%2C_Albania_%2849769316342%29.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">vstup (BBB2021, CC BY-SA 4.0) · podzemí bunkru (A. Milligan, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Pětipatrový podzemní bunkr, který si nechal Enver Hodža vybudovat pro případ jaderné války: 106 místností, velitelské sály, tunely a dobové rekvizity. Děti ho projdou jako tajemné bludiště, dospělí dostanou nejsilnější lekci albánské historie 20. století. V podzemí je celoročně kolem 15 °C — v srpnu požehnání. Menší BunkArt 2 stojí přímo u Skanderbegova náměstí a věnuje se tajné policii Sigurimi.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>~900 LEK / objekt</div>
@@ -585,7 +616,11 @@
 <div class="page">
   <div class="region-label">Vnitrozemí · den 3</div>
   <h2>⭐ Hrad Berat — město tisíce oken (UNESCO)</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg/960px-Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg" alt=""><figcaption>čtvrť Mangalem · foto Christoph Strässler, Wikimedia Commons, CC BY-SA 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg/960px-Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Castle_of_Berat%2C_inside.jpg/960px-Castle_of_Berat%2C_inside.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">čtvrť tisíce oken (Ch. Strässler, CC BY-SA 2.0) · uvnitř hradeb (Miran100897, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Jediný hrad v Albánii, ve kterém se pořád normálně žije: za hradbami ze 13. století stojí obydlené domky, kostelíky, vinárny a restaurace. Děti uslyší legendu o dvou bratrech obrech, dospělí se pokochají výhledem na řeku Osum a bílou čtvrť Mangalem — „město tisíce oken“, kvůli kterému je Berat na seznamu UNESCO. Oběd přímo mezi hradbami patří k zážitkům zájezdu.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>300 LEK/os, jen hotově</div>
@@ -601,7 +636,11 @@
 <div class="page">
   <div class="region-label">Vnitrozemí · den 3, volitelná zajížďka</div>
   <h2>Vodopád Bogovë — tůně s ledovou vodou</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg/960px-Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg" alt=""><figcaption>foto Genc Krasniqi, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg/960px-Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bogove_Waterfall.jpg/960px-Bogove_Waterfall.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">vodopád a tůně (G. Krasniqi · Saranda lover, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Tyrkysový vodopád schovaný v horách Skraparu, pod nímž se dá koupat v přírodních tůních. Voda je křišťálová, ledová a po ránu stráveném na rozpáleném hradě chutná jako zázrak. Cesta od parkoviště vede podél potoka — 20 minut lehké chůze, kterou zvládne i předškolák (s přenášením přes pár kamenů).</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>zdarma</div>
@@ -643,7 +682,11 @@
 <div class="page">
   <div class="region-label">Vnitrozemí · den 3 večer</div>
   <h2>⭐ Hrad Gjirokastër — pevnost se špionážním letadlem</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/American_Spy_plane_in_Albania.jpg/960px-American_Spy_plane_in_Albania.jpg" alt=""><figcaption>špionážní letoun na hradě · foto xJasonRogersx, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/American_Spy_plane_in_Albania.jpg/960px-American_Spy_plane_in_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Gjirokast%C3%ABr_castle_rooftop_view.jpg/960px-Gjirokast%C3%ABr_castle_rooftop_view.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">špionážní letoun (xJasonRogersx, CC BY 2.0) · výhled z hradeb (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Kamenné město UNESCO, nad kterým trůní jedna z největších pevností Balkánu. Uvnitř: kobky, tajné průchody, sbírka děl — a na nádvoří americký špionážní letoun, sestřelený v dobách studené války, u kterého se děti neurvou od focení. Večer, kdy hradby chytají zlaté světlo a davy zmizely, je hrad úplně jiné místo než v poledním žáru. Dole v bazaru pak večeře: qifqi, smažené rýžové kuličky s mátou, existují jen tady.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>400 LEK, do 12 let zdarma (cash)</div>
@@ -659,7 +702,11 @@
 <div class="page">
   <div class="region-label">Vnitrozemí · den 4 ráno</div>
   <h2>⭐ Syri i Kaltër — Modré oko</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""><figcaption>foto Genti Mile, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Blue_Eye_Albania.jpg/960px-Blue_Eye_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">„oko" pramene (G. Mile, CC BY-SA 4.0 · GumYBo, CC BY 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Krasový pramen, ze kterého vyvěrá řeka barvy, jaká se nedá vyfotit věrně: sytě modrý střed „oka“ obklopený tyrkysovým prstencem. Hloubka pramene dodnes není přesně změřená — potápěči se dostali do 50 metrů a dno neviděli. Krátká stinná procházka podél kanálu patří k nejhezčím kilometrům celé cesty.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>50 LEK + parkovné, jen hotově</div>
@@ -700,7 +747,11 @@
 <div class="page">
   <div class="region-label">Ksamil a Saranda · dny 4–6</div>
   <h2>⭐ Pláž Ksamil a čtyři ostrovy</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""><figcaption>foto grigora, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ksamil_-_Strand_3.jpg/960px-Ksamil_-_Strand_3.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">ostrůvky (grigora, CC BY 2.0) · pláž (W. Sauber, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Bílý písek, mělká tyrkysová laguna a čtyři zelené ostrůvky na dosah — nejbližší jen 100–200 metrů od břehu, s klidným mořem přeplavatelný nebo dosažitelný šlapadlem za pět minut. Voda je teplá, průzračná a bez vln: děti z ní nedostanete. Tady stojí náš hotel a tady strávíme tři dny.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstup</b>pláže zdarma</div>
@@ -716,7 +767,11 @@
 <div class="page">
   <div class="region-label">Ksamil a Saranda · den 5</div>
   <h2>⭐ Butrint — antické město v lese (UNESCO)</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""><figcaption>antické divadlo · foto Marcin Konsek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Mosaic_of_Butrint_Baptistery.jpg/960px-Mosaic_of_Butrint_Baptistery.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">divadlo (M. Konsek, CC BY-SA 4.0) · mozaika baptisteria (Albinfo, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Řecké divadlo, římské lázně, byzantský baptisterium a benátská pevnost — 2 500 let historie zarostlé ve stínu vavřínů na poloostrově mezi lagunou a mořem. Mezi kameny se vyhřívají želvy, po stromech skáčou ještěrky a děti procházejí ruiny jako výpravu s Indiana Jonesem. Právem nejnavštěvovanější památka Albánie.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>1 000 LEK, do 12 let zdarma</div>
@@ -824,7 +879,11 @@
 <div class="page">
   <div class="region-label">Riviéra · den 7</div>
   <h2>⭐ Borsh — nejdelší a nejmělčí pláž Riviéry</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Borsh_from_Qeparo.jpg/960px-Borsh_from_Qeparo.jpg" alt=""><figcaption>foto Arianit, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Borsh_from_Qeparo.jpg/960px-Borsh_from_Qeparo.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Plazhi_i_Borshit%2C_Albania.jpg/960px-Plazhi_i_Borshit%2C_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Borsh od Qepara (Arianit, CC BY-SA 4.0) · na pláži (S. Hahn Darlin, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Sedm kilometrů pláže pod olivovými háji — nejdelší v Albánii a kupodivu pořád poloprázdná i v srpnu. Hlavní přednost pro nás: nejpozvolnější vstup do vody na celém pobřeží. Dítě si sedne deset metrů od břehu a má vodu po kotníky. Dopolední koupání, oběd v taverně s nohama v písku, a pak dál na sever.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstup</b>zdarma, lehátka levnější než Ksamil</div>
@@ -839,7 +898,11 @@
 <div class="page">
   <div class="region-label">Riviéra · den 7</div>
   <h2>⭐ Průsmyk Llogara — jeleni v oblacích</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg/960px-Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg" alt=""><figcaption>výhled z průsmyku na pláže Palasa a Nazar · foto Sharon Hahn Darlin, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg/960px-Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Pisha_e_Flamurit.jpg/960px-Pisha_e_Flamurit.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">výhled z průsmyku (S. Hahn Darlin, CC BY 2.0) · „vlajková" borovice (Albinfo, CC0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Serpentiny vystoupají z moře do 1 027 metrů, teplota spadne o deset stupňů a borovice rostou ohnuté větrem do tvaru vlajek. U Llogara Tourist Village se potulují polokrotcí jeleni, kteří si berou krmení z ruky — zážitek, kvůli kterému děti odpustí i serpentiny. Kousek dál vyhlídka Panorama: celá Riviéra pod vámi a za dobré viditelnosti Korfu.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstup</b>zdarma (krmení ~50 LEK)</div>
@@ -899,7 +962,11 @@
 <div class="page">
   <div class="region-label">Vlora · den 8 — vrchol zájezdu</div>
   <h2>⭐ Speedboat k jeskyni Haxhi Ali a na Karaburun</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_View_of_Karaburun_from_the_coast_of_Vlora.jpg/960px-The_View_of_Karaburun_from_the_coast_of_Vlora.jpg" alt=""><figcaption>Karaburun od vlorského pobřeží · foto AKisOK, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_View_of_Karaburun_from_the_coast_of_Vlora.jpg/960px-The_View_of_Karaburun_from_the_coast_of_Vlora.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Gjiri_i_Ariut_%28Brisan%29%2C_Karaburun._Albania.jpg/960px-Gjiri_i_Ariut_%28Brisan%29%2C_Karaburun._Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Karaburun od Vlory (AKisOK, CC BY-SA 4.0) · zátoka Gjiri i Ariut (Ehasimja, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Rezervovaný vrchol celé dovolené: rychlý člun podél divokého poloostrova Karaburun, kam nevede žádná silnice, vjezd přímo do mořské jeskyně Haxhi Ali — pojmenované po pirátovi, který se v ní skrýval — a koupání se šnorchly v zátoce Shen Vasil, kde je voda tak čistá, že loď vypadá, jako by levitovala.</p></div>
   <div class="facts">
     <div class="fact"><b>Cena</b>92 € za rodinu, hotově na místě</div>
@@ -935,7 +1002,11 @@
 <div class="page">
   <div class="region-label">Cestou domů · den 9</div>
   <h2>Apollonia — řecké město v polích (volitelně)</h2>
-  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""><figcaption>foto Carole Raddato, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG/960px-Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">nymfeum (C. Raddato, CC BY 2.0) · odeon (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
   <div class="story"><p>Ve starověku tu studoval budoucí císař Augustus; dnes z města zbývá elegantní průčelí bouleuterionu, odeon a klášter s muzeem uprostřed olivových hájů. Patnáct minut od dálnice — poslední dávka historie před odletem, pokud zbyde čas a síly.</p></div>
   <div class="facts">
     <div class="fact"><b>Vstupné</b>~600 LEK</div>
