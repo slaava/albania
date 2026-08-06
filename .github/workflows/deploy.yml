@@ -29,6 +29,7 @@ jobs:
           mkdir _site
           cp albania_roadtrip_mapa.html _site/index.html
           cp apple-touch-icon.png tisk.html mapa-*.png _site/
+          cp manifest.webmanifest sw.js icon-192.png icon-512.png _site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
