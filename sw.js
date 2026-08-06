@@ -3,9 +3,9 @@
 //  - App shell (HTML, icons, maps, CDN CSS/JS/fonts) is precached on install.
 //  - OSM tiles for Albania (zoom 8-10) are precached so the route map works offline;
 //    deeper zooms and remote images are cached at runtime as the user browses online.
-const CACHE = 'albania-v1';
+const CACHE = 'albania-v2';
 const TILE_CACHE = 'albania-tiles-v1';
-const RUNTIME_CACHE = 'albania-runtime-v1';
+const RUNTIME_CACHE = 'albania-runtime-v2';
 const TILE_LIMIT = 1200;
 
 const SHELL = [
@@ -111,6 +111,21 @@ self.addEventListener('fetch', event => {
         return res;
       } catch (e) {
         return new Response('', { status: 404 });
+      }
+    })());
+    return;
+  }
+
+  // Weather API: always network-first so forecasts stay fresh; cache only as offline fallback
+  if (url.hostname.endsWith('open-meteo.com')) {
+    event.respondWith((async () => {
+      const cache = await caches.open(RUNTIME_CACHE);
+      try {
+        const res = await fetch(req);
+        cache.put(req, res.clone());
+        return res;
+      } catch (e) {
+        return (await cache.match(req)) || Response.error();
       }
     })());
     return;

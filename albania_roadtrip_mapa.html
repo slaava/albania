@@ -1935,7 +1935,7 @@
     .header-left { text-align: left; }
     .header-tabs {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 3px;
       width: 100%;
       margin-top: 2px;
@@ -2107,6 +2107,37 @@
       padding-bottom: calc(14px + env(safe-area-inset-bottom));
     }
   }
+  .wx-updated { font-size: 0.75em; color: var(--muted); margin-bottom: 10px; }
+  .wx-note { font-size: 0.72em; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .wx-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .wx-day {
+    min-width: 120px;
+  }
+  .wx-day .d { font-weight: 600; color: var(--text); font-size: 0.88em; }
+  .wx-day .p { font-size: 0.74em; color: var(--accent); font-weight: 600; }
+  .wx-icon { font-size: 1.9em; line-height: 1; }
+  .wx-temp { font-size: 1.05em; font-weight: 700; color: var(--text); min-width: 74px; }
+  .wx-temp span { color: var(--muted); font-weight: 500; font-size: 0.82em; }
+  .wx-meta { font-size: 0.76em; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .wx-meta b { color: var(--text); font-weight: 600; }
+  .wx-second {
+    flex-basis: 100%;
+    font-size: 0.76em;
+    color: var(--muted);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+  .wx-warn { color: #f08060; font-weight: 600; }
   .cash-highlight {
     background: linear-gradient(135deg, rgba(240,160,80,0.12) 0%, rgba(240,160,80,0.05) 100%);
     border: 1px solid rgba(240,160,80,0.3);
@@ -2198,6 +2229,7 @@
     <button class="header-tab" onclick="switchTab('letenky')" id="tabLetenky"><span class="header-tab-icon">✈️</span><span class="header-tab-label">Letenky</span></button>
     <button class="header-tab" onclick="switchTab('autoubyto')" id="tabAutoUbyto"><span class="header-tab-icon">🛏️</span><span class="header-tab-label">Logistika</span></button>
     <button class="header-tab" onclick="switchTab('finance')" id="tabFinance"><span class="header-tab-icon">💰</span><span class="header-tab-label">Finance</span></button>
+    <button class="header-tab" onclick="switchTab('pocasi')" id="tabPocasi"><span class="header-tab-icon">🌤️</span><span class="header-tab-label">Počasí</span></button>
     <button class="header-tab" onclick="switchTab('planovani')" id="tabPlanovani"><span class="header-tab-icon">📋</span><span class="header-tab-label">Ostatní</span></button>
   </div>
 </header>
@@ -3269,6 +3301,19 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<div class="plan-panel" id="panelPocasi" style="display:none;">
+  <div class="plan-inner">
+    <div class="plan-section">
+      <h3>🌤️ Předpověď pro naše dny a místa</h3>
+      <div class="plan-body">
+        <div id="weatherUpdated" class="wx-updated">Načítám předpověď…</div>
+        <div id="weatherList"></div>
+        <div class="wx-note">Data: <a href="https://open-meteo.com/" target="_blank" rel="noopener" style="color:#6eaaff">Open-Meteo</a> · předpověď se obnovuje při každém otevření záložky (online). Poslední stažená verze zůstává dostupná i offline. 🌊 = teplota moře v poledne.</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -4414,15 +4459,18 @@ function switchTab(tab) {
   document.getElementById('panelLetenky').style.display = tab === 'letenky' ? '' : 'none';
   document.getElementById('panelAutoUbyto').style.display = tab === 'autoubyto' ? '' : 'none';
   document.getElementById('panelFinance').style.display = tab === 'finance' ? '' : 'none';
+  document.getElementById('panelPocasi').style.display = tab === 'pocasi' ? '' : 'none';
   document.getElementById('panelPlanovani').style.display = tab === 'planovani' ? '' : 'none';
   document.getElementById('tabItinerar').classList.toggle('active', tab === 'itinerar');
   document.getElementById('tabLetenky').classList.toggle('active', tab === 'letenky');
   document.getElementById('tabAutoUbyto').classList.toggle('active', tab === 'autoubyto');
   document.getElementById('tabFinance').classList.toggle('active', tab === 'finance');
+  document.getElementById('tabPocasi').classList.toggle('active', tab === 'pocasi');
   document.getElementById('tabPlanovani').classList.toggle('active', tab === 'planovani');
   if (tab === 'itinerar') {
     setTimeout(() => map.invalidateSize(), 100);
   }
+  if (tab === 'pocasi') loadWeather();
 }
 
 function toggleTodo(el) {
@@ -4549,6 +4597,124 @@ function buildCheatSheet() {
   ).join('');
 }
 buildCheatSheet();
+
+// ===== Weather tab (Open-Meteo, no API key) =====
+const wxLocs = {
+  tirana:      { name: 'Tirana',      lat: 41.328, lng: 19.818, sea: false },
+  berat:       { name: 'Berat',       lat: 40.705, lng: 19.952, sea: false },
+  gjirokaster: { name: 'Gjirokastër', lat: 40.076, lng: 20.139, sea: false },
+  ksamil:      { name: 'Ksamil',      lat: 39.768, lng: 20.000, sea: true },
+  borsh:       { name: 'Borsh',       lat: 40.060, lng: 19.857, sea: true },
+  vlora:       { name: 'Vlora',       lat: 40.461, lng: 19.489, sea: true }
+};
+const wxPlan = [
+  { date: '2026-08-07', day: 1, label: 'Pá 7. 8.',  title: 'Přílet + Tirana',          loc: 'tirana' },
+  { date: '2026-08-08', day: 2, label: 'So 8. 8.',  title: 'Dajti + BunkArt',          loc: 'tirana' },
+  { date: '2026-08-09', day: 3, label: 'Ne 9. 8.',  title: 'Berat → Gjirokastër',      loc: 'berat', loc2: 'gjirokaster' },
+  { date: '2026-08-10', day: 4, label: 'Po 10. 8.', title: 'Blue Eye → Ksamil',        loc: 'ksamil' },
+  { date: '2026-08-11', day: 5, label: 'Út 11. 8.', title: 'Butrint + pláž (Ksamil)',  loc: 'ksamil' },
+  { date: '2026-08-12', day: 6, label: 'St 12. 8.', title: 'Plážový den (Ksamil)',     loc: 'ksamil' },
+  { date: '2026-08-13', day: 7, label: 'Čt 13. 8.', title: 'Borsh → Llogara → Vlora',  loc: 'borsh', loc2: 'vlora' },
+  { date: '2026-08-14', day: 8, label: 'Pá 14. 8.', title: 'Loď Haxhi Ali + Narta (Vlora)', loc: 'vlora' },
+  { date: '2026-08-15', day: 9, label: 'So 15. 8.', title: 'Odlet (18:35)',            loc: 'vlora', loc2: 'tirana' }
+];
+const wxCodes = [
+  [[0], '☀️', 'jasno'], [[1], '🌤️', 'skoro jasno'], [[2], '⛅', 'polojasno'], [[3], '☁️', 'zataženo'],
+  [[45,48], '🌫️', 'mlha'], [[51,53,55,56,57], '🌦️', 'mrholení'], [[61,63], '🌧️', 'déšť'], [[65,66,67], '🌧️', 'silný déšť'],
+  [[71,73,75,77,85,86], '🌨️', 'sníh'], [[80,81], '🌦️', 'přeháňky'], [[82], '🌧️', 'silné přeháňky'],
+  [[95], '⛈️', 'bouřky'], [[96,99], '⛈️', 'bouřky s kroupami']
+];
+function wxIcon(code) {
+  for (const [codes, icon, text] of wxCodes) if (codes.includes(code)) return { icon, text };
+  return { icon: '🌡️', text: '' };
+}
+let wxLoading = false;
+
+async function fetchWeatherData() {
+  const keys = Object.keys(wxLocs);
+  const lats = keys.map(k => wxLocs[k].lat).join(',');
+  const lngs = keys.map(k => wxLocs[k].lng).join(',');
+  const range = 'start_date=2026-08-06&end_date=2026-08-15';
+  const fUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lngs}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Europe%2FTirane&${range}`;
+  const fRes = await (await fetch(fUrl)).json();
+  const fArr = Array.isArray(fRes) ? fRes : [fRes];
+  const data = {};
+  keys.forEach((k, i) => { data[k] = { daily: fArr[i].daily }; });
+
+  const seaKeys = keys.filter(k => wxLocs[k].sea);
+  try {
+    const mUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${seaKeys.map(k => wxLocs[k].lat).join(',')}&longitude=${seaKeys.map(k => wxLocs[k].lng).join(',')}&hourly=sea_surface_temperature&timezone=Europe%2FTirane&${range}`;
+    const mRes = await (await fetch(mUrl)).json();
+    const mArr = Array.isArray(mRes) ? mRes : [mRes];
+    seaKeys.forEach((k, i) => {
+      const h = mArr[i].hourly;
+      const seaByDate = {};
+      h.time.forEach((t, j) => { if (t.endsWith('T12:00')) seaByDate[t.slice(0, 10)] = h.sea_surface_temperature[j]; });
+      data[k].sea = seaByDate;
+    });
+  } catch (e) { /* sea temp optional */ }
+  return data;
+}
+
+function renderWeather(data, ts, fromCache) {
+  const list = document.getElementById('weatherList');
+  const upd = document.getElementById('weatherUpdated');
+  const d = new Date(ts);
+  upd.textContent = `Aktualizováno ${d.toLocaleDateString('cs-CZ')} ${d.toLocaleTimeString('cs-CZ', {hour:'2-digit', minute:'2-digit'})}` + (fromCache ? ' · offline (poslední stažená data)' : '');
+  list.innerHTML = wxPlan.map(p => {
+    const loc = wxLocs[p.loc];
+    const ld = data[p.loc];
+    const idx = ld ? ld.daily.time.indexOf(p.date) : -1;
+    if (idx < 0) return `<div class="wx-card"><div class="wx-day"><div class="d">Den ${p.day} · ${p.label}</div><div class="p">${loc.name}</div></div><div class="wx-meta">předpověď zatím není k dispozici</div></div>`;
+    const code = ld.daily.weather_code[idx];
+    const { icon, text } = wxIcon(code);
+    const tmax = Math.round(ld.daily.temperature_2m_max[idx]);
+    const tmin = Math.round(ld.daily.temperature_2m_min[idx]);
+    const rain = ld.daily.precipitation_probability_max[idx];
+    const wind = Math.round(ld.daily.wind_speed_10m_max[idx]);
+    const sea = ld.sea && ld.sea[p.date] != null ? Math.round(ld.sea[p.date]) : null;
+    let second = '';
+    if (p.loc2 && data[p.loc2]) {
+      const l2 = data[p.loc2], i2 = l2.daily.time.indexOf(p.date);
+      if (i2 >= 0) {
+        const w2 = wxIcon(l2.daily.weather_code[i2]);
+        const s2 = l2.sea && l2.sea[p.date] != null ? ` · 🌊 ${Math.round(l2.sea[p.date])} °C` : '';
+        second = `<div class="wx-second">${wxLocs[p.loc2].name}: ${w2.icon} ${w2.text} · ${Math.round(l2.daily.temperature_2m_max[i2])}° / ${Math.round(l2.daily.temperature_2m_min[i2])}° · 💧 ${l2.daily.precipitation_probability_max[i2]} %${s2}</div>`;
+      }
+    }
+    const rainCls = rain >= 40 ? ' class="wx-warn"' : '';
+    return `<div class="wx-card">
+      <div class="wx-day"><div class="d">Den ${p.day} · ${p.label}</div><div class="p">${p.title}</div></div>
+      <div class="wx-icon" title="${text}">${icon}</div>
+      <div class="wx-temp">${tmax}° <span>/ ${tmin}°</span></div>
+      <div class="wx-meta">
+        <span>${text}</span>
+        <span${rainCls}>💧 <b>${rain} %</b></span>
+        <span>💨 <b>${wind}</b> km/h</span>
+        ${sea != null ? `<span>🌊 <b>${sea} °C</b></span>` : ''}
+      </div>
+      ${second}
+    </div>`;
+  }).join('');
+}
+
+async function loadWeather() {
+  if (wxLoading) return;
+  wxLoading = true;
+  const cached = (() => { try { return JSON.parse(localStorage.getItem('wxCache')); } catch (e) { return null; } })();
+  if (cached) renderWeather(cached.data, cached.ts, true);
+  try {
+    const data = await fetchWeatherData();
+    const ts = Date.now();
+    localStorage.setItem('wxCache', JSON.stringify({ ts, data }));
+    renderWeather(data, ts, false);
+  } catch (e) {
+    if (!cached) document.getElementById('weatherUpdated').textContent = 'Předpověď se nepodařilo načíst — zkuste to online.';
+  }
+  wxLoading = false;
+}
+// prefetch on app start so the PWA has data cached for offline
+if (navigator.onLine) setTimeout(loadWeather, 2000);
 
 // PWA: offline support via service worker
 if ('serviceWorker' in navigator) {
