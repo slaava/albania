@@ -3,9 +3,9 @@
 //  - App shell (HTML, icons, maps, CDN CSS/JS/fonts) is precached on install.
 //  - OSM tiles for Albania (zoom 8-10) are precached so the route map works offline;
 //    deeper zooms and remote images are cached at runtime as the user browses online.
-const CACHE = 'albania-v2';
+const CACHE = 'albania-v3';
 const TILE_CACHE = 'albania-tiles-v1';
-const RUNTIME_CACHE = 'albania-runtime-v2';
+const RUNTIME_CACHE = 'albania-runtime-v3';
 const TILE_LIMIT = 1200;
 
 const SHELL = [
@@ -131,11 +131,12 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Navigations: network-first, fall back to cached shell
+  // Navigations: network-first (bypassing HTTP cache so updates show immediately),
+  // fall back to cached shell when offline
   if (req.mode === 'navigate') {
     event.respondWith((async () => {
       try {
-        const res = await fetch(req);
+        const res = await fetch(req, { cache: 'no-cache' });
         const cache = await caches.open(CACHE);
         cache.put(url.pathname.endsWith('tisk.html') ? 'tisk.html' : './', res.clone());
         return res;

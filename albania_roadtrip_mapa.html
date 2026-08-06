@@ -4716,10 +4716,17 @@ async function loadWeather() {
 // prefetch on app start so the PWA has data cached for offline
 if (navigator.onLine) setTimeout(loadWeather, 2000);
 
-// PWA: offline support via service worker
+// PWA: offline support via service worker + immediate updates
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    navigator.serviceWorker.register('sw.js').then(reg => reg.update()).catch(() => {});
+  });
+  // when a new SW takes over, reload once so the fresh version shows right away
+  let swRefreshed = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (swRefreshed) return;
+    swRefreshed = true;
+    location.reload();
   });
 }
 </script>
