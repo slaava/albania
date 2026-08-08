@@ -6,9 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -16,26 +14,29 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to GitHub Pages (gh-pages branch)
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
-      # Single static HTML file — just serve it as index.html, no build step.
+      # Single static site — no build step, just assemble the files.
       - name: Prepare site
         run: |
           mkdir _site
           cp albania_roadtrip_mapa.html _site/index.html
           cp apple-touch-icon.png tisk.html mapa-*.png _site/
           cp manifest.webmanifest sw.js icon-192.png icon-512.png _site/
+          touch _site/.nojekyll
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      # Pages is configured as "deploy from branch: gh-pages" (switched during
+      # the 2026-08-06 Actions outage — the branch build service kept working
+      # when workflow-based deployments were stuck in queue).
+      - name: Push to gh-pages
+        run: |
+          cd _site
+          git init -b gh-pages
+          git config user.name "deploy-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
