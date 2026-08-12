@@ -243,6 +243,7 @@
     font-size: 1.4em;
     color: var(--accent);
     line-height: 1;
+    min-width: 1.6em;
   }
   .day-title {
     font-size: 0.88em;
@@ -253,7 +254,37 @@
     font-size: 0.72em;
     color: var(--muted);
     margin-left: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
+  /* Past / today / future day states */
+  .day-section.is-past { opacity: 0.4; }
+  .day-section.is-past .poi-card,
+  .day-section.is-past .alt-card { filter: grayscale(0.6); }
+  .day-section.is-today {
+    background: linear-gradient(180deg, rgba(240,160,80,0.07) 0%, rgba(240,160,80,0) 70%);
+    border-left: 3px solid var(--accent);
+    padding-left: 13px;
+  }
+  .day-section.is-today .day-header { border-bottom: 1px solid rgba(240,160,80,0.25); padding-bottom: 6px; }
+  .today-pill {
+    background: var(--accent);
+    color: #0f1923;
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 9px;
+    letter-spacing: 0.04em;
+  }
+  .day-btn.is-past { opacity: 0.45; }
+  .day-btn.is-today {
+    border-color: var(--accent) !important;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .day-btn.is-today.active { color: #0f1923; }
   .day-desc {
     font-size: 0.78em;
     color: var(--muted);
@@ -2138,6 +2169,12 @@
     margin-top: 2px;
   }
   .wx-warn { color: #f08060; font-weight: 600; }
+  .wx-card.wx-past { opacity: 0.4; filter: grayscale(0.6); }
+  .wx-card.wx-today {
+    border-left: 3px solid var(--accent);
+    background: linear-gradient(90deg, rgba(240,160,80,0.1) 0%, var(--card) 60%);
+  }
+  .wx-day .d { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .cash-highlight {
     background: linear-gradient(135deg, rgba(240,160,80,0.12) 0%, rgba(240,160,80,0.05) 100%);
     border: 1px solid rgba(240,160,80,0.3);
@@ -4041,8 +4078,29 @@ const days = [
   }
 ];
 
+// Calendar dates for trip days — drives the today / past highlighting
+const DAY_ISO = {
+  1: '2026-08-07', 2: '2026-08-08', 3: '2026-08-09', 4: '2026-08-10', 5: '2026-08-11',
+  6: '2026-08-12', 7: '2026-08-13', 8: '2026-08-14', 9: '2026-08-15'
+};
+days.forEach(d => { d.iso = DAY_ISO[d.num]; });
+
+const WD_SHORT = ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'];
+function isoToday() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function dayParts(iso) {
+  const d = new Date(iso + 'T12:00:00');
+  return { wd: WD_SHORT[d.getDay()], dm: `${d.getDate()}. ${d.getMonth() + 1}.` };
+}
+function dayState(iso) {
+  const t = isoToday();
+  return iso < t ? 'past' : (iso === t ? 'today' : 'future');
+}
+
 // Colors for each day
-const dayColors = ['#50b0e0','#c070d0','#e0c050','#50c8a0','#f08060','#70c050','#e07050','#f0a050','#8899aa'];
+const dayColors =['#50b0e0','#c070d0','#e0c050','#50c8a0','#f08060','#70c050','#e07050','#f0a050','#8899aa'];
 
 const typeIcons = {
   castle: '🏰', beach: '🏖️', nature: '💎', city: '🏙️', transport: '✈️', food: '🍽️'
@@ -4103,7 +4161,7 @@ days.forEach(day => {
       .addTo(map)
       .bindPopup(`
         <div style="min-width:200px">
-          <div style="font-size:11px;color:#f0a050;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Den ${day.num} · ${poi.time}</div>
+          <div style="font-size:11px;color:#f0a050;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">${day.date} · ${poi.time}</div>
           <strong style="font-size:14px;display:block;margin:4px 0;">${poi.name}</strong>
           <div style="font-size:12px;color:#8899aa;line-height:1.5;">${poi.notes}</div>
           ${popupLinks.length ? '<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">' + popupLinks.join('') + '</div>' : ''}
@@ -4154,7 +4212,7 @@ days.forEach(day => {
       const marker = L.marker([alt.lat, alt.lng], { icon })
         .bindPopup(`
           <div style="min-width:180px">
-            <div style="font-size:10px;color:#50b0e0;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Den ${day.num} · Alternativa</div>
+            <div style="font-size:10px;color:#50b0e0;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">${day.date} · Alternativa</div>
             <strong style="font-size:13px;display:block;margin:4px 0;">${alt.name}</strong>
             <div style="font-size:12px;color:#8899aa;line-height:1.5;">${alt.notes}</div>
             ${popupLinks.length ? '<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">' + popupLinks.join('') + '</div>' : ''}
@@ -4205,7 +4263,10 @@ filtersEl.appendChild(allBtn);
 days.forEach(day => {
   const btn = document.createElement('button');
   btn.className = 'day-btn';
-  btn.textContent = `Den ${day.num}`;
+  const bst = dayState(day.iso);
+  const bp = dayParts(day.iso);
+  btn.textContent = `${bp.wd} ${parseInt(bp.dm, 10)}.`;
+  btn.classList.add(bst === 'past' ? 'is-past' : bst === 'today' ? 'is-today' : 'is-future');
   btn.style.borderColor = dayColors[day.num-1] + '60';
   btn.onclick = () => filterDay(day.num);
   btn.dataset.day = day.num;
@@ -4255,16 +4316,19 @@ Object.values(moves).forEach(mv => {
 
 days.forEach(day => {
   const section = document.createElement('div');
-  section.className = 'day-section';
+  const st = dayState(day.iso);
+  const { wd, dm } = dayParts(day.iso);
+  section.className = 'day-section' + (st === 'past' ? ' is-past' : st === 'today' ? ' is-today' : '');
   section.dataset.day = day.num;
+  if (st === 'today') section.id = 'todaySection';
 
   let badgeHtml = '';
 
   section.innerHTML = `
     <div class="day-header">
-      <span class="day-num">${day.num}</span>
+      <span class="day-num">${wd}</span>
       <span class="day-title">${day.title}</span>
-      <span class="day-date">${day.date}</span>
+      <span class="day-date">${dm}${st === 'today' ? '<span class="today-pill">DNES</span>' : ''}</span>
     </div>
     <div class="day-desc">${day.desc}${day.sleep ? ` <span style="color:var(--accent)">🛏️ Nocleh: ${day.sleep}</span>` : ''}</div>
   `;
@@ -4384,6 +4448,16 @@ days.forEach(day => {
 
   listEl.appendChild(section);
 });
+
+// On load, bring today's day into view, clearing the sticky filter bars
+const todayEl = document.getElementById('todaySection');
+if (todayEl) setTimeout(() => {
+  const sidebar = document.querySelector('.sidebar');
+  const stickyH = (document.querySelector('.day-filters')?.offsetHeight || 0)
+                + (document.querySelector('.type-filters')?.offsetHeight || 0);
+  const top = todayEl.getBoundingClientRect().top - sidebar.getBoundingClientRect().top + sidebar.scrollTop;
+  sidebar.scrollTop = Math.max(0, top - stickyH - 8);
+}, 150);
 
 function filterType(typeId) {
   activeType = typeId;
@@ -4671,10 +4745,13 @@ function renderWeather(data, ts, fromCache) {
   const d = new Date(ts);
   upd.textContent = `Aktualizováno ${d.toLocaleDateString('cs-CZ')} ${d.toLocaleTimeString('cs-CZ', {hour:'2-digit', minute:'2-digit'})}` + (fromCache ? ' · offline (poslední stažená data)' : '');
   list.innerHTML = wxPlan.map(p => {
+    const st = dayState(p.date);
+    const cls = st === 'past' ? ' wx-past' : st === 'today' ? ' wx-today' : '';
+    const pill = st === 'today' ? '<span class="today-pill">DNES</span>' : '';
     const loc = wxLocs[p.loc];
     const ld = data[p.loc];
     const idx = ld ? ld.daily.time.indexOf(p.date) : -1;
-    if (idx < 0) return `<div class="wx-card"><div class="wx-day"><div class="d">Den ${p.day} · ${p.label}</div><div class="p">${loc.name}</div></div><div class="wx-meta">předpověď zatím není k dispozici</div></div>`;
+    if (idx < 0) return `<div class="wx-card${cls}"><div class="wx-day"><div class="d">${p.label} ${pill}</div><div class="p">${loc.name}</div></div><div class="wx-meta">předpověď zatím není k dispozici</div></div>`;
     const code = ld.daily.weather_code[idx];
     const { icon, text } = wxIcon(code);
     const tmax = Math.round(ld.daily.temperature_2m_max[idx]);
@@ -4692,8 +4769,8 @@ function renderWeather(data, ts, fromCache) {
       }
     }
     const rainCls = rain >= 40 ? ' class="wx-warn"' : '';
-    return `<div class="wx-card">
-      <div class="wx-day"><div class="d">Den ${p.day} · ${p.label}</div><div class="p">${p.title}</div></div>
+    return `<div class="wx-card${cls}">
+      <div class="wx-day"><div class="d">${p.label} ${pill}</div><div class="p">${p.title}</div></div>
       <div class="wx-icon" title="${text}">${icon}</div>
       <div class="wx-temp">${tmax}° <span>/ ${tmin}°</span></div>
       <div class="wx-meta">
