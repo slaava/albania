@@ -2175,6 +2175,23 @@
     background: linear-gradient(90deg, rgba(240,160,80,0.1) 0%, var(--card) 60%);
   }
   .wx-day .d { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .settle { width: 100%; border-collapse: collapse; font-size: 0.82em; margin: 4px 0 8px; }
+  .settle th {
+    text-align: left; font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--muted); font-weight: 600; padding: 0 6px 4px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .settle td { padding: 6px 6px 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--muted); vertical-align: top; }
+  .settle td:first-child { color: var(--text); }
+  .settle .r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text); font-weight: 600; }
+  .settle th.r { text-align: right; }
+  .settle .sub { font-size: 0.85em; color: var(--muted); font-weight: 400; }
+  .settle .plus { color: var(--beach); }
+  .settle tr.tot td { border-bottom: none; border-top: 2px solid rgba(240,160,80,0.4); padding-top: 8px; font-weight: 700; color: var(--accent); font-size: 1.05em; }
+  .settle-note { font-size: 0.75em; color: var(--muted); line-height: 1.5; margin-top: 6px; }
+  .settle-good {
+    background: rgba(80,200,160,0.1); border-left: 3px solid var(--beach);
+    padding: 8px 10px; font-size: 0.8em; color: var(--text); margin-top: 8px; border-radius: 4px;
+  }
   .cash-highlight {
     background: linear-gradient(135deg, rgba(240,160,80,0.12) 0%, rgba(240,160,80,0.05) 100%);
     border: 1px solid rgba(240,160,80,0.3);
@@ -3206,104 +3223,39 @@
   <div class="plan-inner">
 
     <div class="plan-section">
-      <h3 onclick="this.parentElement.classList.toggle('collapsed')">💰 Rozpočet</h3>
+      <h3 onclick="this.parentElement.classList.toggle('collapsed')">💰 Vyúčtování — skutečnost</h3>
       <div class="plan-body">
-        <div class="budget-wrap">
-          <div class="budget-header">
-            <span class="budget-col-label"></span>
-            <span class="budget-col-head">Kč</span>
-            <span class="budget-col-head">EUR</span>
-            <span class="budget-col-head">LEK</span>
-          </div>
-          <div class="budget-row" id="budgetRows">
-            <div class="budget-item">
-              <span class="budget-label budget-label-lock budget-label-paid">✈️ Letenky <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><svg viewBox="0 0 24 24" class="budget-paid-icon"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <input type="number" class="budget-input" value="15624" data-locked-eur="620" readonly title="Finální cena 620 € (potvrzená rezervace)">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label budget-label-lock budget-label-paid">🅿️ Parkování Vídeň <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><svg viewBox="0 0 24 24" class="budget-paid-icon"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <input type="number" class="budget-input" value="3456" data-locked-eur="137.16" readonly title="Finální cena 137,16 € (Car Park C, zaplaceno)">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label budget-label-lock">🚗 Pronájem auta <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-              <input type="number" class="budget-input" value="11592" data-locked-eur="460" readonly title="Finální cena 460 € (Chevrolet 4x4, platba hotově v EUR na místě)">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label budget-label-lock">🛏️ Ubytování <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-              <input type="number" class="budget-input" value="17716" data-locked-eur="703" readonly title="Finální cena 703 € (108 + 35 + 390 + 170, platba hotově v EUR na místě)">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label budget-label-lock">🚤 Boat trip Haxhi Ali <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-              <input type="number" class="budget-input" value="2318" data-locked-eur="92" readonly title="Finální cena 92 € (haxhialicave.com, platba na místě)">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label">🍽️ Jídlo a pití</span>
-              <input type="number" class="budget-input" id="budgetFood" value="16000" oninput="updateBudget()">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-            <div class="budget-item">
-              <span class="budget-label">🎟️ Atrakce</span>
-              <input type="number" class="budget-input" id="budgetAttr" value="5000" oninput="updateBudget()">
-              <span class="budget-cell budget-eur"></span>
-              <span class="budget-cell budget-lek"></span>
-            </div>
-          </div>
-          <div class="budget-total">
-            <span class="budget-label">Celkem</span>
-            <span class="budget-total-czk" id="budgetTotal">47 375</span>
-            <span class="budget-total-eur" id="budgetTotalEur">1 880</span>
-            <span class="budget-total-lek" id="budgetTotalLek">188 016</span>
-          </div>
-          <div class="budget-remaining">
-            <span class="budget-label">K zaplacení</span>
-            <span class="budget-remaining-czk" id="budgetRemaining">—</span>
-            <span class="budget-remaining-eur" id="budgetRemainingEur">—</span>
-            <span class="budget-remaining-lek" id="budgetRemainingLek">—</span>
-          </div>
-        </div>
+        <div class="settle-note">Skutečné výdaje po návratu. Kurz 25,2 Kč/€.</div>
+        <table class="settle">
+          <tr><th>Položka</th><th class="r">EUR</th><th>Platba</th></tr>
+          <tr><td>✈️ Letenky</td><td class="r">620,00</td><td>kartou předem</td></tr>
+          <tr><td>🅿️ Parkování Vídeň</td><td class="r">137,16</td><td>kartou předem</td></tr>
+          <tr><td>🛣️ Rakouská dálniční známka</td><td class="r">12,80</td><td>předem</td></tr>
+          <tr><td>🚗 Pronájem auta</td><td class="r">460,00</td><td>hotově</td></tr>
+          <tr><td>⛽ Palivo (plná nádrž)</td><td class="r">~160,00</td><td>hotově</td></tr>
+          <tr><td>🛏️ Ubytování (4 noclehy)</td><td class="r">703,00</td><td>313 hotově + 390 kartou</td></tr>
+          <tr><td>🚤 Boat trip Haxhi Ali</td><td class="r">96,00</td><td>kartou (+4 € poplatek)</td></tr>
+          <tr><td>🚕 Taxi 2×</td><td class="r">20,00</td><td>kartou</td></tr>
+          <tr><td>🏧 Výběr LEK z bankomatu</td><td class="r">~123,00</td><td>3 100 Kč</td></tr>
+          <tr><td>🍽️ Ostatní v hotovosti<br><span class="sub">jídlo, vstupy, lehátka, parkování</span></td><td class="r">~204,00</td><td>hotově</td></tr>
+          <tr class="tot"><td>Celkem</td><td class="r">~2 536 €</td><td>≈ 63 900 Kč</td></tr>
+        </table>
+        <div class="settle-good">✅ Oproti plánu (71 700 Kč) jste ušetřili zhruba <b>7 800 Kč</b>.</div>
       </div>
     </div>
 
     <div class="plan-section">
-      <h3 onclick="this.parentElement.classList.toggle('collapsed')">💵 Hotovost</h3>
+      <h3 onclick="this.parentElement.classList.toggle('collapsed')">💵 Vyúčtování hotovosti</h3>
       <div class="plan-body">
-
-        <div class="cash-highlight">
-          <div class="cash-highlight-label">✅ Rozměněno doma</div>
-          <div class="cash-highlight-value"><span class="czk">40 000 Kč</span> → <span>~1 587 €</span></div>
-          <div class="cash-highlight-sub">Fixní platby <span id="cashEurTotal">1 194 €</span> (≈ <span id="cashEurTotalCzk">30 089 Kč</span>) + rezerva ~330 € — z ní na místě směníme LEK na jídlo a vstupy. Větší hotovost v EUR se v Albánii hodí: EUR tu berou skoro všude a směnárny mají férové kurzy.</div>
-        </div>
-
-        <div class="cash-group">
-          <div class="cash-group-title">💶 EUR — vzít s sebou z domova</div>
-          <div class="cash-item"><span>🚗 Auto — při vyzvednutí (Pá 7. 8.)</span><span data-eur="460">460 €</span></div>
-          <div class="cash-item"><span>🛏️ Vila Murati, Tirana (Pá 7. 8.)</span><span data-eur="108">108 €</span></div>
-          <div class="cash-item"><span>🛏️ Guest House Urat, Gjirokastër (Ne 9. 8.)</span><span data-eur="35">35 €</span></div>
-          <div class="cash-item"><span>🛏️ Family Hotel Haruni, Ksamil (Po 10. 8.)</span><span data-eur="390">390 €</span></div>
-          <div class="cash-item"><span>🛏️ July's Beach Apartment, Vlora (Čt 13. 8.)</span><span data-eur="170">170 €</span></div>
-          <div class="cash-item"><span>🚤 Boat trip Haxhi Ali (Pá 14. 8.) — cena v €, platba na místě</span><span data-eur="92">92 €</span></div>
-          <div class="cash-total"><span>Celkem EUR hotově</span><span id="cashEurSum">1 194 €</span></div>
-        </div>
-
-        <div class="cash-group">
-          <div class="cash-group-title">🇦🇱 LEK — směníme z EUR až v Albánii</div>
-          <div class="cash-item"><span>🍽️ Jídlo a pití (dle rozpočtu)</span><span id="cashLekFood">~63 500 LEK</span></div>
-          <div class="cash-item"><span>🎟️ Atrakce a vstupy (dle rozpočtu)</span><span id="cashLekAttr">~19 800 LEK</span></div>
-          <div class="cash-total"><span>Celkem LEK</span><span id="cashLekSum">~83 300 LEK</span></div>
-          <div class="cash-note">LEK získáme směnou EUR ve směnárně na místě (kurz ~100 LEK/€ je ve městech férový; vyhnout se letišti a stánkům u pláží). Neměňte vše najednou — LEK zpátky na EUR se mění špatně. Spousta vstupů je cash only (Blue Eye 50 LEK, Lëkurësi, hrady, Porto Palermo). Menší podniky často vezmou i EUR (drobné nazpět v LEK), větší restaurace a supermarkety berou kartu. Bankomat jen jako záloha — vybírat v LEK, ne v EUR přepočtu bankomatu.</div>
-        </div>
-
+        <table class="settle">
+          <tr><td>Rozměněno doma (40 000 Kč)</td><td class="r plus">+1 587 €</td></tr>
+          <tr><td>🚗 Auto při vyzvednutí</td><td class="r">−460 €</td></tr>
+          <tr><td>🛏️ Ubytování Tirana + Gjirokastër + Vlora</td><td class="r">−313 €</td></tr>
+          <tr><td>⛽ Palivo</td><td class="r">−160 €</td></tr>
+          <tr><td>🍽️ Ostatní útrata v hotovosti</td><td class="r">−204 €</td></tr>
+          <tr class="tot"><td>Zůstalo</td><td class="r">450 €</td></tr>
+        </table>
+        <div class="settle-note">Ksamil a loď nakonec šly kartou, takže hotovosti zbylo víc, než plán počítal. Rozměnit 40 000 Kč bylo tak akorát — s rezervou, ale bez zbytečného převodu zpátky.</div>
       </div>
     </div>
 
@@ -4584,6 +4536,7 @@ function toggleMapSize() {
 
 // Budget calculator
 function updateBudget() {
+  if (!document.getElementById('budgetTotal')) return;   // settlement view has no live budget
   const eurRate = parseFloat(document.getElementById('rateCzkEur').value) || 25.2;
   const lekRate = parseFloat(document.getElementById('rateLekEur').value) || 100;
   const czkToEur = 1 / eurRate;
@@ -4622,6 +4575,7 @@ function updateBudget() {
 
 // Cash section: EUR to bring from home, LEK to withdraw locally
 function updateCash() {
+  if (!document.getElementById('cashEurSum')) return;    // replaced by the static settlement
   const eurRate = parseFloat(document.getElementById('rateCzkEur').value) || 25.2;
   const lekRate = parseFloat(document.getElementById('rateLekEur').value) || 100;
 
