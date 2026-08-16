@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albánie 2026 — itinerář k tisku</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #1c1c1c;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.55;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  h1, h2, h3, .sans { font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; }
+  h1 { font-size: 22pt; color: #a35410; margin-bottom: 2px; }
+  h2 { font-size: 15pt; color: #a35410; margin: 0 0 8px; }
+  h3 { font-size: 11pt; margin: 12px 0 4px; }
+  .subtitle { color: #555; font-size: 10.5pt; margin-bottom: 4px; }
+  .page { page-break-before: always; padding-top: 8px; }
+  .page:first-child { page-break-before: avoid; }
+  .day-head { display: flex; align-items: baseline; gap: 10px; border-bottom: 2.5px solid #a35410; padding-bottom: 4px; margin-bottom: 10px; }
+  .day-head .num { font-size: 20pt; font-weight: bold; color: #a35410; font-family: 'DM Sans', Arial, sans-serif; }
+  .day-head .title { font-size: 14pt; font-weight: bold; font-family: 'DM Sans', Arial, sans-serif; }
+  .day-head .date { margin-left: auto; color: #555; font-size: 10pt; white-space: nowrap; }
+  .sleep { font-size: 9.5pt; color: #a35410; font-weight: bold; font-family: 'DM Sans', Arial, sans-serif; margin-bottom: 8px; }
+  figure { margin: 8px 0 10px; }
+  .fig2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fig2 img { max-height: 190px; }
+  .hotel .hgal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+  .hotel .hgal img { width: 100%; height: 92px; object-fit: cover; display: block; }
+  .mapfig img { max-height: none; border: 1px solid #ddd; }
+  .mapfig-s img { max-height: 92mm; width: auto; max-width: 100%; margin: 0 auto; display: block; }
+  figure img { width: 100%; max-height: 230px; object-fit: cover; display: block; }
+  figcaption { font-size: 7.5pt; color: #999; text-align: right; margin-top: 2px; font-family: 'DM Sans', Arial, sans-serif; }
+  table.program { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 10pt; }
+  table.program th { text-align: left; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; border-bottom: 1px solid #ccc; padding: 3px 6px 3px 0; }
+  table.program td { vertical-align: top; border-bottom: 1px solid #eee; padding: 5px 8px 5px 0; }
+  table.program td.time { white-space: nowrap; font-weight: bold; width: 46px; font-family: 'DM Sans', Arial, sans-serif; font-size: 9.5pt; }
+  table.program td.place { width: 34%; font-weight: bold; }
+  table.program .top { color: #a35410; }
+  .story { margin: 8px 0 10px; text-align: justify; }
+  .story p { margin-bottom: 7px; }
+  .alts { font-size: 9.5pt; color: #444; background: #f6f4f0; padding: 8px 10px; margin-bottom: 10px; }
+  .alts b { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #888; display: block; margin-bottom: 3px; }
+  .move { font-size: 9.5pt; font-family: 'DM Sans', Arial, sans-serif; background: #fdf3e7; border: 1px dashed #d8a05f; padding: 6px 10px; margin-bottom: 10px; }
+  .notes { margin-top: 10px; }
+  .notes-s .lines { height: 42px !important; }
+  .notes b { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+  .notes .lines { height: 84px; background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #ccc 20px, #ccc 21px); margin-top: 4px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .info-box { border: 1px solid #ddd; padding: 10px 12px; font-size: 10pt; }
+  .info-box h3 { margin-top: 0; color: #a35410; }
+  table.simple { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 6px 0; }
+  table.simple td, table.simple th { border-bottom: 1px solid #eee; padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
+  table.simple th { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; color: #888; }
+  table.simple td.r, table.simple th.r { text-align: right; white-space: nowrap; }
+  .hotel { border: 1px solid #ddd; padding: 10px 12px; margin-bottom: 10px; font-size: 10pt; }
+  .hotel .hname { font-family: 'DM Sans', Arial, sans-serif; font-weight: bold; font-size: 11pt; }
+  .hotel .hmeta { color: #555; font-size: 9pt; margin: 2px 0 5px; }
+  .hotel .hprice { float: right; font-weight: bold; color: #a35410; font-family: 'DM Sans', Arial, sans-serif; }
+  .rest-city { font-family: 'DM Sans', Arial, sans-serif; font-weight: bold; font-size: 10.5pt; color: #a35410; margin: 10px 0 3px; }
+  .rest { font-size: 9.5pt; margin-bottom: 5px; }
+  .rest b { font-family: 'DM Sans', Arial, sans-serif; }
+  .rest .cost { color: #777; white-space: nowrap; }
+  .region-label { font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: #a35410; margin-bottom: 2px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 10px; }
+  .fact { border: 1px solid #e5e0d8; background: #faf8f5; padding: 6px 8px; font-size: 9pt; font-family: 'DM Sans', Arial, sans-serif; }
+  .fact b { display: block; font-size: 7pt; text-transform: uppercase; letter-spacing: 0.05em; color: #999; margin-bottom: 1px; }
+  .warn { background: #fdf0ee; border-left: 3px solid #c0503c; padding: 8px 10px; font-size: 9.5pt; margin: 8px 0 10px; }
+  .warn b:first-child { color: #c0503c; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .kids { background: #eef5ec; border-left: 3px solid #5a8a4a; padding: 8px 10px; font-size: 9.5pt; margin: 8px 0 10px; }
+  .kids b:first-child { color: #5a8a4a; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .tip { background: #eef2f7; border-left: 3px solid #4a6fa5; padding: 8px 10px; font-size: 9.5pt; margin: 8px 0 10px; }
+  .tip b:first-child { color: #4a6fa5; font-family: 'DM Sans', Arial, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  .food { border: 1px solid #e5e0d8; padding: 0 0 8px; break-inside: avoid; page-break-inside: avoid; }
+  .food img { width: 100%; height: 110px; object-fit: cover; display: block; }
+  .food h3 { margin: 6px 10px 2px; font-size: 11pt; }
+  .food p { font-size: 9pt; margin: 0 10px; color: #444; }
+  .food .fcap { font-size: 7pt; color: #aaa; text-align: right; margin: 2px 10px 0; font-family: 'DM Sans', Arial, sans-serif; }
+  .attr-half { break-inside: avoid; page-break-inside: avoid; border: 1px solid #e5e0d8; padding: 12px 14px; margin-bottom: 14px; }
+  .attr-half h3 { margin-top: 0; font-size: 12pt; color: #333; }
+  .attr-half .facts { grid-template-columns: repeat(3, 1fr); }
+  .attr-half figure img { max-height: 132px; }
+  .catalog-intro { font-size: 10.5pt; margin: 10px 0; }
+  .toolbar { position: sticky; top: 0; background: #a35410; color: #fff; padding: 10px 16px; margin: -24px -24px 20px; display: flex; align-items: center; gap: 14px; font-family: 'DM Sans', Arial, sans-serif; font-size: 10.5pt; }
+  .toolbar button { background: #fff; color: #a35410; border: none; padding: 7px 16px; font-weight: bold; font-size: 10.5pt; cursor: pointer; border-radius: 4px; font-family: 'DM Sans', Arial, sans-serif; }
+  .footer { margin-top: 16px; font-size: 8.5pt; color: #999; text-align: center; font-family: 'DM Sans', Arial, sans-serif; }
+  @media print {
+    body { padding: 0; font-size: 10.5pt; }
+    .toolbar { display: none; }
+    @page { margin: 14mm 15mm; }
+    .page { page-break-before: always; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, .day-head, .region-label { page-break-after: avoid; break-after: avoid; }
+    figure, .info-box, .attr-half, .warn, .kids, .facts, .hotel, .move, .notes, table.simple, table.program { page-break-inside: avoid; break-inside: avoid; }
+    .mapfig img { max-height: 200mm; object-fit: contain; }
+    .mapfig-s img { max-height: 92mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>Tisková verze itineráře — nejlépe vypadá s barevným tiskem, funguje i černobíle.</span>
+  <button onclick="window.print()">🖨️ Vytisknout</button>
+</div>
+
+<!-- ÚVODNÍ STRANA -->
+<div class="page">
+  <h1>Albánie 2026 — rodinný roadtrip</h1>
+  <div class="subtitle">7.–15. srpna 2026 · 9 dní / 8 nocí · 2 dospělí + děti (8 a 4,5) · Tirana → Berat → Gjirokastër → Ksamil → Riviéra → Vlora</div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>✈️ Lety (Austrian Airlines)</h3>
+      <b>Tam</b> — Pá 7. 8.: Vídeň 12:40 → Tirana 14:10<br>
+      <b>Zpět</b> — So 15. 8.: Tirana 18:35 → Vídeň 20:05<br>
+      Economy Light · parkování Vídeň Car Park C (zaplaceno)
+    </div>
+    <div class="info-box">
+      <h3>🚗 Auto</h3>
+      Chevrolet Captiva 4×4, automat, 7 míst, 2× dětská sedačka.<br>
+      Rent From Locals — parkoviště naproti terminálu.<br>
+      Vyzvednutí ~15:00 · vrácení So 16:00 · <b>460 € hotově</b>
+    </div>
+  </div>
+
+  <figure class="mapfig">
+    <img src="mapa-tisk.png" alt="Mapa trasy s vyznačenými zastávkami">
+    <figcaption>Trasa a zastávky (čárkovaně přejezdy mezi noclehy) · mapa © OpenStreetMap contributors</figcaption>
+  </figure>
+</div>
+
+<div class="page">
+  <h2>Přehled cesty</h2>
+  <table class="simple">
+    <tr><th>Den</th><th>Datum</th><th>Program</th><th>Nocleh</th></tr>
+    <tr><td>1</td><td>Pá 7. 8.</td><td>Přílet, auto, večerní Tirana</td><td>Tirana</td></tr>
+    <tr><td>2</td><td>So 8. 8.</td><td>Lanovka Dajti, BunkArt 1, park/aquapark</td><td>Tirana</td></tr>
+    <tr><td>3</td><td>Ne 9. 8.</td><td>Hrad Berat, přejezd, večer hrad Gjirokastër</td><td>Gjirokastër</td></tr>
+    <tr><td>4</td><td>Po 10. 8.</td><td>Blue Eye ráno, první koupání Ksamil</td><td>Ksamil</td></tr>
+    <tr><td>5</td><td>Út 11. 8.</td><td>Butrint, hrad Ali Pashi, pláž, západ slunce</td><td>Ksamil</td></tr>
+    <tr><td>6</td><td>St 12. 8.</td><td>Volný plážový den, večer Saranda</td><td>Ksamil</td></tr>
+    <tr><td>7</td><td>Čt 13. 8.</td><td>Pláž Borsh, průsmyk Llogara s jeleny</td><td>Vlora</td></tr>
+    <tr><td>8</td><td>Pá 14. 8.</td><td>Loď: jeskyně Haxhi Ali · Narta + Zvërnec</td><td>Vlora</td></tr>
+    <tr><td>9</td><td>So 15. 8.</td><td>Koupání, zoo Tirana, odlet 18:35</td><td>—</td></tr>
+  </table>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>💰 Vyúčtování — skutečnost</h3>
+      <table class="simple">
+        <tr><td>✈️ Letenky · 🅿️ parkování · 🛣️ známka</td><td class="r">770 €</td></tr>
+        <tr><td>🚗 Pronájem auta (hotově)</td><td class="r">460 €</td></tr>
+        <tr><td>⛽ Palivo (hotově)</td><td class="r">~160 €</td></tr>
+        <tr><td>🛏️ Ubytování — 313 hotově + 390 kartou</td><td class="r">703 €</td></tr>
+        <tr><td>🚤 Boat trip (kartou, +4 € poplatek)</td><td class="r">96 €</td></tr>
+        <tr><td>🚕 Taxi 2× (kartou)</td><td class="r">20 €</td></tr>
+        <tr><td>💳 Jídlo, suvenýry, vstupné (kartou)</td><td class="r">18 000 Kč</td></tr>
+        <tr><td>🍽️ Ostatní hotově + výběr LEK</td><td class="r">~8 200 Kč</td></tr>
+        <tr><td><b>Celkem</b></td><td class="r"><b>~3 250 € ≈ 81 900 Kč</b></td></tr>
+      </table>
+      Oproti plánu (71 700 Kč) o ~10 200 Kč více: jídlo a suvenýry +5 200, palivo +4 000 (v rozpočtu chybělo), drobnosti +900.
+    </div>
+    <div class="info-box">
+      <h3>💵 Vyúčtování hotovosti</h3>
+      <table class="simple">
+        <tr><td>Rozměněno doma (40 000 Kč)</td><td class="r">+1 587 €</td></tr>
+        <tr><td>Auto · ubytování · palivo · ostatní</td><td class="r">−1 137 €</td></tr>
+        <tr><td><b>Zůstalo</b></td><td class="r"><b>450 €</b></td></tr>
+      </table>
+      Ksamil a loď nakonec šly kartou, takže hotovosti zbylo víc, než plán počítal.
+      <h3>📞 Nouzové kontakty</h3>
+      Tíseň 112 · záchranka 127 · policie 129<br>
+      Ambasáda ČR Tirana: +355 42 234 004<br>
+      Nouzová linka 24/7: +355 68 409 0111
+    </div>
+  </div>
+
+</div>
+
+<!-- DEN 1 -->
+<div class="page">
+  <div class="day-head"><span class="num">1</span><span class="title">Přílet + Tirana</span><span class="date">pátek 7. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana (9.2/10, se snídaní) · platba 108 € hotově</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg/960px-Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tirana_-_Skanderbeg_Square_by_night.JPG/960px-Tirana_-_Skanderbeg_Square_by_night.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">náměstí ve dne a večer (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">14:10</td><td class="place">Přílet TIA</td><td>pasová kontrola ~45 min</td></tr>
+    <tr><td class="time">15:00</td><td class="place">Vyzvednutí auta</td><td>řidičák + pas + voucher + 460 € hotově; auto vyfotit!</td></tr>
+    <tr><td class="time">18:00</td><td class="place">Skanderbegovo náměstí</td><td>kolotoč 100 ALL, fontány</td></tr>
+    <tr><td class="time">19:30</td><td class="place">Večeře — Pazari i Ri</td><td>byrek, ovoce, zmrzlina</td></tr>
+  </table>
+  <div class="story">
+    <p>Ve <strong>14:10</strong> přistaneme na letišti TIA. Auto vyzvedneme u Rent From Locals na parkovišti naproti terminálu (doleva, kolem kiosků, přes vozovku). Budeme potřebovat řidičák, pas, voucher a 460 € hotově; auto před odjezdem vyfotíme ze všech stran a zkontrolujeme obě dětské sedačky.</p>
+    <p>Do Tirany dojedeme za ~30 minut. Po check-inu ve Vile Murati si vydechneme na zahradě. Podvečer strávíme na Skanderbegově náměstí — kolotoč, fontány, holubi. Navečeříme se na barevném tržišti Pazari i Ri. Půjdeme brzy spát — zítra bude nabitý den.</p>
+  </div>
+  <div class="alts"><b>Alternativy v okolí</b>Pyramida Tirana (střecha + skluzavka, zdarma) · BunkArt 2 u náměstí (500 LEK) · Rinia Park s fontánou · bowling pod Taiwan Center</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 2 -->
+<div class="page">
+  <div class="day-head"><span class="num">2</span><span class="title">Lanovka Dajti + BunkArt</span><span class="date">sobota 8. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Vila Murati, Tirana</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Panorama_photo_of_Tirana_from_Dajti_mountain.jpg/960px-Panorama_photo_of_Tirana_from_Dajti_mountain.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">lanovka (Leeturtle, CC BY-SA 4.0) · panorama Tirany z Dajti (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:45</td><td class="place top">Dajti Ekspres ⭐</td><td>lanovka ~1 400/600 LEK; nahoře Adventure Park (tarif 5–7 let €12; věk nekontrolují, rozhoduje dosah), minigolf, oběd s výhledem</td></tr>
+    <tr><td class="time">13:30</td><td class="place top">BunkArt 1 ⭐</td><td>~900 LEK (combo s BunkArt 2 −20 %); 5 pater podzemí, chládek</td></tr>
+    <tr><td class="time">16:30</td><td class="place">Grand Park / aquapark</td><td>volitelně — šlapadla, nebo Blue Magic (~1 500–1 700 LEK)</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:45</strong> budeme u dolní stanice lanovky — dopoledne bude bez front a srpnové bouřky, které umí lanovku zastavit, chodí až odpoledne. Nahoře děti vyzkouší Adventure Park, minigolf poslouží jako plán B a naobědváme se v horské restauraci s výhledem na celou Tiranu.</p>
+    <p>Ve <strong>13:30</strong> sjedeme dolů a zamíříme rovnou do BunkArt 1 hned u lanovky — pět pater podzemního bunkru studené války, děti ho vezmou jako bludiště. Zbytek odpoledne podle sil: šlapadla v Grand Parku, nebo aquapark Blue Magic. Večer si dáme zmrzlinu v Rinia Parku.</p>
+  </div>
+  <div class="alts"><b>Alternativy / záložky na počasí</b>Latitude Tirana — klimatizované trampolíny + Kids Zone do 5 let (na vedro/bouřku) · hrad Kruja + bazar (45 min) · Tirana Zoo (200 LEK)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 3 -->
+<div class="page">
+  <div class="day-head"><span class="num">3</span><span class="title">Berat → Gjirokastër</span><span class="date">neděle 9. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Guest House Urat, Gjirokastër (9.3/10, se snídaní) · platba 35 € hotově</div>
+  <div class="move">🧳 Stěhování: Tirana → Gjirokastër · ~280 km · ~5 h čistého času</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg/960px-Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Gjirokaster_castle_hill_1.jpg/960px-Gjirokaster_castle_hill_1.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Berat — čtvrť tisíce oken (Ch. Strässler, CC BY-SA 2.0) · hrad Gjirokastër (R. Botev, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:00</td><td class="place">Odjezd z Tirany</td><td>ať jsme na hradě před vedrem</td></tr>
+    <tr><td class="time">10:00</td><td class="place top">Hrad Berat ⭐</td><td>UNESCO, obydlený hrad; 300 LEK cash; oběd uvnitř</td></tr>
+    <tr><td class="time">13:00</td><td class="place">Přejezd na jih</td><td>děti spí; pauza u pramenů Uji i Ftohtë před Tepelenou</td></tr>
+    <tr><td class="time">16:30</td><td class="place">Check-in Gjirokastër</td><td>Guest House Urat</td></tr>
+    <tr><td class="time">17:15</td><td class="place top">Hrad Gjirokastër ⭐</td><td>do 19:00; 400 LEK, děti zdarma; špionážní letadlo; nosítko!</td></tr>
+    <tr><td class="time">19:15</td><td class="place">Večeře v bazaru</td><td>qifqi — smažené rýžové kuličky</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:00</strong> vyrazíme — čeká nás nejdelší přejezd. V <strong>10:00</strong> budeme na hradě Berat: jediný trvale obydlený hrad v Albánii. Naobědváme se přímo mezi hradbami a cestou dolů se podíváme na čtvrť tisíce oken. Kolem <strong>13:00</strong> pojedeme dál — silnice za Memaliaj sleduje divokou řeku Vjosu; bude-li potřeba pauza, nejlepší je u studených pramenů Uji i Ftohtë přímo u cesty před Tepelenou.</p>
+    <p>V <strong>16:30</strong> se ubytujeme a v <strong>17:15</strong> vyjdeme na hrad Gjirokastër — večer bude chládek a prázdno. Navečeříme se v kamenném bazaru. Budeme-li mít energie nazbyt, můžeme místo večerního hradu zajet z Beratu k tůním vodopádu Bogovë (+~3 h) — hrad pak ale vyjde až na pondělní ráno a Blue Eye na ~10:30.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Vodopád Bogovë — tůně na koupání (50 min z Beratu + 20 min pěšky) · jezera Belsh (varianta trasy přes Elbasan, +30 min) · Cold War Tunnel v Gjirokastře (úniková záložka na vedro, 200 LEK, vstupy v celou hodinu 10–15 h)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 4 -->
+<div class="page">
+  <div class="day-head"><span class="num">4</span><span class="title">Blue Eye → Ksamil</span><span class="date">pondělí 10. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil (9.4/10, se snídaní, 300 m od pláže) · platba 390 € hotově</div>
+  <div class="move">🧳 Stěhování: Gjirokastër → Ksamil · ~60 km · ~1,5 h (přes Blue Eye)</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Blue_Eye_Albania.jpg/960px-Blue_Eye_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">„oko" pramene (G. Mile, CC BY-SA 4.0 · GumYBo, CC BY 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place top">Syri i Kaltër — Modré oko ⭐</td><td>50 LEK + parkování, cash; 2 km pěšky stinnou rovinkou; koupání zakázáno; od 10:00 davy</td></tr>
+    <tr><td class="time">11:00</td><td class="place">Pláž Ksamil — první koupání!</td><td>mělko, bez vln; oběd na pláži; šlapadlo 15 €/h</td></tr>
+  </table>
+  <div class="story">
+    <p>Vyjedeme v <strong>8:00</strong> — v <strong>8:30</strong> budeme u Modrého oka mezi prvními; kolem desáté už tam budou stát fronty tří řad. Od parkoviště nás čeká 2 km pěšky po rovné stinné cestě, u pramene fotky a svačina — koupat se nesmí.</p>
+    <p>V <strong>11:00</strong> nás čeká první koupání na pláži Ksamil — tyrkys jako z katalogu. Naobědváme se v plážové restauraci, uděláme check-in a odpoledne si půjčíme šlapadlo k ostrovům, nebo vytáhneme kyblík a lopatku. Kdyby v neděli nevyšel hrad: ráno hrad v 9:00 na otvíračku a Blue Eye ~10:30.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Mirror Beach (klidnější, rozbitá cesta) · promenáda Saranda večer · šnorchlování u ostrovů</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 5 -->
+<div class="page">
+  <div class="day-head"><span class="num">5</span><span class="title">Butrint + pláž + západ slunce</span><span class="date">úterý 11. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Mosaic_of_Butrint_Baptistery.jpg/960px-Mosaic_of_Butrint_Baptistery.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">divadlo (M. Konsek, CC BY-SA 4.0) · mozaika baptisteria (Albinfo, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">9:00</td><td class="place top">Butrint — UNESCO ⭐</td><td>1 000 LEK, děti do 12 zdarma; ruiny v lese, želvy; ~2 h</td></tr>
+    <tr><td class="time">11:30</td><td class="place">Hrad Ali Pashi</td><td>loďka od vstupu; smlouvat ZA LOĎ (~2000–2500 LEK rodina tam i zpět)</td></tr>
+    <tr><td class="time">13:30</td><td class="place">Oběd + pláž Ksamil</td><td>odpočinkové odpoledne</td></tr>
+    <tr><td class="time">19:00</td><td class="place">Hrad Lëkurësi — západ slunce</td><td>REZERVOVAT STŮL; přijet 30–45 min předem; vstup zdarma</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>9:00</strong> budeme na otvíračce Butrintu — řecké a římské ruiny zarostlé v lese, stinné pěšiny, divadlo, mozaiky a hlavně želvy: pro děti Indiana Jones. V <strong>11:30</strong> se necháme rovnou od vstupu převézt loďkou přes kanál Vivari na hrad Ali Pashi — pirátskou pevnost na ostrůvku.</p>
+    <p>Ve <strong>13:30</strong> oběd a pláž v Ksamilu. V <strong>18:15</strong> vyrazíme na hrad Lëkurësi — stůl si rezervujeme předem, parkoviště se plní brzy. Odměnou bude výhled na Korfu a celou Sarandu. Kdyby děti nestíhaly, západ slunce oželíme — půjde nahradit v ranní verzi zítra.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Trajekt na Korfu (celodenní, ~20 €/os zpáteční) · Monastery Beach · klášter 40 svatých nad Sarandou</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 6 -->
+<div class="page">
+  <div class="day-head"><span class="num">6</span><span class="title">Plážový odpočinkový den ☀️</span><span class="date">středa 12. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: Family Hotel Haruni, Ksamil</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ksamil_-_Strand_3.jpg/960px-Ksamil_-_Strand_3.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">ostrůvky (grigora, CC BY 2.0) · pláž (W. Sauber, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">9:00</td><td class="place">Pláž — celý den</td><td>na hlavní pláži být do 10:00 (lehátka 7–22 €); klidnější: Edon-Bina, Monastery Beach</td></tr>
+    <tr><td class="time">odp.</td><td class="place">Speedboat 5 ostrovů</td><td>~2 h, ~16–18 €/os, rezervovat online (GetYourGuide/Viator)</td></tr>
+    <tr><td class="time">18:30</td><td class="place">Saranda — Luna Park Gjika</td><td>kolotoče, ruské kolo, vodní atrakce; platí se jednotlivě</td></tr>
+  </table>
+  <div class="story">
+    <p>Den bez budíku — jen jedno pravidlo: na hlavní pláži budeme do <strong>10:00</strong>, jinak nebude kam si lehnout. Klidnější variantou pro šnorchlování bude přírodní Edon-Bina (15 min pěšky od parkoviště, vezmeme vlastní stín a boty do vody). Přes poledne siesta v hotelu.</p>
+    <p>Odpoledne vyrazíme na speedboat kolem 5 ostrovů, nebo budeme šnorchlovat rovnou z pláže. Večer zajedeme do Sarandy na promenádu: Luna Park Gjika — autodrom, ruské kolo, nafukovací vodní park, palačinky.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Krorëz &amp; Kakome — půldenní loď na panenské pláže (oběd v ceně) · Lëkurësi ráno (pokud nevyšel včera) · potápění pro začátečníky od 8 let (~30–40 €)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 7 -->
+<div class="page">
+  <div class="day-head"><span class="num">7</span><span class="title">Riviéra → Llogara → Vlora</span><span class="date">čtvrtek 13. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: July's Beach Apartment, Vlora (9.4/10, u pláže, kuchyňka + balkon) · platba 170 € hotově</div>
+  <div class="move">🧳 Stěhování: Ksamil → Vlora · ~150 km · ~3 h (přes Riviéru)</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Borsh_from_Qeparo.jpg/960px-Borsh_from_Qeparo.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg/960px-Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Pláž Borsh (Arianit, CC BY-SA 4.0) · výhled z průsmyku Llogara (S. Hahn Darlin, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place">Odjezd z Ksamilu</td><td>sbaleno večer předem</td></tr>
+    <tr><td class="time">9:30</td><td class="place top">Pláž Borsh ⭐</td><td>nejpozvolnější vstup do vody na Riviéře; koupání + oběd v taverně; odjezd ~13:00</td></tr>
+    <tr><td class="time">14:30</td><td class="place top">Průsmyk Llogara ⭐</td><td>POZOR: nejet tunelem! Stará silnice = jeleni (krmení ~50 LEK) + vyhlídka Panorama</td></tr>
+    <tr><td class="time">17:30</td><td class="place">Vlora — check-in</td><td>večeře na promenádě Lungomare</td></tr>
+  </table>
+  <div class="story">
+    <p>Sbalíme se a v <strong>8:30</strong> vyrazíme na sever po pobřežní silnici. V <strong>9:30</strong> zastavíme na pláži Borsh — malý si sedne 10 m od břehu po kotníky. Prokoupeme celé dopoledne, naobědváme se v taverně přímo u pláže a ve <strong>13:00</strong> pojedeme dál.</p>
+    <p>Na Llogaru NEpojedeme tunelem — navigace nás tam bude tlačit, ale jeleni a výhledy jsou na staré silnici přes průsmyk (exit Llogara National Park). Ve <strong>14:30</strong> nakrmíme ochočené jeleny u Llogara Tourist Village a zastavíme na vyhlídce Panorama s výhledem až na Korfu. V <strong>17:30</strong> se ubytujeme a navečeříme na promenádě Lungomare.</p>
+  </div>
+  <div class="alts"><b>Alternativy po cestě</b>Himara — promenáda + hrad · Dhermi / Drymades — beach bary · Gjipe Beach (jen lodním shuttlem z Himary, 10–20 €) · Porto Palermo — pevnost (300 LEK cash, jen jako krátká zastávka)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 8 -->
+<div class="page">
+  <div class="day-head"><span class="num">8</span><span class="title">Jeskyně Haxhi Ali lodí + laguna</span><span class="date">pátek 14. 8.</span></div>
+  <div class="sleep">🛏️ Nocleh: July's Beach Apartment, Vlora</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_View_of_Karaburun_from_the_coast_of_Vlora.jpg/960px-The_View_of_Karaburun_from_the_coast_of_Vlora.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg/960px-Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Karaburun od Vlory (AKisOK, CC BY-SA 4.0) · klášter Zvërnec (Pudelek, CC BY-SA 3.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">8:30</td><td class="place top">Port of Vlora — sraz ⭐</td><td>REZERVOVÁNO na 9:00; 92 € za rodinu hotově na místě; 3,5 h</td></tr>
+    <tr><td class="time">12:30</td><td class="place">Návrat + oběd</td><td>u přístavu</td></tr>
+    <tr><td class="time">14:00</td><td class="place">Laguna Narta</td><td>teplá mělká voda bez vln, 20 min od centra</td></tr>
+    <tr><td class="time">17:00</td><td class="place">Zvërnec</td><td>270m dřevěný most na klášterní ostrov; zdarma</td></tr>
+  </table>
+  <div class="story">
+    <p>V <strong>8:30</strong> budeme v přístavu — speedboat k jeskyni Haxhi Ali je rezervovaný vrchol týdne: mořská jeskyně pirátů, divoký poloostrov Karaburun a koupání v zátoce Shen Vasil. Vrátíme se kolem <strong>12:30</strong> a naobědváme se u přístavu.</p>
+    <p>Ve <strong>14:00</strong> se přesuneme na lagunu Narta — teplá mělká voda bez vln. V <strong>17:00</strong> přejdeme k Zvërnecu: dřevěný most nás dovede na klášterní ostrov, stinná procházka (plameňáky čekat nebudeme — v srpnu tu nejsou). Večer nás čeká poslední albánská večeře na Lungomare.</p>
+  </div>
+  <div class="alts"><b>Alternativy</b>Městská pláž Vlora (nejjednodušší, ale nejslabší voda) · ostrov Sazan lodí (celodenní, ~35 €/os)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- DEN 9 -->
+<div class="page">
+  <div class="day-head"><span class="num">9</span><span class="title">Vlora → letiště → domů</span><span class="date">sobota 15. 8.</span></div>
+  <div class="sleep">✈️ Odlet 18:35 (Tirana → Vídeň 20:05)</div>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG/960px-Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">nymfeum (C. Raddato, CC BY 2.0) · odeon (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <table class="program">
+    <tr><th>Čas</th><th>Místo</th><th>Poznámka</th></tr>
+    <tr><td class="time">ráno</td><td class="place">Poslední koupání + balení</td><td>odjezd ~10:30; letiště 2–2,5 h po dálnici</td></tr>
+    <tr><td class="time">cestou</td><td class="place top">Zoo Tirana ⭐</td><td>naše jediná zastávka — jeleni, pávi, poníci + botanická zahrada, ~200–300 LEK</td></tr>
+    <tr><td class="time">15:30</td><td class="place">Letiště TIA</td><td>natankovat, vrátit auto (vyfotit stav!), odbavení</td></tr>
+    <tr><td class="time">18:35</td><td class="place">Odlet ✈️</td><td>přílet Vídeň 20:05</td></tr>
+  </table>
+  <div class="story">
+    <p>Ráno jsme si naposledy zaplavali a sbalili se, pak vyrazili na sever. Apollonii jsme nakonec vynechali — po devíti dnech hradů a ruin bylo jasné, že děti si zaslouží něco svého. Jedinou zastávkou tak byla <b>zoo v Tiraně</b> u Grand Parku: jeleni, pávi, poníci a vedle botanická zahrada. Stín, lavičky a žádný stres před odletem.</p>
+    <p>V <strong>15:00</strong> budeme na letišti: natankujeme, vrátíme auto a odbavíme se. Mirupafshim, Albánie! 🇦🇱</p>
+  </div>
+  <div class="alts"><b>Alternativy po cestě</b>Klášter Ardenica (10 min od silnice, stinný, ~30 min) · amfiteátr Durrës (400 LEK) · poslední koupání Golem Beach (40 min od letiště)</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- UBYTOVÁNÍ -->
+<div class="page">
+  <h2>🛏️ Ubytování — vše rezervováno, platba hotově v EUR na místě</h2>
+
+  <div class="hotel">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/477685725.jpg?k=43e2f12c228b255f7930327d20b71bf57f86182d86356a6d6b23e18999590f6f&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/546460495.jpg?k=b4b26f00d7a7022bcc8170a7f69337c0339c2e3fa27732ac132c0c7a5b45de3e&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/546460499.jpg?k=1efc05d56ea69413313b02149b633cfc61996f9dbf7cb5c759ebf3d2e316a8ab&o=" alt=""></div>
+    <div class="hbody">
+    <span class="hprice">108 €</span>
+    <div class="hname">Vila Murati — Tirana</div>
+    <div class="hmeta">7.–9. 8. · 2 noci · hodnocení 9.2 · 2,1 km od centra · se snídaní</div>
+    Klidná vila se zahradou stranou od ruchu města. Ráno domácí snídaně na terase, večer ticho a hvězdy — ideální na dobrý start po příletu.</div>
+  </div>
+
+  <div class="hotel">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137018.jpg?k=87a83be956bd28e9b599ec4c23b3b966ce54fd65bf71278821f03d7862102e12&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137015.jpg?k=96396f213d08ea9a7c46aafd4b6f928f3222e26d2bb1b37b5056784ca42aa233&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/149137025.jpg?k=38ce40ff71ad916d7fa6b94a0a0f69343e14cf5b851f06d9b67120ec072c6ee0&o=" alt=""></div>
+    <div class="hbody">
+    <span class="hprice">35 €</span>
+    <div class="hname">Guest House Urat — Gjirokastër</div>
+    <div class="hmeta">9.–10. 8. · 1 noc · hodnocení 9.3 · 0,5 km od centra · se snídaní</div>
+    Rodinný penzion v srdci kamenného města. Z balkonu výhled na osvětlený hrad a staré osmanské domy. Snídaně s domácím ovocem, sýry a čerstvým chlebem.</div>
+  </div>
+
+  <div class="hotel">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/703669134.jpg?k=c24be1613ed5201206c91e21a9119bc08ed4f429a75f9430b2a289e7f9eeb9c6&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/673900154.jpg?k=22532da3625f92b28afbe6e4817672ff85d60c7c71c3503e8b0d27ad86d032aa&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/889937585.jpg?k=abc073a75e454535374abb10c65e8ed6ca6aba06c0c8b65b34a8775d0dfb9777&o=" alt=""></div>
+    <div class="hbody">
+    <span class="hprice">390 €</span>
+    <div class="hname">Family Hotel Haruni — Ksamil</div>
+    <div class="hmeta">10.–13. 8. · 3 noci · hodnocení 9.4 · balkon s výhledem na moře · ~300 m od pláže · se snídaní</div>
+    Tři noci u tyrkysového moře. Z balkonu ráno výhled na moře, pláž 3 minuty pěšky. Nové čisté pokoje, zahrada s květinami.</div>
+  </div>
+
+  <div class="hotel">
+    <div class="hgal"><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/708194107.jpg?k=a070ee6675e411bdde0526aed7ff4c826af66902d9ac15ecdd4e4e2cbda110cc&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/848886113.jpg?k=b9bf594b87490cb26ddd50cfab9d33462ceeb201f34043444b4ff7da2459aa29&o=" alt=""><img src="https://cf.bstatic.com/xdata/images/hotel/608x352/708194142.jpg?k=e1c71c9d911e0c826fc41be55db0ab0e417b54f50014dee094edf4640db76478&o=" alt=""></div>
+    <div class="hbody">
+    <span class="hprice">170 €</span>
+    <div class="hname">July's Beach Apartment — Vlora</div>
+    <div class="hmeta">13.–15. 8. · 2 noci · hodnocení 9.4 · přímo u pláže · kuchyňka + balkon · parkování zdarma</div>
+    Změna na poslední chvíli, a povedená: apartmán přímo u pláže na Lungomare. Balkon, plně vybavená kuchyňka, klimatizace a vlastní parkování zdarma — poslední dvě noci pár kroků od moře.</div>
+  </div>
+
+</div>
+
+<div class="page">
+  <h2>✅ Před odjezdem</h2>
+  <table class="simple">
+    <tr><td>☐ Dálniční známka Rakousko</td><td>☐ Naskenovat řidičák</td></tr>
+    <tr><td>☐ Check-in na letenky</td><td>☐ SIM data / roaming</td></tr>
+    <tr><td>☐ Rezervovat stůl Lëkurësi (Út 11. 8. ~19:30)</td><td>☐ Rezervovat speedboat 5 ostrovů (St 12. 8.)</td></tr>
+    <tr><td>☑ Rozměněno 40 000 Kč → ~1 587 € · zbylo 450 €</td><td>☐ Nosítko pro malého (hrady!)</td></tr>
+  </table>
+
+  <h2 style="margin-top:16px">🚗 Na cestě autem po Albánii</h2>
+  <div class="story">
+    <p>Hlavní tahy (Tirana–Fier–Vlora, Fier–Gjirokastër) jsou v dobrém stavu; vedlejší cesty umí překvapit výmoly. Albánci jezdí „kreativně“ — předjíždění přes plnou čáru je národní sport. Recept: jet defenzivně, nespěchat, nechat je předjet.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>Světla</b>povinně celý den</div>
+    <div class="fact"><b>Limity</b>40 obec · 80–90 mimo · 110 dálnice</div>
+    <div class="fact"><b>Alkohol</b>prakticky nulová tolerance</div>
+    <div class="fact"><b>Mýto</b>jen tunel Llogara 250 LEK</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Policejní hlídky s radarem jsou časté, hlavně u měst — držet limity. Na silnicích se objevují krávy, kozy a psi, i na hlavních tazích; po setmění mimo města raděj nejezdit. Tankuje se obsluhou (říct částku), platit jde kartou u větších pump — na menších hotovost. Benzín ~180–190 LEK/l. Parkování: modré zóny se platí přes parkovací automat nebo obsluze (~100 LEK/h).</div>
+
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- ===================== KATALOG MÍST ===================== -->
+
+<div class="page">
+  <h1 style="margin-top:30px">Katalog míst</h1>
+  <div class="catalog-intro">
+    <p>Na následujících stranách najdete všechna místa z itineráře — i alternativy, mezi kterými se dá na místě vybírat. Ke každému píšeme nejen to, proč tam jet, ale poctivě i to, <b>na co si dát pozor</b>: davy, ceny, „cash only“ pasti a co s dětmi nefunguje. Hvězdička ⭐ = vrcholy zájezdu, které si nenechte ujít.</p>
+    <p style="margin-top:8px"><b>Regiony:</b> Tirana a okolí (dny 1–2) · Vnitrozemí: Berat → Gjirokastër (dny 3–4) · Ksamil a Saranda (dny 4–6) · Riviéra a Vlora (dny 7–9)</p>
+  </div>
+
+  <h2 style="margin-top:14px">Albánie v kostce</h2>
+  <div class="facts">
+    <div class="fact"><b>Srpen — vzduch</b>31–35 °C, večer ~24 °C</div>
+    <div class="fact"><b>Srpen — moře</b>25–26 °C</div>
+    <div class="fact"><b>Západ slunce</b>~19:50–20:10</div>
+    <div class="fact"><b>Čas</b>stejný jako v ČR</div>
+    <div class="fact"><b>Jazyk</b>albánsky; anglicky umí mladí</div>
+    <div class="fact"><b>Kývání hlavou</b>obráceně! po = ano, jo = ne</div>
+    <div class="fact"><b>Voda z kohoutku</b>raději balená</div>
+    <div class="fact"><b>Spropitné</b>~10 %, zaokrouhlit</div>
+  </div>
+  <div class="tip"><b>Denní rytmus</b>Albánské léto žije ráno a večer: mezi 12.–16. hodinou města i pláže „vypnou“ do siesty a slunce je nejostřejší. Náš plán to kopíruje — program ráno, voda a stín přes poledne, promenády večer. Děti tu nikoho neruší ani ve 22:00, večerní korzo patří rodinám.</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- TIRANA -->
+<div class="page">
+  <div class="region-label">Tirana a okolí · den 2</div>
+  <h2>⭐ Dajti Ekspres — lanovkou nad hlavní město</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dajti_express_cable_car_2.jpg/960px-Dajti_express_cable_car_2.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Panorama_photo_of_Tirana_from_Dajti_mountain.jpg/960px-Panorama_photo_of_Tirana_from_Dajti_mountain.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">lanovka (Leeturtle, CC BY-SA 4.0) · panorama Tirany z Dajti (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Nejdelší lanovka na Balkáně vás za patnáct minut vynese z rozpálené Tirany do horského chládku ve výšce přes 1 000 metrů — 4,3 km nad údolími, bunkry a olivovými háji. Nahoře se hraje minigolf s výhledem na celé město, děti prolézají lanový Adventure Park a obědvá se v horské restauraci, zatímco dole se město vaří ve 35 °C.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>~1 400 LEK, děti 600 LEK</div>
+    <div class="fact"><b>Kdy</b>hned v 9:00 (zavřeno v úterý)</div>
+    <div class="fact"><b>Doba</b>3–4 h včetně oběda</div>
+    <div class="fact"><b>Minigolf</b>€7 dosp. / €5 dítě (vč. lanovky)</div>
+  </div>
+  <div class="kids"><b>Pro děti</b>Adventure Park oficiálně od 5 let (tarif 5–7 let €12) — věk nikdo nekontroluje, rozhoduje dosah na jisticí lano; s téměř pětiletým to zkusit lze. Minigolf jako jistota pro oba.</div>
+  <div class="warn"><b>Na co si dát pozor</b>Od ~11:00 fronty. Odpolední srpnové bouřky umí lanovku dočasně zastavit — proto jedeme ráno a odpolední program máme dole ve městě. Ceny se v různých zdrojích liší o ±200 LEK, počítejte raději s vyšší.</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Přímo u horní stanice je horská restaurace s panoramatickou terasou — oběd s celou Tiranou pod nohama. Ceny mírně „vyhlídkové“, porce velké.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Tirana a okolí · den 2</div>
+  <h2>⭐ BunkArt 1 &amp; 2 — do atomového krytu diktátora</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bunk%27Art_1_Entrance.jpg/960px-Bunk%27Art_1_Entrance.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bunk%27Art_1%2C_Tirana%2C_Albania_%2849769316342%29.jpg/960px-Bunk%27Art_1%2C_Tirana%2C_Albania_%2849769316342%29.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">vstup (BBB2021, CC BY-SA 4.0) · podzemí bunkru (A. Milligan, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Pětipatrový podzemní bunkr, který si nechal Enver Hodža vybudovat pro případ jaderné války: 106 místností, velitelské sály, tunely a dobové rekvizity. Děti ho projdou jako tajemné bludiště, dospělí dostanou nejsilnější lekci albánské historie 20. století. V podzemí je celoročně kolem 15 °C — v srpnu požehnání. Menší BunkArt 2 stojí přímo u Skanderbegova náměstí a věnuje se tajné policii Sigurimi.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>~900 LEK / objekt</div>
+    <div class="fact"><b>Combo 1+2</b>~800 LEK/objekt (−20 %)</div>
+    <div class="fact"><b>Doba</b>1,5–2 h (BunkArt 1)</div>
+    <div class="fact"><b>Kde</b>u dolní stanice lanovky</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Část expozice (výslechy, perzekuce) je temná — s 8letou projděte s komentářem, 4,5letý vnímá hlavně „bludiště“. Vezměte si vlastní sluchátka na audioprůvodce v mobilu. BunkArt 2 je menší a bez chládku podzemí ztrácí půlku kouzla — když už, tak jako doplněk večerní procházky.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Tirana a okolí · den 1</div>
+  <h2>Skanderbegovo náměstí + Pyramida</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg/960px-Tirana_-_Skanderbeg_Square_%28Sheshi_Sk%C3%ABnderbej%29_-_by_Pudelek.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Pyramid_of_Tirana_October_2023.jpg/960px-Pyramid_of_Tirana_October_2023.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Skanderbegovo náměstí (Pudelek, CC BY-SA 4.0) · Pyramida po rekonstrukci (BBB2021, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Obří pěší plocha v srdci Tirany, kde se večer schází celé město: fontány, ve kterých se děti smí cachtat, kolotoč za pár korun, jezdecká socha národního hrdiny a mešita Et'hem Beje. Deset minut pěšky stojí legendární Pyramida — bývalé Hodžovo mauzoleum, po rekonstrukci pokryté schody, po kterých se dá vyjít až na střechu. Výhled zdarma, skluzavka k tomu.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>zdarma (kolotoč 100 ALL)</div>
+    <div class="fact"><b>Kdy</b>podvečer a večer</div>
+    <div class="fact"><b>Doba</b>1–2 h</div>
+    <div class="fact"><b>Kombinace</b>večeře Pazari i Ri (5 min)</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>V poledne je náměstí rozpálená deska bez stínu — patří večeru. Pyramida: schody jsou strmé a bez zábradlí uprostřed — malého držet za ruku, skluzavka je hladší, než vypadá.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Tirana a okolí · alternativy</div>
+  <div class="attr-half">
+    <h3>Hrad Kruja + starý bazar</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kruj%C3%AB_castle_during_sunset.jpg/960px-Kruj%C3%AB_castle_during_sunset.jpg" alt=""><figcaption>foto Ravi Dwivedi, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Rodiště národního hrdiny Skanderbega, hradní muzeum s brněními a 400 let starý bazar plný suvenýrů. Výhled z hradeb na celou nížinu až k moři.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>hrad zdarma, muzeum ~300 LEK</div>
+      <div class="fact"><b>Cesta</b>45 min z Tirany</div>
+      <div class="fact"><b>Doba</b>půlden s cestou</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Recenze jsou vlažné: „hrad sám o sobě nenadchne, bazar je řada suvenýrových krámků“. Jen pokud zbyde čas a energie — necpat do už plného dne 2.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Pazari i Ri — Nový bazar</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/New_Bazaar_%28Pazari_i_Ri%29%2C_Tirana%2C_Albania.jpg/960px-New_Bazaar_%28Pazari_i_Ri%29%2C_Tirana%2C_Albania.jpg" alt=""><figcaption>foto Ridiculopathy, Wikimedia Commons, CC0</figcaption></figure>
+    <div class="story"><p>Barevné tržiště s horami ovoce, domácím medem a stánky s byrekem. Kolem dokola restaurace a kavárny — nejpříjemnější místo na večeři prvního dne.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Ceny</b>byrek ~100 LEK, ovoce levné</div>
+      <div class="fact"><b>Kdy</b>ráno a večer</div>
+      <div class="fact"><b>Doba</b>30–60 min + večeře</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>V poledním vedru tržiště zeje prázdnotou — žije ráno a po 17. hodině. Ceny na trhu se smlouvají s úsměvem.</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="region-label">Tirana a okolí · alternativy a záložky na počasí</div>
+  <div class="attr-half">
+    <h3>Grand Park + Tirana Zoo</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Grand_park_of_Tirana_sunset.jpg/960px-Grand_park_of_Tirana_sunset.jpg" alt=""><figcaption>foto Parallelopedia, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Zelené plíce Tirany kolem umělého jezera: stinné cesty, hřiště, šlapadla a hned vedle malá, ale čistá zoo s poníky a pávy.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>park zdarma, zoo ~200–300 LEK</div>
+      <div class="fact"><b>Kdy</b>pozdní odpoledne</div>
+      <div class="fact"><b>Doba</b>1–2 h</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Zoo je opravdu malá — počítejte s hodinkou, ne se safari. Šlapadla jen při klidném počasí.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Blue Magic Water — aquapark</h3>
+    <div class="story"><p>20 000 m² vodní zábavy u Durrësu: zóna pro nejmenší (0–5 let), tobogány pro větší, lehátka a stín. Záchrana pro nejparnější den.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>~1 500–1 700 LEK/os</div>
+      <div class="fact"><b>Cesta</b>25 min autem</div>
+      <div class="fact"><b>Otevřeno</b>denně 9–19</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Oficiální ceník neexistuje — ceny se liší den ode dne a o víkendu jsou vyšší. Vlastní jídlo je zakázané (kontrolují tašky), občerstvení uvnitř 600–900 LEK. O víkendu narváno.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Latitude Tirana — kryté trampolíny</h3>
+    <div class="story"><p>Největší indoor aerial park na Balkáně: 100+ propojených trampolín, lezecké stěny, ninja dráha a Kids Zone pro děti do 5 let. Klimatizace — ideální únik před bouřkou nebo 38 °C.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>vyšší (časové bloky)</div>
+      <div class="fact"><b>Otevřeno</b>denně 10–22</div>
+      <div class="fact"><b>Kde</b>Kavaja Street, u nadjezdu</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Platí se náramkem za časový blok a systém je nepřehledný — při vstupu si nechte vysvětlit, kdy blok končí. Na místní poměry drahé.</div>
+  </div>
+  <div class="tip"><b>💡 Tirana s dětmi — rychlý tahák</b>Kolotoč na Skanderbegově náměstí (100 ALL) · cachtání ve fontánách · zmrzlina v Rinia Parku · bowling pod Taiwan Center · skluzavka na Pyramidě · šlapadla v Grand Parku · a když všechno selže: klimatizované obchodní centrum TEG s dětským koutkem.</div>
+  <div class="notes"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<!-- VNITROZEMÍ -->
+<div class="page">
+  <div class="region-label">Vnitrozemí · den 3</div>
+  <h2>⭐ Hrad Berat — město tisíce oken (UNESCO)</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg/960px-Mangalem_district_%28Town_of_a_Thousand_Windows%29_in_Berat%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Castle_of_Berat%2C_inside.jpg/960px-Castle_of_Berat%2C_inside.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">čtvrť tisíce oken (Ch. Strässler, CC BY-SA 2.0) · uvnitř hradeb (Miran100897, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Jediný hrad v Albánii, ve kterém se pořád normálně žije: za hradbami ze 13. století stojí obydlené domky, kostelíky, vinárny a restaurace. Děti uslyší legendu o dvou bratrech obrech, dospělí se pokochají výhledem na řeku Osum a bílou čtvrť Mangalem — „město tisíce oken“, kvůli kterému je Berat na seznamu UNESCO. Oběd přímo mezi hradbami patří k zážitkům zájezdu.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>300 LEK/os, jen hotově</div>
+    <div class="fact"><b>Kdy</b>do 11:00 (vedro!)</div>
+    <div class="fact"><b>Doba</b>2–2,5 h s obědem</div>
+    <div class="fact"><b>Otevřeno</b>pokladna 9–18</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Starší průvodce tvrdí „vstup zdarma“ — neplatí, u brány se vybírá 300 LEK v hotovosti. Dlažba je vyhlazená staletími a klouže i za sucha — pevné boty, ne žabky. Nahoře je minimum stínu, proto jsme na hradě v 10:00 a ne v poledne.</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Oběd přímo mezi hradbami (restaurace uvnitř hradu), nebo dole terasa hotelu Mangalemi s výhledem na „tisíc oken“. Legendární Homemade Food Lili vaří jen večer a jen na rezervaci — na průjezd bohužel nevychází.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vnitrozemí · den 3, volitelná zajížďka</div>
+  <h2>Vodopád Bogovë — tůně s ledovou vodou</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg/960px-Ujvara_e_Bogoves%2C_Bogova_Waterfall.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bogove_Waterfall.jpg/960px-Bogove_Waterfall.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">vodopád a tůně (G. Krasniqi · Saranda lover, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Tyrkysový vodopád schovaný v horách Skraparu, pod nímž se dá koupat v přírodních tůních. Voda je křišťálová, ledová a po ránu stráveném na rozpáleném hradě chutná jako zázrak. Cesta od parkoviště vede podél potoka — 20 minut lehké chůze, kterou zvládne i předškolák (s přenášením přes pár kamenů).</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>zdarma</div>
+    <div class="fact"><b>Cesta</b>~50 min z Beratu + 20 min pěšky</div>
+    <div class="fact"><b>Doba</b>+~3 h celkem</div>
+    <div class="fact"><b>Voda</b>ledová i v srpnu</div>
+  </div>
+  <div class="kids"><b>Pro děti</b>Voda pro otužilce — děti spíš brouzdání a házení kamínků než plavání. Pro 4,5letého nosítko na kamenitou část stezky.</div>
+  <div class="warn"><b>Na co si dát pozor</b>Navigace umí poslat na špatnou lesní cestu — držet se značení přes most u vesnice Bogovë. A hlavně: se zajížďkou dorazíte do Gjirokastry po zavírací době hradu — hrad pak vychází na pondělní ráno a Blue Eye na ~10:30, kdy už jsou fronty. Je to výměna „voda dnes za davy zítra“.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vnitrozemí · zastávky na přejezdu (den 3)</div>
+  <div class="attr-half">
+    <h3>Uji i Ftohtë — studené prameny u Vjosy</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Vjosa_river_near_Tepelena.JPG/960px-Vjosa_river_near_Tepelena.JPG" alt=""><figcaption>řeka Vjosa u Tepelené · foto Pudelek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Prameny ledové vody přímo u silnice před Tepelenou, stinné posezení a restaurace s tradiční kuchyní. Zastávka, kterou dělají generace Albánců cestou na jih — opláchnout obličej, natočit vodu do lahví, protáhnout nohy.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>zdarma</div>
+      <div class="fact"><b>Kde</b>u silnice, ~50 min před Gjirokastrou</div>
+      <div class="fact"><b>Doba</b>20–30 min</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>O víkendech odpoledne bývá plno místních rodin — parkuje se podél silnice, opatrně s dětmi.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Jezera Belsh — varianta trasy přes Dumre</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Belsh_-_Lake.jpg/960px-Belsh_-_Lake.jpg" alt=""><figcaption>jezero v Belshi · foto Albinfo, Wikimedia Commons, CC BY 4.0</figcaption></figure>
+    <div class="story"><p>Alternativní cesta z Tirany do Beratu přes plošinu Dumre s 84 krasovými jezírky. V městečku Belsh vede kolem jezera moderní promenáda — káva s výhledem na vodu, kterou skoro žádný turista nezná.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>zdarma</div>
+      <div class="fact"><b>Zajížďka</b>+~30 min oproti hlavní trase</div>
+      <div class="fact"><b>Doba</b>30–45 min zastávka</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Jezera jsou na koukání, ne na koupání. Dává smysl jen ráno cestou tam — odpoledne už budete chtít být na jihu.</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vnitrozemí · den 3 večer</div>
+  <h2>⭐ Hrad Gjirokastër — pevnost se špionážním letadlem</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/American_Spy_plane_in_Albania.jpg/960px-American_Spy_plane_in_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Gjirokast%C3%ABr_castle_rooftop_view.jpg/960px-Gjirokast%C3%ABr_castle_rooftop_view.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">špionážní letoun (xJasonRogersx, CC BY 2.0) · výhled z hradeb (Leeturtle, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Kamenné město UNESCO, nad kterým trůní jedna z největších pevností Balkánu. Uvnitř: kobky, tajné průchody, sbírka děl — a na nádvoří americký špionážní letoun, sestřelený v dobách studené války, u kterého se děti neurvou od focení. Večer, kdy hradby chytají zlaté světlo a davy zmizely, je hrad úplně jiné místo než v poledním žáru. Dole v bazaru pak večeře: qifqi, smažené rýžové kuličky s mátou, existují jen tady.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>400 LEK, do 12 let zdarma (cash)</div>
+    <div class="fact"><b>Kdy</b>17:15–19:00 (zavírá v 19)</div>
+    <div class="fact"><b>Doba</b>1–1,5 h</div>
+    <div class="fact"><b>Muzeum uvnitř</b>+200 LEK (lze vynechat)</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Výstup od bazaru je strmý po vyhlazené dlažbě — kočárek nemá šanci, malého v nosítku. Ráno hrad otevírá až v 9:00 (ne dřív, jak tvrdí některé plány). Cash only.</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Po hradu večeře v bazaru: Taverna Kuka (qifqi — místní rýžové kuličky), Odaja (velké porce, vstřícní k dětem) nebo Te Tradita s medovým dezertem qumështor.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vnitrozemí · den 4 ráno</div>
+  <h2>⭐ Syri i Kaltër — Modré oko</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg/960px-Syri_i_kalt%C3%ABr_%28Blue_Eye_Spring%29.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Blue_Eye_Albania.jpg/960px-Blue_Eye_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">„oko" pramene (G. Mile, CC BY-SA 4.0 · GumYBo, CC BY 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Krasový pramen, ze kterého vyvěrá řeka barvy, jaká se nedá vyfotit věrně: sytě modrý střed „oka“ obklopený tyrkysovým prstencem. Hloubka pramene dodnes není přesně změřená — potápěči se dostali do 50 metrů a dno neviděli. Krátká stinná procházka podél kanálu patří k nejhezčím kilometrům celé cesty.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>50 LEK + parkovné, jen hotově</div>
+    <div class="fact"><b>Kdy</b>v 8:30, nejpozději v 9</div>
+    <div class="fact"><b>Pěšky</b>2 km po rovince (stín)</div>
+    <div class="fact"><b>Doba</b>1,5–2 h celkem</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Koupání je nově <b>zakázané a hlídané</b> (pokuty, strážci reagují do minuty) — dětem to řekněte předem, ať nečekají brouzdání. „Vláček“ z parkoviště většinou nejezdí — počítejte s chůzí. Po 10. hodině fronty tří řad u vyhlídky a plné parkoviště; proto jedeme na otvíračku. Stánky u vstupu jsou předražené — svačinu s sebou.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vnitrozemí · den 4, záložka na vedro</div>
+  <div class="attr-half">
+    <h3>Cold War Tunnel — Gjirokastër</h3>
+    <div class="story"><p>Šest set metrů tajných chodeb pod hradem, vybudovaných pro komunistické papaláše pro případ války. Konstantních 15 °C, dobové telefony a atmosféra bunkru, o kterém město 40 let nevědělo.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>200 LEK</div>
+      <div class="fact"><b>Prohlídky</b>v celou hodinu, 10–15 h</div>
+      <div class="fact"><b>Doba</b>20–30 min</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Jen s průvodcem a jen v celou hodinu — nejde „nakouknout“. Úzké chodby: kdo špatně snáší stísněné prostory, ať zůstane venku na kávě.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Gjirokastër — starý bazar</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pazari_i_Gjirokastres.jpg/960px-Pazari_i_Gjirokastres.jpg" alt=""><figcaption>foto Gjirokastra1, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Kamenné uličky dlážděné říčními valouny, krámky s ručně tkanými koberci, stříbrem a horami suvenýrů. Večer, kdy se rozsvítí lampy, jedno z nejatmosféričtějších míst v zemi.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>zdarma</div>
+      <div class="fact"><b>Kdy</b>večer dne 3</div>
+      <div class="fact"><b>Doba</b>procházka + večeře</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Valounová dlažba je past na kotníky a klouže — večer s baterkou v mobilu. Ceny suvenýrů nadsazené, smlouvat je normální.</div>
+  </div>
+</div>
+
+<!-- KSAMIL & SARANDA -->
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · dny 4–6</div>
+  <h2>⭐ Pláž Ksamil a čtyři ostrovy</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ksamamil_Islands.jpg/960px-Ksamamil_Islands.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ksamil_-_Strand_3.jpg/960px-Ksamil_-_Strand_3.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">ostrůvky (grigora, CC BY 2.0) · pláž (W. Sauber, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Bílý písek, mělká tyrkysová laguna a čtyři zelené ostrůvky na dosah — nejbližší jen 100–200 metrů od břehu, s klidným mořem přeplavatelný nebo dosažitelný šlapadlem za pět minut. Voda je teplá, průzračná a bez vln: děti z ní nedostanete. Tady stojí náš hotel a tady strávíme tři dny.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstup</b>pláže zdarma</div>
+    <div class="fact"><b>Lehátka</b>7–22 € za set (srpen)</div>
+    <div class="fact"><b>Šlapadlo</b>~15 €/h</div>
+    <div class="fact"><b>Kdy</b>na pláži do 10:00</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Srpnový Ksamil je hlavní sezóna naplno: po desáté ráno je hlavní pláž „sardinková“, beach bary hrají přes sebe a přední řady lehátek stojí i 40 €. Recenze z posledních let mluví o chaosu a odpadcích na ostrovech — „Maledivy Evropy“ berte s rezervou. Funguje: přijít brzy, nebo utéct na klidnější pláže (další strana).</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Guvat Mediterranean (ryby s výhledem na moře), GiGu Souvlaki (rychlé řecké, když děti nechtějí čekat), Grill Zone (balkánský gril za lidové ceny). Na mušle zajet k The Mussel House na břehu Butrintské laguny — a pro děti tam mají poníka.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · den 5</div>
+  <h2>⭐ Butrint — antické město v lese (UNESCO)</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2011_Butrint_15_Theatre_and_Fortress.jpg/960px-2011_Butrint_15_Theatre_and_Fortress.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Mosaic_of_Butrint_Baptistery.jpg/960px-Mosaic_of_Butrint_Baptistery.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">divadlo (M. Konsek, CC BY-SA 4.0) · mozaika baptisteria (Albinfo, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Řecké divadlo, římské lázně, byzantský baptisterium a benátská pevnost — 2 500 let historie zarostlé ve stínu vavřínů na poloostrově mezi lagunou a mořem. V kanálech plavou želvy (dětem řekněte, ať koukají do vody — tam je uvidíte skoro jistě; suchozemské v podrostu jen za ranního chládku), po stromech skáčou ještěrky a děti procházejí ruiny jako výpravu s Indiana Jonesem. Právem nejnavštěvovanější památka Albánie.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>1 000 LEK, do 12 let zdarma</div>
+    <div class="fact"><b>Kdy</b>na otvíračku v 9:00</div>
+    <div class="fact"><b>Doba</b>2–3 h, stinné pěšiny</div>
+    <div class="fact"><b>Poslední vstup</b>18:00</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>U laguny jsou komáři i přes den — repelent do batohu. Slavnou mozaiku baptisteria neuvidíte: je celoročně zasypaná ochranným pískem a odkrývá se jen na pár dní raz za několik let. Online vstupenky z myticket.al prodává jiný operátor než pokladna u brány; v 9:00 ráno frontu neřešíte, kupte na místě. Občerstvení uvnitř skoro není — vodu s sebou.</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Cestou zpět do Ksamilu leží The Mussel House — mušle vytažené přímo z laguny, kterou jste právě obešli. Čerstvější nikde v Albánii nedostanete.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · den 5</div>
+  <div class="attr-half">
+    <h3>Hrad Ali Pashi — pirátská pevnost na ostrůvku</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Vivari_Channel%2C_Ali_Pasha_Fort_and_Corfu_seen_from_Butrint_Castle%2C_September_2022_01.jpg/960px-Vivari_Channel%2C_Ali_Pasha_Fort_and_Corfu_seen_from_Butrint_Castle%2C_September_2022_01.jpg" alt=""><figcaption>kanál Vivari s pevností, v pozadí Korfu · foto Calistemon, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Miniaturní pevnost obklopená ze všech stran vodou, kam vozí rybáři loďkou přímo od vstupu do Butrintu. Deset minut plavby kanálem Vivari, hradby na prolézání a výhled na Korfu — pro děti zlatý hřeb dne 5.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Cena</b>~2000–2500 LEK za loď (tam i zpět), hrad zdarma</div>
+      <div class="fact"><b>Doba</b>~1 h i s plavbou</div>
+      <div class="fact"><b>Kdy</b>11:30, po Butrintu</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Smlouvejte ZA LOĎ, ne za osobu — „10 € na osobu“ je přeplacené, reálně jde o ~2000–2500 LEK za celou loď tam i zpět. Řekněte „vajtje-ardhje“ (tam a zpět), domluvte 30 min na ostrůvku a plaťte až po vyzvednutí. Vesty pro děti. Na ostrůvku není stín ani zázemí.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Hrad Lëkurësi — západ slunce nad Sarandou</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/L%C3%ABkur%C3%ABsi_Castle%2C_Saranda%2C_Albania_2015-09-25_01.jpg/960px-L%C3%ABkur%C3%ABsi_Castle%2C_Saranda%2C_Albania_2015-09-25_01.jpg" alt=""><figcaption>foto Pasztilla, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Pevnost na kopci nad Sarandou s restaurací na hradbách — a s nejslavnějším západem slunce v zemi: celá zátoka, Korfu i hory za zády v jednom výhledu.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstup</b>zdarma (platí se večeře)</div>
+      <div class="fact"><b>Kdy</b>30–45 min před západem</div>
+      <div class="fact"><b>Rezervace</b>stůl PŘEDEM!</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Bez rezervace stolu koukáte vestoje přes hlavy; parkoviště se plní dřív, než slunce sedá. Ceny restaurace jsou „vyhlídkové“. Kdyby děti večer nezvládaly — hrad funguje i ráno a v plánu má náhradní okno v den 6.</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · úniky před davy</div>
+  <h2>Klidnější pláže: Edon-Bina, Monastery, Mirror</h2>
+  <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ksamil_beach.jpg/960px-Ksamil_beach.jpg" alt=""><figcaption>foto DieliAlla, Wikimedia Commons, CC0</figcaption></figure>
+  <div class="story"><p>Když hlavní pláž přeteče, stačí popojet pár kilometrů k Sarandě: <b>Edon-Bina</b> je přírodní oblázková zátoka bez jediného lehátka a baru, zato s nejlepším šnorchlováním v okolí — ryby a mořské hvězdice pár metrů od břehu. <b>Monastery Beach</b> má snack bar a míň lidí, <b>Mirror Beach</b> (Pasqyra) proslula vodou tak hladkou, že zrcadlí útesy.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstup</b>vše zdarma</div>
+    <div class="fact"><b>Edon-Bina</b>15 min pěšky od parkoviště</div>
+    <div class="fact"><b>Vybavení</b>vlastní stín + boty do vody</div>
+    <div class="fact"><b>Šnorchl</b>brýle pro oba, 8letá zvládne</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Edon-Bina nemá žádné zázemí — vodu, svačinu a deštník s sebou; pláž je oblázková, bez bot do vody to bolí. K Mirror Beach vede rozbitá příjezdová cesta — pomalu. Pulebardhu, kterou doporučují starší průvodce, vynechte: schody a kamení s malým dítětem nedávají smysl.</div>
+  <figure class="mapfig mapfig-s"><img src="mapa-ksamil.png" alt="Mapa oblasti Ksamil a Saranda" style="max-height:80mm"><figcaption>Ksamil a Saranda — pláže, Butrint, Lëkurësi (čárkovaně alternativy) · mapa © OpenStreetMap contributors</figcaption></figure>
+</div>
+
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · lodní výlety (den 6)</div>
+  <div class="attr-half">
+    <h3>Speedboat kolem 5 ostrovů</h3>
+    <div class="story"><p>Dvouhodinová projížďka rychlým člunem kolem ostrůvků mezi Ksamilem a Sarandou: koupání v zátokách přístupných jen z moře, šnorchlování v průzračné vodě a trocha adrenalinu na vlnách.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Cena</b>~16–18 €/os</div>
+      <div class="fact"><b>Doba</b>~2 h</div>
+      <div class="fact"><b>Rezervace</b>online předem (GetYourGuide/Viator)</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Nebrat od naháněčů na pláži: hlášené skryté příplatky „za palivo“, chybějící dětské vesty a žádné pojištění. Online rezervace má fixní cenu, vesty a storno zdarma do 24 h — rozhodovat se dá podle počasí.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Krorëz &amp; Kakome — panenské pláže lodí</h3>
+    <div class="story"><p>Půldenní plavba ze Sarandy do zátok, kam nevede žádná silnice: Krorëz a Kakome jsou poslední „divoké“ pláže v okolí. Bílé oblázky, tyrkysová voda a oběd z grilu přímo na pláži — únik, o kterém většina turistů v Ksamilu neví.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Cena</b>dle operátora, oběd v ceně</div>
+      <div class="fact"><b>Doba</b>půlden (~3 h na pláži)</div>
+      <div class="fact"><b>Odkud</b>přístav Saranda</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Sežere většinu volného dne 6 — je to varianta MÍSTO líného plážového dne, ne navíc. Ověřit, že operátor má dětské vesty. Na pláži není přirozený stín.</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="region-label">Ksamil a Saranda · večery</div>
+  <div class="attr-half">
+    <h3>Saranda — promenáda + Luna Park Gjika</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Saranda_Waterfront_%2831878130138%29.jpg/960px-Saranda_Waterfront_%2831878130138%29.jpg" alt=""><figcaption>foto David Stanley, Wikimedia Commons, CC BY 2.0</figcaption></figure>
+    <div class="story"><p>Večerní korzo podél zátoky: zmrzlina, palačinky, pouliční muzikanti — a lunapark s autodromem, ruským kolem a nafukovacím vodním parkem. Albánské večery patří rodinám s dětmi, i o půl desáté je promenáda plná kočárků.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstup</b>zdarma, atrakce jednotlivě</div>
+      <div class="fact"><b>Kdy</b>po 18. hodině</div>
+      <div class="fact"><b>Platba</b>hotovost (LEK)</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Parkování v centru Sarandy je večer loterie — počítejte s hledáním, nebo zaparkujte dál a projděte se. Atrakce jen za hotové.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Trajekt na Korfu — výlet do Řecka</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Panoramic_view_of_Saranda_from_L%C3%ABkur%C3%ABsi_Castle.jpg/960px-Panoramic_view_of_Saranda_from_L%C3%ABkur%C3%ABsi_Castle.jpg" alt=""><figcaption>zátoka Sarandy · foto Jarosław Lichon, CC BY-SA 2.0</figcaption></figure>
+    <div class="story"><p>Z přístavu v Sarandě je to na Korfu 30 minut rychlolodí — lákavá myšlenka: dvě země v jedné dovolené, Staré město Korfu je UNESCO.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Cena</b>~20 €/os zpáteční</div>
+      <div class="fact"><b>Plavba</b>30–70 min dle lodi</div>
+      <div class="fact"><b>Doklady</b>pasy s sebou (Schengen!)</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Spolkne celý den včetně dvou hraničních kontrol s frontami — v srpnu i hodinu. S dětmi 4 a 8 let za jeden den víc stresu než zážitku; proto je v plánu jen jako alternativa, kdyby počasí u moře nevyšlo.</div>
+  </div>
+</div>
+
+<!-- RIVIÉRA & VLORA -->
+<div class="page">
+  <div class="region-label">Riviéra · den 7</div>
+  <h2>⭐ Borsh — nejdelší a nejmělčí pláž Riviéry</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Borsh_from_Qeparo.jpg/960px-Borsh_from_Qeparo.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Plazhi_i_Borshit%2C_Albania.jpg/960px-Plazhi_i_Borshit%2C_Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Borsh od Qepara (Arianit, CC BY-SA 4.0) · na pláži (S. Hahn Darlin, CC BY 2.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Sedm kilometrů pláže pod olivovými háji — nejdelší v Albánii a kupodivu pořád poloprázdná i v srpnu. Hlavní přednost pro nás: nejpozvolnější vstup do vody na celém pobřeží. Dítě si sedne deset metrů od břehu a má vodu po kotníky. Dopolední koupání, oběd v taverně s nohama v písku, a pak dál na sever.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstup</b>zdarma, lehátka levnější než Ksamil</div>
+    <div class="fact"><b>Kdy</b>9:30–13:00 (den 7)</div>
+    <div class="fact"><b>Oběd</b>taverny přímo na pláži</div>
+    <div class="fact"><b>Povrch</b>písek + drobné oblázky</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Odpoledne pláž praží naplno (žádné přirozené stínění) — proto dopoledne. Taverny jsou jednoduché: čerstvé, dobré, ale nečekejte kartu — hotovost v LEK.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Riviéra · den 7</div>
+  <h2>⭐ Průsmyk Llogara — jeleni v oblacích</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg/960px-Palasa_Beach_and_Nazar_Beach_seen_from_Llogara_Pass%2C_Albania.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Pisha_e_Flamurit.jpg/960px-Pisha_e_Flamurit.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">výhled z průsmyku (S. Hahn Darlin, CC BY 2.0) · „vlajková" borovice (Albinfo, CC0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Serpentiny vystoupají z moře do 1 027 metrů, teplota spadne o deset stupňů a borovice rostou ohnuté větrem do tvaru vlajek. U Llogara Tourist Village se potulují polokrotcí jeleni, kteří si berou krmení z ruky — zážitek, kvůli kterému děti odpustí i serpentiny. Kousek dál vyhlídka Panorama: celá Riviéra pod vámi a za dobré viditelnosti Korfu.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstup</b>zdarma (krmení ~50 LEK)</div>
+    <div class="fact"><b>Kdy</b>14:30, po Borshi</div>
+    <div class="fact"><b>Doba</b>1–1,5 h se zastávkami</div>
+    <div class="fact"><b>Teplota</b>o ~10 °C míň — mikiny!</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Zásadní: <b>navigace vás pošle novým tunelem</b> (mýto 250 LEK) a průsmyk i jeleny podjedete. Ručně zvolit starou silnici / exit „Llogara National Park“ — po otevření tunelu je krásně prázdná. Jeleni jsou zvyklí na lidi, ale pořád divoká zvířata: krmit nataženou dlaní, malého u toho držet.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Riviéra · pláže po cestě (den 7)</div>
+  <h2>Pláže Riviéry: Dhermi, Drymades, Gjipe, Jalë, Himara</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Dhermi_beach..JPG/960px-Dhermi_beach..JPG" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Gjipe_Beach%2C_Albania.JPG/960px-Gjipe_Beach%2C_Albania.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">Dhermi (Gerd 72, public domain) · Gjipe (Pudelek, CC BY-SA 3.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Pobřežní silnice míjí jednu slavnou pláž za druhou. <b>Dhermi</b> a <b>Drymades</b>: bílé oblázky, tyrkys a beach bary — nejfotogeničtější dvojice. <b>Gjipe</b>: divoká pláž na konci kaňonu, kam se chodí pěšky nebo připlouvá lodí. <b>Jalë</b>: měkký písek a mělká laguna. <b>Himara</b>: živé městečko s promenádou, kde se dá zastavit na kávu a zmrzlinu.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Role v plánu</b>zastávky dle nálady</div>
+    <div class="fact"><b>Hlavní stop</b>Borsh (viz výše)</div>
+    <div class="fact"><b>Gjipe pěšky</b>30–40 min kaňonem</div>
+    <div class="fact"><b>Jalë lehátka</b>~1 000 LEK / 2 ks</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Gjipe s dětmi JEN lodním shuttlem z Himary/Dhermi (10–20 € zpáteční) — pěší cesta končí skálami, se 4,5letým nereálné. Jalë je po 11:00 narvaná a „hidden gem“ atmosféru už pohltily bary a stavby. Do plánu se vejde jedna, max dvě krátké zastávky — víc znamená přijet do Vlory za tmy.</div>
+  <figure class="mapfig mapfig-s"><img src="mapa-riviera.png" alt="Mapa Riviéry"><figcaption>Riviéra mezi Borshem a průsmykem Llogara · mapa © OpenStreetMap contributors</figcaption></figure>
+</div>
+
+<div class="page">
+  <div class="region-label">Riviéra · den 7, krátké zastávky</div>
+  <div class="attr-half">
+    <h3>Porto Palermo — pevnost Ali Pashi</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Porto_Palermo_Castle_%28by_Pudelek%29.JPG/960px-Porto_Palermo_Castle_%28by_Pudelek%29.JPG" alt=""><figcaption>foto Pudelek, Wikimedia Commons, CC BY-SA 3.0</figcaption></figure>
+    <div class="story"><p>Trojúhelníková pevnost na poloostrově v tiché zátoce: temné chodby, střešní terasa s výhledem a koupání pod hradbami.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>300 LEK, do 12 zdarma</div>
+      <div class="fact"><b>Platba</b>JEN hotovost LEK</div>
+      <div class="fact"><b>Doba</b>~45 min</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Bez WC, okolí zanedbané a interiér skromný — recenze se shodují: fajn krátká zastávka, ne cíl cesty. Bankomat nejblíž v Himaře. Proto vypadl z hlavního plánu ve prospěch Borshe.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Ostrov Sazan — bývalá vojenská základna</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Sazan_Island%2C_Albania_2016_02.jpg/960px-Sazan_Island%2C_Albania_2016_02.jpg" alt=""><figcaption>foto Pasztilla, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Největší albánský ostrov byl 70 let zakázanou vojenskou zónou — dnes se dá lodí z Vlory projít mezi bunkry, tunely a opuštěnými kasárnami, a vykoupat v zátokách kolem.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Cena</b>~35 €/os, lodí z Vlory</div>
+      <div class="fact"><b>Doba</b>celý den</div>
+      <div class="fact"><b>Kdy</b>jen jako náhrada dne 8</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Celodenní akce — s naším programem se nevejde, ledaže by vypadl boat trip. Na ostrově se držet značených tras (staré vojenské objekty).</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vlora · den 8 — vrchol zájezdu</div>
+  <h2>⭐ Speedboat k jeskyni Haxhi Ali a na Karaburun</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_View_of_Karaburun_from_the_coast_of_Vlora.jpg/960px-The_View_of_Karaburun_from_the_coast_of_Vlora.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Gjiri_i_Ariut_%28Brisan%29%2C_Karaburun._Albania.jpg/960px-Gjiri_i_Ariut_%28Brisan%29%2C_Karaburun._Albania.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">Karaburun od Vlory (AKisOK, CC BY-SA 4.0) · zátoka Gjiri i Ariut (Ehasimja, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Rezervovaný vrchol celé dovolené: rychlý člun podél divokého poloostrova Karaburun, kam nevede žádná silnice, vjezd přímo do mořské jeskyně Haxhi Ali — pojmenované po pirátovi, který se v ní skrýval — a koupání se šnorchly v zátoce Shen Vasil, kde je voda tak čistá, že loď vypadá, jako by levitovala.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Cena</b>92 € za rodinu, hotově na místě</div>
+    <div class="fact"><b>Sraz</b>8:30 Port of Vlora (start 9:00)</div>
+    <div class="fact"><b>Doba</b>3,5 h</div>
+    <div class="fact"><b>Stav</b>✅ rezervováno (haxhialicave.com)</div>
+  </div>
+  <div class="kids"><b>Pro děti</b>Vesty jsou v ceně. Ranní start = klidnější moře a jeskyně před davy ostatních lodí.</div>
+  <div class="warn"><b>Na co si dát pozor</b>Na otevřeném moři to houpe — kdo trpí nevolností, prášek půl hodiny předem a sedět vzadu. Krém, kšiltovky a vodu s sebou, na člunu není stín. U jeskyně se dopoledne tvoří fronta lodí na focení — náš start v 9:00 ji z větší části předbíhá.</div>
+  <div class="tip"><b>🍽️ Kde se najíst</b>Oběd po vylodění u přístavu; večer na Lungomare: Te Fabio (rodinný podnik, čerstvé ryby), Taverna Xhakaj (ceny pro místní, skvělé qofte) nebo Paradise Beach — ikona pobřeží s dětskými stoličkami.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Vlora · den 8 odpoledne</div>
+  <h2>Laguna Narta a klášterní ostrov Zvërnec</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Vjosa-Narta_Lagoon%2C_Vlora.jpg/960px-Vjosa-Narta_Lagoon%2C_Vlora.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg/960px-Zvernec_monastery%2C_Albania_%28by_Pudelek%29.jpg" alt=""></div>
+    <figcaption style="grid-column:1/3">laguna Narta (Cherrys pov, CC BY 4.0) · klášter Zvërnec (Pudelek, CC BY-SA 3.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Dvacet minut od Vlory leží jiný svět: obří mělká laguna oddělená od moře písečnou kosou. Voda je teplá jako v lázni a bez jediné vlny — po dopoledni na rozhoupaném člunu přesně to pravé. A hned vedle vede 270 metrů dlouhý dřevěný most na ostrůvek s byzantským klášterem ze 14. století, schovaným v piniovém háji.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstup</b>vše zdarma</div>
+    <div class="fact"><b>Kdy</b>14:00 laguna, 17:00 most</div>
+    <div class="fact"><b>Doba</b>odpoledne</div>
+    <div class="fact"><b>Stín</b>pinie u kláštera</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>Slavní plameňáci tu v srpnu prakticky nejsou (hejna přilétají až v září–říjnu) — dětem neslibujte růžové moře, jinak bude zklamání. Dřevěný most má mezery mezi prkny — malého za ruku. Kolem laguny fouká, po koupání ručník hned.</div>
+  <figure class="mapfig mapfig-s"><img src="mapa-vlora.png" alt="Mapa okolí Vlory"><figcaption>Vlora, laguna Narta, Zvërnec a poloostrov Karaburun · mapa © OpenStreetMap contributors</figcaption></figure>
+</div>
+
+<div class="page">
+  <div class="region-label">Cestou domů · den 9</div>
+  <h2>Apollonia — řecké město v polích (volitelně)</h2>
+  <figure class="fig2">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nymphaeum_in_Apollonia%2C_Albania_01.jpg/960px-Nymphaeum_in_Apollonia%2C_Albania_01.jpg" alt=""></div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG/960px-Apollonia%2C_Albania_%28by_Pudelek%29_-_Odeon.JPG" alt=""></div>
+    <figcaption style="grid-column:1/3">nymfeum (C. Raddato, CC BY 2.0) · odeon (Pudelek, CC BY-SA 4.0) · Wikimedia Commons</figcaption>
+  </figure>
+  <div class="story"><p>Ve starověku tu studoval budoucí císař Augustus; dnes z města zbývá elegantní průčelí bouleuterionu, odeon a klášter s muzeem uprostřed olivových hájů. Patnáct minut od dálnice — poslední dávka historie před odletem, pokud zbyde čas a síly.</p></div>
+  <div class="facts">
+    <div class="fact"><b>Vstupné</b>~600 LEK</div>
+    <div class="fact"><b>Odbočka</b>~15 min od sjezdu Levan</div>
+    <div class="fact"><b>Doba</b>max 45 min</div>
+    <div class="fact"><b>Otevřeno</b>v sezóně denně 9–19</div>
+  </div>
+  <div class="warn"><b>Na co si dát pozor</b>V poledne tu není žádný stín a kamení sálá — s dětmi krátká „rychlá“ verze, nebo radši vynechat a prodloužit ranní koupání ve Vloře. Odlet je v 18:35 — na letišti chceme být v 15:00, žádné natahování.</div>
+  <div class="notes notes-s"><b>Poznámky</b><div class="lines"></div></div>
+</div>
+
+<div class="page">
+  <div class="region-label">Cestou domů · den 9, alternativy</div>
+  <div class="attr-half">
+    <h3>Klášter Ardenica</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Ardenica_Monastery_%28by_Pudelek%29.JPG/960px-Ardenica_Monastery_%28by_Pudelek%29.JPG" alt=""><figcaption>foto Pudelek, Wikimedia Commons, CC BY-SA 4.0</figcaption></figure>
+    <div class="story"><p>Pravoslavný klášter ze 13. století na kopci nad rovinou Myzeqe: fresky bratří Zografů, rajský dvůr ve stínu a výhled do kraje. Tišší a stinnější alternativa k Apollonii, jen deset minut od hlavní silnice.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstup</b>zdarma/dobrovolné</div>
+      <div class="fact"><b>Odbočka</b>~10 min u Lushnjë</div>
+      <div class="fact"><b>Doba</b>~30 min</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Funkční klášter — zahalená ramena a kolena (šátek v autě). Otevírací doba odpoledne kolísá.</div>
+  </div>
+  <div class="attr-half">
+    <h3>Durrës — amfiteátr a poslední koupání</h3>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Amfiteatr_rzymski_w_Durr%C3%ABs_1.jpg/960px-Amfiteatr_rzymski_w_Durr%C3%ABs_1.jpg" alt=""><figcaption>foto Marcin Konsek, Wikimedia Commons, CC BY-SA 3.0</figcaption></figure>
+    <div class="story"><p>Největší římský amfiteátr Balkánu (až 20 000 diváků) přímo v centru Durrësu, 30 minut od letiště. Kombinovat jde s hodinou na městské pláži nebo na rodinném Golemu.</p></div>
+    <div class="facts">
+      <div class="fact"><b>Vstupné</b>~400 LEK</div>
+      <div class="fact"><b>Doba</b>~30 min amfiteátr</div>
+      <div class="fact"><b>Od letiště</b>30–40 min</div>
+    </div>
+    <div class="warn"><b>Na co si dát pozor</b>Amfiteátr je z poloviny zastavěný novodobými domy — čekejte působivou ruinu, ne Koloseum. Městská pláž je rušná a průměrná; s mokrými dětmi počítat s převlékáním před letištěm.</div>
+  </div>
+</div>
+
+<!-- KUCHYNĚ -->
+<div class="page">
+  <h2>🍲 Albánská kuchyně — co musíte ochutnat (1/2)</h2>
+  <div class="catalog-intro"><p>Jedete poprvé (a možná naposledy) — tohle je seznam jídel, bez kterých se z Albánie neodjíždí. Kuchyně je směs Balkánu, Řecka a Itálie: hodně grilu, jogurtu, oliv a zeleniny, která chutná jako ze zahrádky. Porce jsou velké a i „drahá“ večeře pro celou rodinu vyjde na zlomek české ceny.</p></div>
+  <div class="food-grid">
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/TAVE_KOSI-_agnello_allo_yogurt_albanese.jpg/960px-TAVE_KOSI-_agnello_allo_yogurt_albanese.jpg" alt="">
+      <h3>Tavë kosi ⭐</h3>
+      <p>Národní jídlo: jehněčí zapečené v jogurtu s vejci a trochou rýže. Krémové, jemné, vůbec ne „divoké“ — jedí ho i děti. Nejlepší v tradičních restauracích (Oda, Tirana).</p>
+      <div class="fcap">foto fugzu, CC BY 2.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Homemade_pie_%28burek%29_with_spinach_and_cheese_01.jpg/960px-Homemade_pie_%28burek%29_with_spinach_and_cheese_01.jpg" alt="">
+      <h3>Byrek ⭐</h3>
+      <p>Křupavé listové těsto plněné sýrem, špenátem nebo masem. Z pekárny za ~100 LEK — ideální snídaně a svačina na cesty. K tomu dhallë (viz nápoje).</p>
+      <div class="fcap">foto Milica Buha, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Fergese-albanian-dish.jpg/960px-Fergese-albanian-dish.jpg" alt="">
+      <h3>Fërgesë</h3>
+      <p>Zapečené papriky a rajčata s domácím tvarohovým sýrem gjizë. Léto na talíři; skvělé s chlebem jako sdílený předkrm pro celý stůl.</p>
+      <div class="fcap">foto M. Escudero Olano, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/%C4%86evapi_in_Zagreb.jpg/960px-%C4%86evapi_in_Zagreb.jpg" alt="">
+      <h3>Qofte</h3>
+      <p>Grilované mleté karbanátky s bylinkami — balkánská klasika. S hranolky a salátem spolehlivá jistota pro děti v každé taverně.</p>
+      <div class="fcap">ilustrační foto Sumit Surai, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/%CE%9C%CF%8D%CE%B4%CE%B9%CE%B1_%CF%83%CE%B1%CE%B3%CE%B1%CE%BD%CE%AC%CE%BA%CE%B9_0801.jpg/960px-%CE%9C%CF%8D%CE%B4%CE%B9%CE%B1_%CF%83%CE%B1%CE%B3%CE%B1%CE%BD%CE%AC%CE%BA%CE%B9_0801.jpg" alt="">
+      <h3>Mušle z Butrintu ⭐</h3>
+      <p>Slávky se chovají přímo v Butrintské laguně pod Ksamilem — na česneku, na víně nebo saganaki se sýrem. Čerstvější nedostanete nikde v Evropě.</p>
+      <div class="fcap">ilustrační foto C messier, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Stuffed_red_peppers%2C_dark_rye_bread%2C_Rostov-on-Don%2C_Russia.jpg/960px-Stuffed_red_peppers%2C_dark_rye_bread%2C_Rostov-on-Don%2C_Russia.jpg" alt="">
+      <h3>Speca të mbushura</h3>
+      <p>Papriky plněné rýží, bylinkami a někdy masem — babiččino jídlo, které tu vaří v každé rodinné taverně. V Gjirokastře k tomu qifqi (rýžové kuličky s mátou, jen tam!).</p>
+      <div class="fcap">ilustrační foto V. Argenberg, CC BY 4.0</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <h2>🍲 Albánská kuchyně — sladké a pití (2/2)</h2>
+  <div class="food-grid">
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Trile%C4%87e_cake_and_tea_in_Visegrad%2C_Bosnia_and_Herzegovina.jpg/960px-Trile%C4%87e_cake_and_tea_in_Visegrad%2C_Bosnia_and_Herzegovina.jpg" alt="">
+      <h3>Trilece ⭐</h3>
+      <p>Piškot nasáklý třemi druhy mléka, navrchu karamel. Albánská národní posedlost — děti ho budou chtít každý den a nebudou samy.</p>
+      <div class="fcap">foto Bdx, CC0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Petulla_dhe_re%C3%A7el.jpg/960px-Petulla_dhe_re%C3%A7el.jpg" alt="">
+      <h3>Petulla</h3>
+      <p>Smažené koblížky podávané s medem, džemem nebo bílým sýrem. Klasika domácích snídaní v penzionech — v Gjirokastře se po nich zeptejte.</p>
+      <div class="fcap">foto Nesakitchenhome, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Baklava_1.jpg/960px-Baklava_1.jpg" alt="">
+      <h3>Baklava</h3>
+      <p>Vrstvené těsto s ořechy a medovým sirupem — osmanské dědictví. Nejlepší z cukráren ve starých městech (Berat, Gjirokastër).</p>
+      <div class="fcap">foto Challiyan, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Shopska_Salad_at_Happy.jpg/960px-Shopska_Salad_at_Happy.jpg" alt="">
+      <h3>Sallatë fshati</h3>
+      <p>„Vesnický“ salát: rajčata, okurky, olivy, cibule a plátek bílého sýra. Zní obyčejně — dokud neochutnáte albánská rajčata. Objednávejte ke všemu.</p>
+      <div class="fcap">ilustrační foto F. Cherrygarden, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Rak%C4%B1.jpg/960px-Rak%C4%B1.jpg" alt="">
+      <h3>Raki ⭐</h3>
+      <p>Hroznová pálenka (40–50 %), národní nápoj — často ji dostanete zdarma „na uvítanou“ a odmítnout je skoro nezdvořilé. Pro řidiče platí: v Albánii je nulová tolerance. Tip pro rodiče: albánská vína od Çobo (u Beratu) nebo Kallmet.</p>
+      <div class="fcap">ilustrační foto G. Ziegler, CC BY-SA 4.0</div>
+    </div>
+    <div class="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Ayran_in_a_beer_glass.jpg/960px-Ayran_in_a_beer_glass.jpg" alt="">
+      <h3>Dhallë</h3>
+      <p>Slaný jogurtový nápoj (jako ayran) — s byrekem tvoří kanonickou dvojici a v horku osvěží víc než limonáda. Děti buď milují, nebo nenávidí; za pokus stojí.</p>
+      <div class="fcap">ilustrační foto E4024, CC BY-SA 4.0</div>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:12px"><b>☕ Káva a pivo</b>Albánie má jednu z nejhustších sítí kaváren na světě — espresso je rituál a stojí 80–120 LEK. K večeři místní piva Birra Korça nebo Birra Tirana (~200–300 LEK). Kohoutková voda se nepije, balená 1,5l stojí ~70 LEK v obchodě.</div>
+</div>
+
+<!-- DENÍK -->
+<div class="page">
+  <h1 style="margin-top:20px">📔 Jak to doopravdy bylo</h1>
+  <div class="catalog-intro"><p>Zápis z cesty — co se opravdu stalo, co se povedlo a co ne.</p>
+  <p style="margin-top:6px"><b>Jedna věc určovala celou dovolenou: vedro.</b> Naměřená maxima se první dny držela na 37–38 °C (na rozpálené ulici to působilo na čtyřicet) a ani poslední dva dny neklesla pod 32 °C. Den jsme proto dělili na dvě půlky — dopoledne program, poledne a brzké odpoledne na ubytování v chládku, a teprve k večeru zase ven. Většina „vynechaných“ bodů z plánu padla tomuhle režimu, ne nezájmu.</p></div>
+
+  <h3 style="color:#a35410">Pátek 7. 8. — Přílet a hned první škrábanec <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Tirana 37 °C</span></h3>
+  <div class="story"><p>Přistáli jsme ve 14:10 do sedmatřiceti stupňů a hned první změna: <b>Chevrolet Captiva nebyl k dispozici</b>, dostali jsme <b>Audi Q7</b>. Starší generace, ale automat a pěkně vybavené — jenže s vyšší spotřebou a hlavně velikostí, která se v albánském provozu nenosí. Potvrdilo se to týž den: vjezd k ubytování byl úzký a já <b>škrábl bok a poškodil pneumatiku</b>. Zbytek odpoledne padl na domlouvání opravy. A bez auta to v tom horku bylo definitivní: na Skanderbegovo náměstí to bylo pěšky daleko, sedmatřicet stupňů a děti unavené z cesty. Došli jsme jen do místního obchodu a večer strávili na apartmánu.</p></div>
+
+  <h3 style="color:#a35410">Sobota 8. 8. — Lanovka Dajti a honička s pneumatikou <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Tirana 38 °C</span></h3>
+  <div class="story"><p>Na lanovku jsme jeli <b>taxíkem</b>, protože auto čekalo na opravu. <b>Dajti Ekspres stál za to</b> — nahoře chládek a výhled na celou Tiranu. Jenže právě tam dorazila zpráva, že auto musím přivézt na <b>výměnu pneumatiky do čtyř</b>. Sjezd, taxíkem na ubytování a já sám k letišti na servis; naštěstí bez komplikací. Po návratu přišel objev dne — <b>Teddy Bar And Playground</b>, kde děti řádily v herně a my si dali drink. Večer město, Spar a večeře. BunkArt kvůli pneumatice vypadl.</p></div>
+
+  <h3 style="color:#a35410">Neděle 9. 8. — Berat a kamenná Gjirokastra <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Berat 37 °C · Gjirokastër 35 °C</span></h3>
+  <div class="story"><p>Nejdelší přejezd dovolené. <b>Berat byl fajn</b> — bílé domky nad řekou stojí za zastávku. Do Gjirokastry jsme dorazili odpoledne, stihli <b>hrad</b> se špionážním letadlem a večeři v restauraci. Na bazar už čas nezbyl.</p></div>
+
+  <h3 style="color:#a35410">Pondělí 10. 8. — Bazar a konečně moře <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Ksamil 35 °C</span></h3>
+  <div class="story"><p>Ráno jsme dohnali <b>bazar v Gjirokastře</b> — v chládku a bez davů dobrá volba. Pak přesun do Ksamilu, odpoledne procházka k moři, hlavní ulice a večeře. Blue Eye jsme oželeli a nelitovali.</p></div>
+
+  <h3 style="color:#a35410">Úterý 11. 8. — Butrint <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Ksamil 37 °C</span></h3>
+  <div class="story"><p>Ráno <b>Butrint</b> — jediné „kamenné“ místo, které v tom vedru s dětmi dávalo smysl, protože je celé ve stínu lesa. Na hrad Ali Pashi jsme nakonec nejeli. Odpoledne moře, večer město a restaurace.</p></div>
+
+  <h3 style="color:#a35410">Středa 12. 8. — Ksamil bez plánu <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Ksamil 36 °C</span></h3>
+  <div class="story"><p>Přesně den, k čemu byl určený: dopoledne procházka po městě, přes poledne chládek na ubytování, odpoledne moře. Žádné výlety, žádné budíky — a v tom vedru přesně to, co jsme potřebovali.</p></div>
+
+  <h3 style="color:#a35410">Čtvrtek 13. 8. — Přes Llogaru do Vlory <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Borsh 36 °C · Vlora 37 °C</span></h3>
+  <div class="story"><p>Přejezd po pobřežní silnici a po cestě to hlavní: <b>jeleni na průsmyku Llogara</b>. Krmit je z ruky byl pro děti zážitek dne. Ve Vloře procházka po promenádě a jídlo — a nové ubytování <b>July's Beach Apartment</b> přímo u pláže, výměna na poslední chvíli, která se povedla.</p></div>
+
+  <h3 style="color:#a35410">Pátek 14. 8. — Loď, jeskyně a upgrade zdarma <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Vlora 32 °C</span></h3>
+  <div class="story"><p>Vrchol dovolené. Rychlý člun k <b>jeskyni Haxhi Aliho</b> — a k tomu <b>upgrade zdarma</b>: kromě jeskyně a Karaburunu jsme se dostali i na <b>bývalou vojenskou základnu na ostrově Sazan</b>, což v programu vůbec nebylo. Odpoledne ruské kolo na promenádě, suvenýry a dobré jídlo.</p></div>
+
+  <h3 style="color:#a35410">Sobota 15. 8. — Zoo a domů <span style="font-weight:400;font-size:0.8em;color:#888">🌡️ Vlora 32 °C · Tirana 34 °C</span></h3>
+  <div class="story"><p>Ráno ještě promenáda ve Vloře, pak na sever. Jedinou zastávkou byla <b>zoo v Tiraně</b> — po devíti dnech hradů a ruin si děti zasloužily něco svého. Pak natankovat, vrátit auto a v 18:35 vzlétnout. <i>Mirupafshim, Albánie!</i></p></div>
+
+  <div class="tip"><b>💭 Co si z toho odnést</b>
+  <b>Srpen v Albánii má jen dvě použitelné části dne.</b> Při denních maximech kolem 37 °C se mezi polednem a čtvrtou nedá venku dělat prakticky nic. Fungovalo jediné: brzy ráno ven, přes poledne do klimatizovaného chládku, k večeru znovu ven.<br><br>
+  <b>Plán byl zhruba dvakrát ambicióznější než realita — a bylo to tak dobře.</b> Vynechali jsme BunkArt, Blue Eye, hrad Ali Pashi, západ slunce na Lëkurësi i Apollonii; místo nich byly procházky, moře a restaurace. Dobrý plán není ten, který se celý splní, ale ten, ze kterého se dá vybírat.<br><br>
+  <b>U auta trvat na velikosti, ne jen na kategorii.</b> Q7 místo Captivy znělo jako upgrade, ale v úzkých vjezdech to byl handicap — škrábanec a pneumatika stály první den a půl druhého.<br><br>
+  <b>Do rozpočtu patří palivo</b> (~4 000 Kč, v plánu nebylo vůbec). S dražším Ksamilem jsme skončili ~10 000 Kč nad rozpočtem.<br><br>
+  <b>Nejlíp fungovalo</b> to, kde se děti mohly hýbat: lanovka, herna v Teddy Baru, jeleni na Llogaře, ruské kolo a loď. Nejsilnější zážitek celé dovolené byl lodní výlet s neplánovanou zastávkou na Sazanu.</div>
+</div>
+
+<!-- RESTAURACE -->
+<div class="page">
+  <h2>🍽️ Tipy na restaurace</h2>
+
+  <div class="rest-city">Tirana</div>
+  <div class="rest"><b>Oda Restaurant</b> — osmanský dům u New Bazaar, dvorek s živou hudbou; Tavë Kosi. Cash only. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Oda Garden</b> — open-air terasa, živá kapela od 20:00, skvělé pro rodinnou večeři. Cash only. <span class="cost">~800–1 200 Kč</span></div>
+  <div class="rest"><b>Era</b> (Blloku) — tradiční jídla s moderním twistem, kvalitní pizza pro děti. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Mullixhiu</b> — slow food u Grand Parku, degustační menu 30 €/os; rezervovat. <span class="cost">~1 500–2 500 Kč</span></div>
+  <div class="rest"><b>Pizza Paris</b> — záchrana, když děti chtějí „normální“ jídlo; u Skanderbegova nám. <span class="cost">~500–800 Kč</span></div>
+
+  <div class="rest-city">Berat</div>
+  <div class="rest"><b>Homemade Food Lili</b> — večeře na zahradě Liliho domu, jen na rezervaci; „nejlepší jídlo v Albánii“. <span class="cost">~800–1 200 Kč</span></div>
+  <div class="rest"><b>Onufri (Hotel Mangalemi)</b> — terasa s výhledem na čtvrť tisíce oken, grilovaný pstruh. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Antipatrea Traditional</b> — klimatizace (v srpnu!), dětské menu, Berati Vienez. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>White House</b> — panoramatická terasa na hrad; ideální oběd před cestou dál. <span class="cost">~700–1 100 Kč</span></div>
+
+  <div class="rest-city">Gjirokastër</div>
+  <div class="rest"><b>Taverna Kuka</b> — qifqi (rýžové kuličky s mátou), jehněčí v jogurtu, útulno. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Odaja</b> — rodinný podnik, velkorysé porce, vhodné pro děti. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Te Tradita</b> — kamenný dům v bazaru, babiččiny recepty, dezert qumështor. <span class="cost">~600–1 000 Kč</span></div>
+
+  <div class="rest-city">Ksamil + Saranda</div>
+  <div class="rest"><b>The Mussel House</b> — na břehu Butrintského jezera, mušle z vlastních farem; pro děti poník! <span class="cost">~1 300–1 900 Kč</span></div>
+  <div class="rest"><b>Guvat Mediterranean</b> — u pláže, opilé krevety, výhled. <span class="cost">~1 200–1 700 Kč</span></div>
+  <div class="rest"><b>GiGu Souvlaki &amp; Grill</b> — rychlé řecké, když děti nechtějí čekat. <span class="cost">~400–700 Kč</span></div>
+  <div class="rest"><b>Grill Zone</b> — balkánský gril, výborný poměr cena/výkon. <span class="cost">~500–800 Kč</span></div>
+  <div class="rest"><b>Taverna Mira Mare</b> (Saranda) — promenáda, západ slunce nad Korfu. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Limani Fishing</b> (Saranda) — ryba dne z přístavu, víc místních než turistů. <span class="cost">~1 100–1 700 Kč</span></div>
+
+  <div class="rest-city">Vlora</div>
+  <div class="rest"><b>Paradise Beach Restaurant</b> — 29 let na pobřeží, beachfront, dětské stoličky. <span class="cost">~800–1 300 Kč</span></div>
+  <div class="rest"><b>Taverna Xhakaj</b> — rodinná taverna, ceny pro místní, skvělé qofte. <span class="cost">~600–1 000 Kč</span></div>
+  <div class="rest"><b>Te Fabio</b> — Lungomare, čerstvé ryby, „cítíte se jako v rodině“. <span class="cost">~700–1 100 Kč</span></div>
+  <div class="rest"><b>Tea Beach</b> (Radhima) — risotto z plodů moře, dětský koutek. <span class="cost">~1 100–1 700 Kč</span></div>
+
+  <h2 style="margin-top:14px">🗣️ Minifráze</h2>
+  <table class="simple">
+    <tr><td>Dobrý den</td><td><b>Mirëdita</b> [mir-dita]</td><td>Děkuji</td><td><b>Faleminderit</b> [fale-min-derit]</td></tr>
+    <tr><td>Prosím</td><td><b>Ju lutem</b> [ju lutem]</td><td>Kolik to stojí?</td><td><b>Sa kushton?</b> [sa kušton]</td></tr>
+    <tr><td>Ano / Ne</td><td><b>Po / Jo</b> — pozor, obráceně než česky zní!</td><td>Na shledanou</td><td><b>Mirupafshim</b></td></tr>
+  </table>
+
+  <div class="footer">Interaktivní verze s mapou: slaava.github.io/albania · fotky: Wikimedia Commons (licence CC) a Booking.com · vygenerováno 4. 8. 2026</div>
+</div>
+
+</body>
+</html>
