@@ -1966,7 +1966,7 @@
     .header-left { text-align: left; }
     .header-tabs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 3px;
       width: 100%;
       margin-top: 2px;
@@ -2175,6 +2175,20 @@
     background: linear-gradient(90deg, rgba(240,160,80,0.1) 0%, var(--card) 60%);
   }
   .wx-day .d { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .diary-entry { margin-bottom: 18px; }
+  .diary-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .diary-wd { font-weight: 700; font-size: 1.15em; color: var(--accent); min-width: 1.8em; }
+  .diary-title { font-weight: 600; color: var(--text); font-size: 0.95em; }
+  .diary-date { margin-left: auto; font-size: 0.75em; color: var(--muted); white-space: nowrap; }
+  .diary-body { font-size: 0.84em; line-height: 1.65; color: var(--muted); }
+  .diary-body p { margin-bottom: 7px; }
+  .diary-body strong { color: var(--text); }
+  .diary-entry + .diary-entry { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 14px; }
+  .diary-tag {
+    display: inline-block; font-size: 0.85em; padding: 1px 7px; border-radius: 8px;
+    background: rgba(224,112,80,0.15); color: #f08060; font-weight: 600; margin-left: 4px;
+  }
+  .diary-tag.good { background: rgba(80,200,160,0.15); color: var(--beach); }
   .settle { width: 100%; border-collapse: collapse; font-size: 0.82em; margin: 4px 0 8px; }
   .settle th {
     text-align: left; font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.05em;
@@ -2289,6 +2303,7 @@
     <button class="header-tab" onclick="switchTab('autoubyto')" id="tabAutoUbyto"><span class="header-tab-icon">🛏️</span><span class="header-tab-label">Logistika</span></button>
     <button class="header-tab" onclick="switchTab('finance')" id="tabFinance"><span class="header-tab-icon">💰</span><span class="header-tab-label">Finance</span></button>
     <button class="header-tab" onclick="switchTab('pocasi')" id="tabPocasi"><span class="header-tab-icon">🌤️</span><span class="header-tab-label">Počasí</span></button>
+    <button class="header-tab" onclick="switchTab('denik')" id="tabDenik"><span class="header-tab-icon">📔</span><span class="header-tab-label">Deník</span></button>
     <button class="header-tab" onclick="switchTab('planovani')" id="tabPlanovani"><span class="header-tab-icon">📋</span><span class="header-tab-label">Ostatní</span></button>
   </div>
 </header>
@@ -3316,6 +3331,104 @@
         <div class="wx-note">Data: <a href="https://open-meteo.com/" target="_blank" rel="noopener" style="color:#6eaaff">Open-Meteo</a> · předpověď se obnovuje při každém otevření záložky (online). Poslední stažená verze zůstává dostupná i offline. 🌊 = teplota moře v poledne.</div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="plan-panel" id="panelDenik" style="display:none;">
+  <div class="plan-inner">
+
+    <div class="plan-section">
+      <h3>📔 Jak to doopravdy bylo</h3>
+      <div class="plan-body">
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Pá</span><span class="diary-title">Přílet a hned první škrábanec</span><span class="diary-date">7. 8.</span></div>
+          <div class="diary-body">
+            <p>Přistáli jsme ve 14:10 do sedmatřiceti stupňů — a hned první změna: <strong>Chevrolet Captiva nebyl k dispozici</strong>, dostali jsme místo něj <strong>Audi Q7</strong>. Starší generace, ale automat a pěkně vybavené. Za jízdy se ale ukázaly dvě nevýhody: vyšší spotřeba a hlavně velikost, která se v albánském provozu opravdu nenosí.</p>
+            <p>A potvrdilo se to tvrdě ještě týž den. Vjezd k ubytování byl na tak velké auto úzký a já <strong>škrábl bok a poškodil pneumatiku</strong>. Zbytek odpoledne padl na domlouvání opravy s půjčovnou. <span class="diary-tag">Skanderbegovo náměstí nevyšlo</span></p>
+            <p>Došli jsme tak jen do místního obchodu a večer strávili na apartmánu. Ne úplně start, jaký jsme si představovali — ale dovolená se tím naštěstí nepokazila.</p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">So</span><span class="diary-title">Lanovka Dajti a honička s pneumatikou</span><span class="diary-date">8. 8.</span></div>
+          <div class="diary-body">
+            <p>Auto čekalo na opravu, takže na lanovku jsme jeli <strong>taxíkem</strong>. A <strong>Dajti Ekspres stál za to</strong> — patnáct minut nad městem, nahoře chládek a výhled na celou Tiranu.</p>
+            <p>Jenže právě nahoře dorazila zpráva, že auto musím přivézt na <strong>výměnu pneumatiky do čtyř odpoledne</strong>. Takže sjezd, taxíkem zpátky na ubytování, a já pak sám k letišti na servis. Naštěstí všechno proběhlo hladce.</p>
+            <p>Po návratu přišel objev dne: <strong>Teddy Bar And Playground</strong> — děti řádily v herně, my si v klidu dali drink. To bylo prima. Večer jsme vyrazili víc do města, zašli do Sparu a cestou se stavili na večeři. <span class="diary-tag">BunkArt kvůli pneumatice vynechán</span></p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Ne</span><span class="diary-title">Berat a kamenná Gjirokastra</span><span class="diary-date">9. 8.</span></div>
+          <div class="diary-body">
+            <p>Nejdelší přejezd dovolené. <strong>Berat byl fajn</strong> — bílé domky nad řekou stojí za zastávku.</p>
+            <p>Do Gjirokastry jsme dorazili odpoledne a stihli <strong>hrad</strong> se špionážním letadlem, pak večeři v restauraci. Na bazar už čas nezbyl.</p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Po</span><span class="diary-title">Bazar a konečně moře</span><span class="diary-date">10. 8.</span></div>
+          <div class="diary-body">
+            <p>Ráno jsme dohnali <strong>bazar v Gjirokastře</strong> — v ranním chládku a bez davů to byla dobrá volba. Pak přesun na jih do Ksamilu.</p>
+            <p>Odpoledne procházka k moři, prošli jsme hlavní ulici a zakončili večeří. <span class="diary-tag good">Blue Eye jsme oželeli a nelitovali</span></p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Út</span><span class="diary-title">Butrint</span><span class="diary-date">11. 8.</span></div>
+          <div class="diary-body">
+            <p>Ráno <strong>Butrint</strong> — antické ruiny ve stínu lesa, přesně to jediné „kamenné“ místo, které v tom vedru s dětmi dávalo smysl.</p>
+            <p>Na <strong>hrad Ali Pashi jsme nakonec nejeli</strong>. Odpoledne patřilo moři, večer městu a restauraci. <span class="diary-tag">Bez lodičky a bez západu slunce na Lëkurësi</span></p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">St</span><span class="diary-title">Ksamil bez plánu</span><span class="diary-date">12. 8.</span></div>
+          <div class="diary-body">
+            <p>Den přesně podle toho, k čemu byl určený: dopoledne <strong>procházka po městě</strong>, odpoledne <strong>moře</strong>. Žádné výlety, žádné budíky.</p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Čt</span><span class="diary-title">Přes Llogaru do Vlory</span><span class="diary-date">13. 8.</span></div>
+          <div class="diary-body">
+            <p>Přejezd po pobřežní silnici a po cestě to hlavní: <strong>jeleni na průsmyku Llogara</strong>. Krmit je z ruky byl pro děti zážitek dne.</p>
+            <p>Ve Vloře už jen procházka po promenádě a jídlo — a nové ubytování <strong>July's Beach Apartment</strong> přímo u pláže, výměna na poslední chvíli, která se povedla.</p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">Pá</span><span class="diary-title">Loď, jeskyně a upgrade zdarma</span><span class="diary-date">14. 8.</span></div>
+          <div class="diary-body">
+            <p>Vrchol dovolené. Rychlý člun k <strong>jeskyni Haxhi Aliho</strong> — a k tomu <strong>upgrade zdarma</strong>: kromě jeskyně a Karaburunu jsme se dostali i na <strong>bývalou vojenskou základnu na ostrově Sazan</strong>, což v původním programu vůbec nebylo.</p>
+            <p>Odpoledne <strong>ruské kolo</strong> na promenádě, nákup suvenýrů a dobré jídlo. Den, na který se bude vzpomínat.</p>
+          </div>
+        </div>
+
+        <div class="diary-entry">
+          <div class="diary-head"><span class="diary-wd">So</span><span class="diary-title">Zoo a domů</span><span class="diary-date">15. 8.</span></div>
+          <div class="diary-body">
+            <p>Ráno ještě jednou promenáda ve Vloře, pak cesta na sever. Jedinou zastávkou byla <strong>zoo v Tiraně</strong> — po devíti dnech hradů a ruin si děti zasloužily něco svého.</p>
+            <p>Pak už jen natankovat, vrátit auto na letišti a v 18:35 vzlétnout. <em>Mirupafshim, Albánie!</em> 🇦🇱</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="plan-section">
+      <h3>💭 Co si z toho odnést</h3>
+      <div class="plan-body">
+        <div class="diary-body">
+          <p><strong>Plán byl zhruba dvakrát ambicióznější než realita — a bylo to tak dobře.</strong> Z naplánovaných atrakcí jsme vynechali BunkArt, Blue Eye, hrad Ali Pashi, západ slunce na Lëkurësi i Apollonii. Místo nich byly procházky, moře a restaurace. Dobrý plán není ten, který se celý splní, ale ten, ze kterého se dá vybírat.</p>
+          <p><strong>Půjčovna auta: trvat na velikosti, ne jen na kategorii.</strong> Q7 místo Captivy znělo jako upgrade, ale v albánských uličkách a úzkých vjezdech to byl handicap — škrábanec a poškozená pneumatika stály první den a půl druhého. Příště: menší auto a před zajížděním do vjezdu radši vystoupit a podívat se.</p>
+          <p><strong>Do rozpočtu patří palivo.</strong> V plánu nebylo vůbec a dělalo ~4 000 Kč. Spolu s tím, že Ksamil je výrazně dražší než zbytek země, jsme skončili ~10 000 Kč nad rozpočtem.</p>
+          <p><strong>Co fungovalo nejlíp:</strong> ranní starty za chládku, odpoledne u vody, a věci, kde se děti mohly hýbat — lanovka, herna v Teddy Baru, jeleni na Llogaře, ruské kolo a loď. Nejsilnější zážitek celé dovolené byl lodní výlet s neplánovanou zastávkou na Sazanu.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -4511,12 +4624,14 @@ function switchTab(tab) {
   document.getElementById('panelAutoUbyto').style.display = tab === 'autoubyto' ? '' : 'none';
   document.getElementById('panelFinance').style.display = tab === 'finance' ? '' : 'none';
   document.getElementById('panelPocasi').style.display = tab === 'pocasi' ? '' : 'none';
+  document.getElementById('panelDenik').style.display = tab === 'denik' ? '' : 'none';
   document.getElementById('panelPlanovani').style.display = tab === 'planovani' ? '' : 'none';
   document.getElementById('tabItinerar').classList.toggle('active', tab === 'itinerar');
   document.getElementById('tabLetenky').classList.toggle('active', tab === 'letenky');
   document.getElementById('tabAutoUbyto').classList.toggle('active', tab === 'autoubyto');
   document.getElementById('tabFinance').classList.toggle('active', tab === 'finance');
   document.getElementById('tabPocasi').classList.toggle('active', tab === 'pocasi');
+  document.getElementById('tabDenik').classList.toggle('active', tab === 'denik');
   document.getElementById('tabPlanovani').classList.toggle('active', tab === 'planovani');
   if (tab === 'itinerar') {
     setTimeout(() => map.invalidateSize(), 100);
